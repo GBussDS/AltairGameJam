@@ -6,7 +6,7 @@ const TWEEN_DURATION = 0.1
 var draggable = false
 var dragging = false
 
-var collageMode = true
+var collageMode = false
 
 @export var num = 0
 
