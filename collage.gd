@@ -2,6 +2,11 @@ extends Node2D
 
 const SHADER = preload("res://shaders/collage.gdshader")
 const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
+const PICKUP_SOUNDS = [
+	preload("res://sfx/Paper Sound - 1.wav"),
+	preload("res://sfx/Paper Sound - 2.wav"),
+	preload("res://sfx/Paper Sound - 3.wav")
+]
 
 const PICKED_UP_SCALE = Vector2(1.5, 1.5)
 const TWEEN_DURATION = 0.1
@@ -64,6 +69,7 @@ func _physics_process(delta):
 				duration = TWEEN_DURATION
 			pickup_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 			pickup_tween.tween_property(self, "scale", PICKED_UP_SCALE, duration)
+			play_paper_sound()
 	
 	if not dragging:
 		return
@@ -94,6 +100,7 @@ func _physics_process(delta):
 		shadow_node.material.set_shader_parameter("shadow_scale", IDLE_SHADOW_SCALE)
 		dragging = false
 		collageScreen.is_dragging = -1
+		play_paper_sound()
 
 func _on_area_2d_mouse_entered():
 	if collageMode and collageScreen.is_dragging == -1:
@@ -102,3 +109,8 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	if collageMode and collageScreen.is_dragging == -1:
 		draggable = false
+
+func play_paper_sound():
+	var random_sound = PICKUP_SOUNDS[randi() % PICKUP_SOUNDS.size()]
+	$AudioStreamPlayer2D.stream = random_sound
+	$AudioStreamPlayer2D.play()
