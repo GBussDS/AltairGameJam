@@ -2,4 +2,8 @@ extends Node2D
 
 func _ready():
 	hide()
-	$AnimatedSprite2D.play()
+
+func start_animations():
+	print("Teste")
+	$BandeiraSaida.play()
+	$BandeiraChegada.play()

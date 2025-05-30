@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://br46els6s2ekv" path="res://art/player/ANdando.png" id="5_dw050"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
-radius = 45.0
-height = 102.0
+radius = 24.0
+height = 62.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
 animations = [{
@@ -61,11 +61,11 @@ position = Vector2(210, 179)
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(23, 23)
 shape = SubResource("CapsuleShape2D_sweqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.5, 1.5)
-scale = Vector2(0.308252, 0.296729)
+position = Vector2(24, 26)
+scale = Vector2(0.186893, 0.182243)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"walk"

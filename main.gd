@@ -10,6 +10,7 @@ func _ready():
 func _on_menu_start_game():
 	$Menu.hide()
 	$Inicio.show()
+	$Inicio.start_animations()
 	$collageScreen.show()
 	
 	#pausa o jogo
