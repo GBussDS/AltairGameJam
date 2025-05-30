@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc6wt3p03g1vy"]
+
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_l7amj"]
+[ext_resource type="Texture2D" uid="uid://cbjpca6ixnqhx" path="res://art/handler.png" id="2_l7amj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7amj"]
+size = Vector2(187, 25)
+
+[node name="Collage" type="StaticBody2D"]
+script = ExtResource("1_l7amj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-74, -60)
+polygon = PackedVector2Array(-14, 50, 162, 52, 162, 70, -14, 68)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_l7amj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_l7amj")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

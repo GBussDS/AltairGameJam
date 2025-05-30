@@ -1,47 +1,123 @@
-[gd_scene load_steps=5 format=3 uid="uid://b27sflfqcgnay"]
+[gd_scene load_steps=16 format=3 uid="uid://bbvnjbq36k2yf"]
 
-[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://inicio.gd" id="1_ihpo2"]
-[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="2_udkue"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihpo2"]
-load_path = "res://.godot/imported/cadernoBackground.jpg-b7599e3b04c3661bf921628f58824c90.ctex"
+[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_q0xg8"]
+[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="1_ylum6"]
+[ext_resource type="Texture2D" uid="uid://duv1vm0subg2e" path="res://art/pencil.png" id="2_7e6sy"]
+[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="4_htw3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
-size = Vector2(562.5, 47)
+size = Vector2(163, 23.625)
 
-[node name="Inicio" type="Node2D"]
-script = ExtResource("1_ihpo2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(0, 33, 16, 15)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -554.0
-offset_top = -359.0
-offset_right = 1519.0
-offset_bottom = 905.0
-color = Color(0.941176, 0.956863, 0.968627, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8a4r"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(16, 33, 16, 15)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -179.0
-offset_top = -138.0
-offset_right = 4749.0
-offset_bottom = 3126.0
-scale = Vector2(0.3, 0.3)
-texture = SubResource("CompressedTexture2D_ihpo2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xagyt"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(32, 33, 16, 15)
 
-[node name="Player" parent="." instance=ExtResource("2_udkue")]
-position = Vector2(144, 434)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpmgr"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(48, 33, 16, 15)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8a4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xagyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpmgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = 60.0
-offset_top = 512.0
-offset_right = 621.0
-offset_bottom = 559.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(0, 17, 16, 15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(340, 540)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1uea"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(16, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3gln"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(32, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs6pg"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(48, 17, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ra7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1uea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3gln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs6pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_q0xg8")
+
+[node name="start" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(236.5, 562.188)
 shape = SubResource("RectangleShape2D_q0xg8")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(570, 350)
-zoom = Vector2(0.7, 0.7)
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(224, 558)
+scale = Vector2(0.1, 0.129)
+texture = ExtResource("2_7e6sy")
+
+[node name="end" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(962.5, 109.181)
+shape = SubResource("RectangleShape2D_q0xg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(950, 104.993)
+scale = Vector2(0.1, 0.129)
+texture = ExtResource("2_7e6sy")
+
+[node name="Player" parent="." instance=ExtResource("1_ylum6")]
+position = Vector2(184.5, 497.375)
+
+[node name="BandeiraSaida" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(326.625, 513.375)
+scale = Vector2(5.60938, 4.9875)
+sprite_frames = SubResource("SpriteFrames_w2ra7")
+frame = 1
+frame_progress = 0.0520463
+
+[node name="BandeiraChegada" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(958.5, 62.375)
+scale = Vector2(5.03125, 4.45)
+sprite_frames = SubResource("SpriteFrames_ml20m")
