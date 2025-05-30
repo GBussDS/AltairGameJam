@@ -16,10 +16,10 @@ func _physics_process(delta):
 	rotation_degrees = rotation_degrees + (target_rotation - rotation_degrees) * 0.1
 	
 	if draggable and not dragging:
-		if get_parent().is_dragging == -1 and Input.is_action_just_pressed("click"):
-			get_parent().is_dragging = num
+		if get_parent().get_parent().is_dragging == -1 and Input.is_action_just_pressed("click"):
+			get_parent().get_parent().is_dragging = num
 			# Move para o final da lista para ser desenhado por cima dos outros
-			get_parent().move_child(self, -1)
+			get_parent().get_parent().move_child(self, -1)
 			z_index = 1
 			offset = get_global_mouse_position() - global_position
 			dragging = true
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if not dragging:
 		return
 	
-	if Input.is_action_pressed("click") and get_parent().is_dragging == num:
+	if Input.is_action_pressed("click") and get_parent().get_parent().is_dragging == num:
 		if Input.is_action_just_pressed("rodar_horario") or Input.is_action_pressed("rodar_horario"):
 			target_rotation += 3
 		elif Input.is_action_just_pressed("rodar_anti_horario") or Input.is_action_pressed("rodar_anti_horario"):
@@ -47,7 +47,7 @@ func _physics_process(delta):
 		
 		global_position = get_global_mouse_position() - offset
 	
-	elif Input.is_action_just_released("click") and get_parent().is_dragging == num:
+	elif Input.is_action_just_released("click") and get_parent().get_parent().is_dragging == num:
 		var duration
 		if pickup_tween and pickup_tween.is_running():
 			duration = pickup_tween.get_total_elapsed_time()
@@ -58,12 +58,12 @@ func _physics_process(delta):
 		pickup_tween.tween_property(self, "scale", Vector2(1.0, 1.0), duration)
 		pickup_tween.tween_callback(self.set.bind("z_index", 0))
 		dragging = false
-		get_parent().is_dragging = -1
+		get_parent().get_parent().is_dragging = -1
 
 func _on_area_2d_mouse_entered():
-	if get_parent().is_dragging == -1:
+	if get_parent().get_parent().is_dragging == -1:
 		draggable = true
 
 func _on_area_2d_mouse_exited():
-	if get_parent().is_dragging == -1:
+	if get_parent().get_parent().is_dragging == -1:
 		draggable = false

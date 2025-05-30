@@ -24,8 +24,11 @@ func _ready():
 func _on_area_collages_exited(body):
 	collageCount -= 1
 	
+	print(collageCount)
+	
 	if collageCount < 0:
 		collageCount = 0
 		
 func _on_confirm_pressed():
+	
 	get_parent().collageEnded()
