@@ -3,7 +3,7 @@ extends Node2D
 var collageMode = true
 var currentCollages = []
 
-@onready var currentLevelPath = 'res://fases/fase_1.tscn'
+@onready var currentLevelPath = 'res://fases/fase_2.tscn'
 
 var level
 
@@ -26,7 +26,7 @@ func _on_menu_start_game():
 	$collageScreen.show()
 	
 	#pausa o jogo
-	level.process_mode = Node.PROCESS_MODE_DISABLED
+	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
 	
 func collageEnded():
 	#transição do zoom
@@ -39,4 +39,4 @@ func collageEnded():
 		collage.collageMode = false
 		
 	#despausa
-	level.process_mode = Node.PROCESS_MODE_INHERIT
+	level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
