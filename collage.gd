@@ -11,8 +11,8 @@ const PICKUP_SOUNDS = [
 const PICKED_UP_SCALE = Vector2(1.5, 1.5)
 const TWEEN_DURATION = 0.1
 const SHADER_INTERVAL = 0.5
-const IDLE_SHADOW_SCALE = 0.035
-const DRAGGING_SHADOW_SCALE = 0.08
+const IDLE_SHADOW_SCALE = 0.07
+const DRAGGING_SHADOW_SCALE = 0.18
 
 var draggable = false
 var dragging = false
@@ -36,7 +36,7 @@ func _ready() -> void:
 	shadow_node.material = ShaderMaterial.new()
 	shadow_node.material.shader = SHADOW_SHADER
 	var viewport_size = get_viewport_rect().size
-	shadow_node.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, viewport_size.y * 0.5))
+	shadow_node.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, 0))
 	shadow_node.material.set_shader_parameter("shadow_scale", IDLE_SHADOW_SCALE)
 	add_child(shadow_node)
 	move_child(shadow_node, 1) # Faz a sombra ser desenhada por baixo do sprite principal
@@ -55,8 +55,8 @@ func _physics_process(delta):
 		if collageScreen.is_dragging == -1 and Input.is_action_just_pressed("click"):
 			collageScreen.is_dragging = num
 			# Move para o final da lista para ser desenhado por cima dos outros
-			collageScreen.move_child(self, -1)
-			z_index = 1
+			get_parent().move_child(self, -1)
+			z_index = 2
 			$Sprite2D.material.set_shader_parameter("interval", SHADER_INTERVAL) # Recomeça o shader
 			shadow_node.material.set_shader_parameter("shadow_scale", DRAGGING_SHADOW_SCALE)
 			offset = get_global_mouse_position() - global_position
@@ -107,8 +107,7 @@ func _on_area_2d_mouse_entered():
 		draggable = true
 
 func _on_area_2d_mouse_exited():
-	if collageMode and collageScreen.is_dragging != num:
-		draggable = false
+	draggable = false
 
 func play_paper_sound():
 	var random_sound = PICKUP_SOUNDS[randi() % PICKUP_SOUNDS.size()]

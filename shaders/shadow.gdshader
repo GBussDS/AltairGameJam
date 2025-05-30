@@ -23,7 +23,7 @@ uniform vec4 shadow_color : source_color = vec4(0.0, 0.0, 0.0, 0.3);
 uniform float shadow_scale = 0.045;
 
 // Minimum and maximum shadow length (in pixels)
-uniform float shadow_min_length = 2.0;
+uniform float shadow_min_length = 10.0;
 uniform float shadow_max_length = 120.0;
 
 // Center position of the screen (should be set from script, e.g. viewport_size * 0.5)

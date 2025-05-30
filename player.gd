@@ -13,7 +13,7 @@ var was_on_floor = false # Variável para rastrear o estado do chão no frame an
 func _ready():
 	$AnimatedSprite2D.play()
 	var viewport_size = get_viewport_rect().size
-	$Shadow.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, viewport_size.y * 0.5))
+	$Shadow.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, 0))
 	$Shadow.play()
 
 	was_on_floor = is_on_floor() # Inicializa o estado do chão

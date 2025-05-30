@@ -1,8 +1,8 @@
 shader_type canvas_item;
 uniform float interval = 0.7; // the displacement will happen every [interval] seconds
 uniform float timeDelay = 0.0; // use it if you don't want all the sprites to move at the same time
-uniform float intensityX = 5.0; // X axis force of movement
-uniform float intensityY = 5.0; // Y axis force of movement
+uniform float intensityX = 20.0; // X axis force of movement
+uniform float intensityY = 20.0; // Y axis force of movement
 uniform float seed = 42.0; // seed to randomize movement
 vec2 random(vec2 uv) {
 	return vec2(fract(sin(dot(uv.xy,
