@@ -87,23 +87,23 @@ script = ExtResource("1_q0xg8")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(119.25, 585)
+position = Vector2(257.75, 581.375)
 shape = SubResource("RectangleShape2D_q0xg8")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(118, 585)
+position = Vector2(256.5, 581.375)
 scale = Vector2(0.0765497, 0.0989819)
 texture = ExtResource("3_7e6sy")
 
 [node name="Player" parent="." instance=ExtResource("1_ylum6")]
-position = Vector2(46, 501)
+position = Vector2(184.5, 497.375)
 
 [node name="Collage" parent="." instance=ExtResource("3_yogrx")]
-position = Vector2(704, 233)
+position = Vector2(800, 229)
 
 [node name="BandeiraSaida" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(188.125, 517)
+position = Vector2(326.625, 513.375)
 scale = Vector2(5.60938, 4.9875)
 sprite_frames = SubResource("SpriteFrames_w2ra7")
 frame = 1
@@ -112,16 +112,16 @@ frame_progress = 0.0520463
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(812, 126)
+position = Vector2(950.5, 122.375)
 shape = SubResource("RectangleShape2D_q0xg8")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(810, 129)
+position = Vector2(948.5, 125.375)
 scale = Vector2(0.0765497, 0.0989819)
 texture = ExtResource("3_7e6sy")
 
 [node name="BandeiraChegada" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(820, 66)
+position = Vector2(958.5, 62.375)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_ml20m")
