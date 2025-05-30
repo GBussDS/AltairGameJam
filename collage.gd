@@ -1,20 +1,19 @@
 extends Node2D
 
 var draggable = false
-var dragging = true
+var dragging = false
+
+@export var num = 0
 
 var offset: Vector2
 
 func _physics_process(delta):
 	if draggable:
-		if Input.is_action_just_pressed("click"):
-			print(draggable)
-			z_index = 1
+		if get_parent().is_dragging == -1 and Input.is_action_just_pressed("click"):
+			get_parent().is_dragging = num
 			offset = get_global_mouse_position() - global_position
-			dragging = true
 		
-		if Input.is_action_pressed("click"):
-			print('draggable1')
+		if Input.is_action_pressed("click") and get_parent().is_dragging == num:
 			if Input.is_action_just_pressed("rodar_horario") or Input.is_action_pressed("rodar_horario"):
 				rotation_degrees += 3
 			elif Input.is_action_just_pressed("rodar_anti_horario") or Input.is_action_pressed("rodar_anti_horario"):
@@ -28,9 +27,13 @@ func _physics_process(delta):
 			
 			global_position = get_global_mouse_position() - offset
 		
-		elif Input.is_action_just_released("click"):
-			z_index = 0
-			draggable = false
+		if Input.is_action_just_released("click") and get_parent().is_dragging == num:
+			get_parent().is_dragging = -1
 
 func _on_area_2d_mouse_entered():
-	draggable = true
+	if get_parent().is_dragging == -1:
+		draggable = true
+
+func _on_area_2d_mouse_exited():
+	if get_parent().is_dragging == -1:
+		draggable = false
