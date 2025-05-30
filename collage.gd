@@ -1,7 +1,10 @@
 extends Node2D
 
+const SHADER = preload("res://shaders/collage.gdshader")
+
 const PICKED_UP_SCALE = Vector2(1.5, 1.5)
 const TWEEN_DURATION = 0.1
+const SHADER_INTERVAL = 0.5
 
 var draggable = false
 var dragging = false
@@ -12,15 +15,31 @@ var offset: Vector2
 var pickup_tween: Tween
 var target_rotation: float = 0.0
 
+func _ready() -> void:
+	$Sprite2D.material = ShaderMaterial.new()
+	$Sprite2D.material.shader = SHADER
+	var random_delay = randf_range(0.0, 2.0)
+	$Sprite2D.material.set_shader_parameter("timeDelay", random_delay)
+	var random_seed = randi() % 1000
+	$Sprite2D.material.set_shader_parameter("seed", random_seed)
+	$Sprite2D.material.set_shader_parameter("interval", 9999.0)
+
+func start_shader() -> void:
+	$Sprite2D.material.set_shader_parameter("interval", SHADER_INTERVAL)
+
+func stop_shader() -> void:
+	$Sprite2D.material.set_shader_parameter("interval", 9999.0)
+
 func _physics_process(delta):
 	rotation_degrees = rotation_degrees + (target_rotation - rotation_degrees) * 0.1
-	
+
 	if draggable and not dragging:
 		if get_parent().is_dragging == -1 and Input.is_action_just_pressed("click"):
 			get_parent().is_dragging = num
 			# Move para o final da lista para ser desenhado por cima dos outros
 			get_parent().move_child(self, -1)
 			z_index = 1
+			start_shader()
 			offset = get_global_mouse_position() - global_position
 			dragging = true
 			var duration
@@ -57,6 +76,7 @@ func _physics_process(delta):
 		pickup_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 		pickup_tween.tween_property(self, "scale", Vector2(1.0, 1.0), duration)
 		pickup_tween.tween_callback(self.set.bind("z_index", 0))
+		stop_shader()
 		dragging = false
 		get_parent().is_dragging = -1
 
