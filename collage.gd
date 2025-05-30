@@ -28,6 +28,11 @@ var shadow_node: Node2D
 
 @onready var collageScreen = get_parent().get_parent()
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
+			draggable = false
+
 func _ready() -> void:
 	$Sprite2D.material = ShaderMaterial.new()
 
