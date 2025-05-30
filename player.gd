@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
+
 @export var speed = 300.0  # Velocidade de movimento horizontal
 @export var jump_velocity = -700.0 # Força do pulo
 
@@ -7,9 +9,20 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false # Variável para controlar se o player está pulando
 var was_on_floor = false # Variável para rastrear o estado do chão no frame anterior
+var shadow_node: Node2D
 
 func _ready():
 	$AnimatedSprite2D.play()
+	shadow_node = $AnimatedSprite2D.duplicate()
+	shadow_node.name = "Shadow"
+	shadow_node.material = ShaderMaterial.new()
+	shadow_node.material.shader = SHADOW_SHADER
+	var viewport_size = get_viewport_rect().size
+	shadow_node.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, viewport_size.y * 0.5))
+
+	add_child(shadow_node)
+	move_child(shadow_node, 1) # Faz a sombra ser desenhada por baixo do sprite principal
+
 	was_on_floor = is_on_floor() # Inicializa o estado do chão
 
 func _physics_process(delta):
@@ -21,6 +34,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * speed
 		$AnimatedSprite2D.flip_h = velocity.x < 0
+		shadow_node.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -28,34 +42,36 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		jumping = true # Define que o player está pulando
-		$AnimatedSprite2D.animation = "jump"
+		set_animation("jump")
 
 	# Lógica de Animação
 
 	# Animação de Pulo
 	if jumping:
-		if $AnimatedSprite2D.animation != "jump":
-			$AnimatedSprite2D.animation = "jump"
+		set_animation("jump")
 
 	# Animação de Pouso (Land)
 	if is_on_floor() and not was_on_floor: # Se estava no ar e agora está no chão
 		if jumping: # Apenas se ele estava realmente em um estado de pulo antes
-			$AnimatedSprite2D.animation = "land"
+			set_animation("land")
 			jumping = false
 
 
 	# Animações de Andar/Parar (apenas se não estiver pulando e estiver no chão)
 	if is_on_floor() and not jumping: # Certifica-se de que não está pulando
 		if direction:
-			if $AnimatedSprite2D.animation != "walk":
-				$AnimatedSprite2D.animation = "walk"
+			set_animation("walk")
 		else:
-			if $AnimatedSprite2D.animation != "stop":
-				$AnimatedSprite2D.animation = "stop"
-
+			set_animation("stop")
 
 	# === Atualiza o estado do chão para o próximo frame ===
 	was_on_floor = is_on_floor()
 
 	# === Mover o player ===
 	move_and_slide()
+
+func set_animation(animation_name: String) -> void:
+	# Método para definir a animação do AnimatedSprite2D e do shadow_node
+	if $AnimatedSprite2D.animation != animation_name:
+		$AnimatedSprite2D.animation = animation_name
+		shadow_node.animation = animation_name
