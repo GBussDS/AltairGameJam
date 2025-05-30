@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwvv3b4fsy85s"]
+[gd_scene load_steps=5 format=3 uid="uid://broj5nt46twrv"]
 
 [ext_resource type="Script" uid="uid://cglkgs5hjulvk" path="res://collage_screen.gd" id="1_v80ey"]
 [ext_resource type="Texture2D" uid="uid://wqvwpo4oyld6" path="res://icon.svg" id="2_8vco1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v80ey"]
+size = Vector2(279, 660)
 
 [sub_resource type="Curve2D" id="Curve2D_n28u6"]
 _data = {
@@ -9,8 +12,16 @@ _data = {
 }
 point_count = 8
 
-[node name="Node2D" type="Node2D"]
+[node name="collageScreen" type="Node2D"]
 script = ExtResource("1_v80ey")
+
+[node name="collagesGroup" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1020.5, 321)
+shape = SubResource("RectangleShape2D_v80ey")
 
 [node name="ColorRect" type="Sprite2D" parent="."]
 modulate = Color(0.215902, 0.215902, 0.215902, 1)
@@ -20,10 +31,23 @@ scale = Vector2(2.26563, 5.17969)
 texture = ExtResource("2_8vco1")
 
 [node name="SpawnArea" type="Path2D" parent="."]
-position = Vector2(-2946.31, -4.56061)
-scale = Vector2(3.9375, 1.00758)
+position = Vector2(-3424.11, -0.281407)
+scale = Vector2(4.41277, 0.906275)
 curve = SubResource("Curve2D_n28u6")
 
 [node name="collageSpawn" type="PathFollow2D" parent="SpawnArea"]
 position = Vector2(984.968, 42.2406)
 rotation = 0.681262
+
+[node name="confirm" type="TextureButton" parent="."]
+modulate = Color(0.477511, 0.810294, 0.317376, 1)
+offset_left = 960.0
+offset_top = 512.0
+offset_right = 1161.0
+offset_bottom = 640.0
+disabled = true
+texture_normal = ExtResource("2_8vco1")
+texture_pressed = ExtResource("2_8vco1")
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_collages_exited"]
+[connection signal="button_up" from="confirm" to="." method="_on_confirm_pressed"]

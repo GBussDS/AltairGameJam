@@ -1,28 +1,127 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbvnjbq36k2yf"]
+[gd_scene load_steps=17 format=3 uid="uid://bbvnjbq36k2yf"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://inicio.gd" id="1_q0xg8"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="1_ylum6"]
-[ext_resource type="PackedScene" uid="uid://dqa8dseibf3os" path="res://collage.tscn" id="3_yogrx"]
+[ext_resource type="Texture2D" uid="uid://basanor425xb7" path="res://art/bench.png" id="3_7e6sy"]
+[ext_resource type="PackedScene" uid="uid://ctnoveuk00d6q" path="res://collage.tscn" id="3_yogrx"]
+[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="4_htw3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
-size = Vector2(562.5, 47)
+size = Vector2(189.499, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(0, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8a4r"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(16, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xagyt"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(32, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpmgr"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(48, 33, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8a4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xagyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpmgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(0, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1uea"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(16, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3gln"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(32, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs6pg"]
+atlas = ExtResource("4_htw3k")
+region = Rect2(48, 17, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ra7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1uea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3gln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs6pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Inicio" type="Node2D"]
 script = ExtResource("1_q0xg8")
 
-[node name="Player" parent="." instance=ExtResource("1_ylum6")]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = 60.0
-offset_top = 512.0
-offset_right = 621.0
-offset_bottom = 559.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(339.75, 535.5)
+position = Vector2(119.25, 585)
 shape = SubResource("RectangleShape2D_q0xg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(118, 585)
+scale = Vector2(0.0765497, 0.0989819)
+texture = ExtResource("3_7e6sy")
+
+[node name="Player" parent="." instance=ExtResource("1_ylum6")]
+position = Vector2(46, 501)
 
 [node name="Collage" parent="." instance=ExtResource("3_yogrx")]
 position = Vector2(704, 233)
+
+[node name="BandeiraSaida" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(188.125, 517)
+scale = Vector2(5.60938, 4.9875)
+sprite_frames = SubResource("SpriteFrames_w2ra7")
+frame = 1
+frame_progress = 0.0520463
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(812, 126)
+shape = SubResource("RectangleShape2D_q0xg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(810, 129)
+scale = Vector2(0.0765497, 0.0989819)
+texture = ExtResource("3_7e6sy")
+
+[node name="BandeiraChegada" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(820, 66)
+scale = Vector2(5.03125, 4.45)
+sprite_frames = SubResource("SpriteFrames_ml20m")
