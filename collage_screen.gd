@@ -17,7 +17,7 @@ func _ready():
 		
 		var collage = load('res://collage.tscn').instantiate()
 		collage.num = i
-		collage.global_position = spawn_point.global_position
+		collage.position = spawn_point.position
 		collage.collageMode = true
 		
 		$collagesGroup.add_child(collage)

@@ -1,12 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bap2x3m6vfl0b"]
+[gd_scene load_steps=6 format=3 uid="uid://bap2x3m6vfl0b"]
 
 [ext_resource type="Script" uid="uid://dgtn6m5c2krxl" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://chl60127ty4fn" path="res://menu.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://cg3eorpt16s1k" path="res://art/cadernoBom.png" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bbvnjbq36k2yf" path="res://inicio.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://broj5nt46twrv" path="res://collageScreen.tscn" id="4_1bvp3"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_0xm2m")
+
+[node name="background" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -831.0
+offset_top = -486.0
+offset_right = 1873.0
+offset_bottom = 1291.0
+mouse_filter = 2
+color = Color(0.494118, 0.866667, 0.803922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 284.0
+offset_right = 4589.0
+offset_bottom = 2933.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+texture = ExtResource("2_lquwl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+zoom = Vector2(0.65, 0.65)
 
 [node name="Menu" parent="." instance=ExtResource("1_ig7tw")]
 anchors_preset = 8
@@ -22,7 +46,6 @@ offset_bottom = 316.0
 [node name="Inicio" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="collageScreen" parent="." instance=ExtResource("4_1bvp3")]
-visible = false
-position = Vector2(-1, -1)
+position = Vector2(299, 11)
 
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]

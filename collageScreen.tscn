@@ -24,6 +24,7 @@ position = Vector2(1020.5, 321)
 shape = SubResource("RectangleShape2D_v80ey")
 
 [node name="ColorRect" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.215902, 0.215902, 0.215902, 1)
 z_index = -1
 position = Vector2(1020, 320.5)
