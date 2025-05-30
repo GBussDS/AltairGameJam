@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwvv3b4fsy85s"]
+
+[ext_resource type="Script" uid="uid://cglkgs5hjulvk" path="res://collage_screen.gd" id="1_v80ey"]
+[ext_resource type="Texture2D" uid="uid://wqvwpo4oyld6" path="res://icon.svg" id="2_8vco1"]
+
+[sub_resource type="Curve2D" id="Curve2D_n28u6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 984.968, 42.2406, 0, 0, 0, 0, 1032.71, 80.9474, 0, 0, 0, 0, 984.206, 188.135, 0, 0, 0, 0, 1029.92, 269.519, 0, 0, 0, 0, 983.19, 365.789, 0, 0, 0, 0, 1030.94, 466.03, 0, 0, 0, 0, 982.175, 533.519, 0, 0, 0, 0, 1026.11, 595.053)
+}
+point_count = 8
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_v80ey")
+
+[node name="ColorRect" type="Sprite2D" parent="."]
+modulate = Color(0.215902, 0.215902, 0.215902, 1)
+z_index = -1
+position = Vector2(1020, 320.5)
+scale = Vector2(2.26563, 5.17969)
+texture = ExtResource("2_8vco1")
+
+[node name="SpawnArea" type="Path2D" parent="."]
+position = Vector2(-2946.31, -4.56061)
+scale = Vector2(3.9375, 1.00758)
+curve = SubResource("Curve2D_n28u6")
+
+[node name="collageSpawn" type="PathFollow2D" parent="SpawnArea"]
+position = Vector2(984.968, 42.2406)
+rotation = 0.681262

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbvnjbq36k2yf"]
+
+[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://inicio.gd" id="1_q0xg8"]
+[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="1_ylum6"]
+[ext_resource type="PackedScene" uid="uid://dqa8dseibf3os" path="res://collage.tscn" id="3_yogrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
+size = Vector2(562.5, 47)
+
+[node name="Inicio" type="Node2D"]
+script = ExtResource("1_q0xg8")
+
+[node name="Player" parent="." instance=ExtResource("1_ylum6")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 60.0
+offset_top = 512.0
+offset_right = 621.0
+offset_bottom = 559.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(339.75, 535.5)
+shape = SubResource("RectangleShape2D_q0xg8")
+
+[node name="Collage" parent="." instance=ExtResource("3_yogrx")]
+position = Vector2(704, 233)
