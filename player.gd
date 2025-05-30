@@ -5,9 +5,12 @@ const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 @export var speed = 300.0  # Velocidade de movimento horizontal
 @export var jump_velocity = -700.0 # Força do pulo
 
+const COYOTE_TIME = 0.15 # Tempo de coyote para permitir pulo após sair do chão
+
 # Gravidade para o CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false # Variável para controlar se o player está pulando
+var coyote_timer = 0.0 # Temporizador para o tempo de coyote
 var was_on_floor = false # Variável para rastrear o estado do chão no frame anterior
 
 func _ready():
@@ -32,7 +35,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	# Lógica de Pulo
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	coyote_timer -= delta # Decrementa o temporizador de coyote
+	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0 and not jumping:
 		velocity.y = jump_velocity
 		jumping = true # Define que o player está pulando
 		set_animation("jump")
@@ -48,10 +52,11 @@ func _physics_process(delta):
 		if jumping: # Apenas se ele estava realmente em um estado de pulo antes
 			set_animation("land")
 			jumping = false
-
+		
 
 	# Animações de Andar/Parar (apenas se não estiver pulando e estiver no chão)
 	if is_on_floor() and not jumping: # Certifica-se de que não está pulando
+		coyote_timer = COYOTE_TIME # Reseta o temporizador de coyote quando toca o chão
 		if direction:
 			set_animation("walk")
 		else:
