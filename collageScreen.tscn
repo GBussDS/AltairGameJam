@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://broj5nt46twrv"]
 
-[ext_resource type="Script" uid="uid://bw7fcyqnglttm" path="res://collage_screen.gd" id="1_v80ey"]
+[ext_resource type="Script" uid="uid://cglkgs5hjulvk" path="res://collage_screen.gd" id="1_v80ey"]
 [ext_resource type="Texture2D" uid="uid://wqvwpo4oyld6" path="res://icon.svg" id="2_8vco1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v80ey"]
