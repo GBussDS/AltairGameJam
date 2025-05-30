@@ -15,8 +15,8 @@ height = 62.0
 shader = ExtResource("2_2hs0m")
 shader_parameter/interval = 0.7
 shader_parameter/timeDelay = 0.0
-shader_parameter/intensityX = 5.0
-shader_parameter/intensityY = 5.0
+shader_parameter/intensityX = 20.0
+shader_parameter/intensityY = 20.0
 shader_parameter/seed = 42.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
