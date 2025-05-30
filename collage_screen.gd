@@ -27,7 +27,7 @@ func createCollages():
 		collageCount += 1
 		spawn_point.progress_ratio = randf()
 		
-		var collage = load(collagePath).instantiate()
+		var collage = collagePath.instantiate()
 		collage.num = collageCount
 		collage.position = spawn_point.position
 		collage.collageMode = true

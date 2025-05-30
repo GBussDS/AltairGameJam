@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bp8a02jql3hn8"]
+[gd_scene load_steps=20 format=3 uid="uid://bp8a02jql3hn8"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_rliku"]
 [ext_resource type="Texture2D" uid="uid://duv1vm0subg2e" path="res://art/pencil.png" id="2_bqias"]
+[ext_resource type="PackedScene" uid="uid://do3ht2t00x4u3" path="res://collages/keyboard.tscn" id="2_ea7q5"]
+[ext_resource type="PackedScene" uid="uid://ckndn16ksvjlj" path="res://collages/mouse.tscn" id="3_kxj2j"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="3_tg5o5"]
+[ext_resource type="PackedScene" uid="uid://dbxmi8q4vphk" path="res://collages/painting2.tscn" id="4_ea7q5"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="4_gkhwv"]
 [ext_resource type="PackedScene" uid="uid://duu8qt3u3a7m4" path="res://lazer.tscn" id="5_bqias"]
 
@@ -81,8 +84,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="level 1" type="Node2D"]
+[node name="level 2" type="Node2D"]
 script = ExtResource("1_rliku")
+levelCollages = Array[PackedScene]([ExtResource("2_ea7q5"), ExtResource("3_kxj2j"), ExtResource("4_ea7q5")])
 
 [node name="start" type="StaticBody2D" parent="."]
 position = Vector2(-35, -390)
@@ -126,6 +130,5 @@ texture = ExtResource("2_bqias")
 position = Vector2(159, 105)
 
 [node name="lazer" parent="." instance=ExtResource("5_bqias")]
-position = Vector2(62, 356)
-max_distance = 1100.0
-laser_width = 10.0
+position = Vector2(126, 359)
+max_distance = 1000.0
