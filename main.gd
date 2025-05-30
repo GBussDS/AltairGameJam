@@ -21,5 +21,8 @@ func collageEnded():
 	var collages = $collageScreen.get_node('collagesGroup').duplicate()
 	$Inicio.add_child(collages)
 	
+	for collage in collages.get_children():
+		collage.collageMode = false
+		
 	#despausa
 	$Inicio.process_mode = Node.PROCESS_MODE_INHERIT
