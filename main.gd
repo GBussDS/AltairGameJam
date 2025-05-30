@@ -1,6 +1,7 @@
 extends Node2D
 
 var collageMode = true
+var currentCollages = []
 
 func _ready():
 	$Menu.show()
@@ -11,6 +12,9 @@ func _on_menu_start_game():
 	$Menu.hide()
 	$Inicio.show()
 	$Inicio.start_animations()
+	currentCollages = $Inicio.levelCollages
+	
+	$collageScreen.createCollages()
 	$collageScreen.show()
 	
 	#pausa o jogo

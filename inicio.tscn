@@ -1,13 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbvnjbq36k2yf"]
+[gd_scene load_steps=16 format=3 uid="uid://bbvnjbq36k2yf"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://inicio.gd" id="1_q0xg8"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="1_ylum6"]
-[ext_resource type="Texture2D" uid="uid://basanor425xb7" path="res://art/bench.png" id="3_7e6sy"]
-[ext_resource type="PackedScene" uid="uid://ctnoveuk00d6q" path="res://collage.tscn" id="3_yogrx"]
+[ext_resource type="Texture2D" uid="uid://duv1vm0subg2e" path="res://art/pencil.png" id="2_7e6sy"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="4_htw3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
-size = Vector2(189.499, 62)
+size = Vector2(163, 23.625)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
 atlas = ExtResource("4_htw3k")
@@ -84,22 +83,30 @@ animations = [{
 [node name="Inicio" type="Node2D"]
 script = ExtResource("1_q0xg8")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="start" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(257.75, 581.375)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(236.5, 562.188)
 shape = SubResource("RectangleShape2D_q0xg8")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(256.5, 581.375)
-scale = Vector2(0.0765497, 0.0989819)
-texture = ExtResource("3_7e6sy")
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(224, 558)
+scale = Vector2(0.1, 0.129)
+texture = ExtResource("2_7e6sy")
+
+[node name="end" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(962.5, 109.181)
+shape = SubResource("RectangleShape2D_q0xg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(950, 104.993)
+scale = Vector2(0.1, 0.129)
+texture = ExtResource("2_7e6sy")
 
 [node name="Player" parent="." instance=ExtResource("1_ylum6")]
 position = Vector2(184.5, 497.375)
-
-[node name="Collage" parent="." instance=ExtResource("3_yogrx")]
-position = Vector2(800, 229)
 
 [node name="BandeiraSaida" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -108,17 +115,6 @@ scale = Vector2(5.60938, 4.9875)
 sprite_frames = SubResource("SpriteFrames_w2ra7")
 frame = 1
 frame_progress = 0.0520463
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(950.5, 122.375)
-shape = SubResource("RectangleShape2D_q0xg8")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-position = Vector2(948.5, 125.375)
-scale = Vector2(0.0765497, 0.0989819)
-texture = ExtResource("3_7e6sy")
 
 [node name="BandeiraChegada" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -1,7 +1,6 @@
 extends Node2D
 
-func _ready():
-	hide()
+@export var levelCollages = ["res://collages/handler.tscn", "res://collages/car.tscn","res://collages/pot.tscn"]
 
 func start_animations():
 	$BandeiraSaida.play()
