@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://duu8qt3u3a7m4"]
+
+[ext_resource type="Script" uid="uid://bs18h628xw1s1" path="res://lazer.gd" id="1_avoeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg10"]
+
+[node name="lazer" type="StaticBody2D"]
+script = ExtResource("1_avoeb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pxg10")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 500, 0)

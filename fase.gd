@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var levelCollages = ["res://collages/handler.tscn", "res://collages/car.tscn","res://collages/pot.tscn"]
+@export var levelCollages: Array[PackedScene] = []
 
 func start_animations():
 	$start/BandeiraSaida.play()

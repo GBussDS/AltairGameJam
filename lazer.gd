@@ -7,11 +7,14 @@ extends StaticBody2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var line: Line2D = $Line2D
 
+@onready var fimLazer = $fimLazer
+
 func _ready():
 	line.width = laser_width
 	line.points[1].x = max_distance
 	line.default_color = color
 	ray_cast.target_position = Vector2(max_distance, 0)
+	fimLazer.position = Vector2(max_distance - 12, 0)
 
 func _process(delta):
 	update_laser()
@@ -19,6 +22,8 @@ func _process(delta):
 func update_laser():
 	if ray_cast.is_colliding():
 		var collision_point = ray_cast.get_collision_point()
+		fimLazer.global_position.x = collision_point.x - 12
 		line.points = [Vector2.ZERO, to_local(collision_point)]
 	else:
+		fimLazer.position = Vector2(max_distance - 12, 0)
 		line.points = [Vector2.ZERO, Vector2(max_distance, 0)]
