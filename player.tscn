@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://vias4ugj5cfn"]
+[gd_scene load_steps=12 format=3 uid="uid://vias4ugj5cfn"]
 
 [ext_resource type="Script" uid="uid://cbqdsqfywebd0" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Shader" uid="uid://bahiqixjrm84c" path="res://shaders/shadow.gdshader" id="2_1jxqw"]
 [ext_resource type="Shader" uid="uid://m7n4ea7atmgp" path="res://shaders/collage.gdshader" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://chms3edh1nvac" path="res://art/player/Personagem3.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bmrxvncrp0bdd" path="res://art/player/pulo.png" id="3_2hs0m"]
@@ -11,13 +12,13 @@
 radius = 24.0
 height = 62.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxqw"]
-shader = ExtResource("2_2hs0m")
-shader_parameter/interval = 0.7
-shader_parameter/timeDelay = 0.0
-shader_parameter/intensityX = 20.0
-shader_parameter/intensityY = 20.0
-shader_parameter/seed = 42.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw050"]
+shader = ExtResource("2_1jxqw")
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+shader_parameter/shadow_scale = 0.045
+shader_parameter/shadow_min_length = 2.0
+shader_parameter/shadow_max_length = 120.0
+shader_parameter/screen_center = Vector2(960, 540)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b26j0"]
 animations = [{
@@ -65,6 +66,14 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jxqw"]
+shader = ExtResource("2_2hs0m")
+shader_parameter/interval = 0.7
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 20.0
+shader_parameter/intensityY = 20.0
+shader_parameter/seed = 42.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_onrkg")
@@ -72,6 +81,13 @@ script = ExtResource("1_onrkg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(23, 23)
 shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_dw050")
+position = Vector2(24, 26)
+scale = Vector2(0.186893, 0.182243)
+sprite_frames = SubResource("SpriteFrames_b26j0")
+animation = &"stop"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_1jxqw")

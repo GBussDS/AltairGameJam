@@ -9,19 +9,12 @@ const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false # Variável para controlar se o player está pulando
 var was_on_floor = false # Variável para rastrear o estado do chão no frame anterior
-var shadow_node: Node2D
 
 func _ready():
 	$AnimatedSprite2D.play()
-	shadow_node = $AnimatedSprite2D.duplicate()
-	shadow_node.name = "Shadow"
-	shadow_node.material = ShaderMaterial.new()
-	shadow_node.material.shader = SHADOW_SHADER
 	var viewport_size = get_viewport_rect().size
-	shadow_node.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, viewport_size.y * 0.5))
-
-	add_child(shadow_node)
-	move_child(shadow_node, 1) # Faz a sombra ser desenhada por baixo do sprite principal
+	$Shadow.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, viewport_size.y * 0.5))
+	$Shadow.play()
 
 	was_on_floor = is_on_floor() # Inicializa o estado do chão
 
@@ -34,7 +27,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * speed
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-		shadow_node.flip_h = velocity.x < 0
+		$Shadow.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -71,7 +64,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func set_animation(animation_name: String) -> void:
-	# Método para definir a animação do AnimatedSprite2D e do shadow_node
+	# Método para definir a animação do AnimatedSprite2D e do Shadow
 	if $AnimatedSprite2D.animation != animation_name:
 		$AnimatedSprite2D.animation = animation_name
-		shadow_node.animation = animation_name
+		$Shadow.animation = animation_name

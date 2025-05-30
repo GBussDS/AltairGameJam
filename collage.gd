@@ -11,8 +11,8 @@ const PICKUP_SOUNDS = [
 const PICKED_UP_SCALE = Vector2(1.5, 1.5)
 const TWEEN_DURATION = 0.1
 const SHADER_INTERVAL = 0.5
-const IDLE_SHADOW_SCALE = 0.01
-const DRAGGING_SHADOW_SCALE = 0.035
+const IDLE_SHADOW_SCALE = 0.035
+const DRAGGING_SHADOW_SCALE = 0.08
 
 var draggable = false
 var dragging = false
