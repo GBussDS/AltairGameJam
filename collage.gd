@@ -28,11 +28,6 @@ var shadow_node: Node2D
 
 @onready var collageScreen = get_parent().get_parent()
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released():
-			draggable = false
-
 func _ready() -> void:
 	$Sprite2D.material = ShaderMaterial.new()
 
@@ -112,7 +107,7 @@ func _on_area_2d_mouse_entered():
 		draggable = true
 
 func _on_area_2d_mouse_exited():
-	if collageMode and collageScreen.is_dragging == -1:
+	if collageMode and collageScreen.is_dragging != num:
 		draggable = false
 
 func play_paper_sound():
