@@ -27,6 +27,7 @@ func createCollages():
 	for child in $collagesGroup.get_children():
 		child.queue_free()
 	collageCount = 0
+	is_dragging = -1
 	$confirm.disabled = false
 	for collagePath in parent.currentCollages:
 		collageCount += 1

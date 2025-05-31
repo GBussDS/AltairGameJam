@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://j1hpe3d8qolq"]
 
 [ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_x6qij"]
-[ext_resource type="Texture2D" uid="uid://5nthd05vqtav" path="res://art/paintings1.png" id="2_x6qij"]
+[ext_resource type="Texture2D" uid="uid://bbe0p0mwyupmb" path="res://art/paintings1.png" id="2_x6qij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbql5"]
 size = Vector2(119, 148)

@@ -1,0 +1,179 @@
+[gd_scene load_steps=23 format=3 uid="uid://g5tnkwcj5hof"]
+
+[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_kys5l"]
+[ext_resource type="PackedScene" uid="uid://dsbsuptxyej68" path="res://collages/car.tscn" id="2_gi51j"]
+[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="6_vi4h8"]
+[ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="7_ejxe3"]
+[ext_resource type="PackedScene" uid="uid://bln7xdt40paff" path="res://fan.tscn" id="8_4jlp4"]
+[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="8_sugq4"]
+[ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="9_jse4k"]
+[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="10_xhdin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
+size = Vector2(181, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(0, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8a4r"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(16, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xagyt"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(32, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpmgr"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(48, 33, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8a4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xagyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpmgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(0, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1uea"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(16, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3gln"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(32, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs6pg"]
+atlas = ExtResource("8_sugq4")
+region = Rect2(48, 17, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ra7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1uea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3gln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs6pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jlp4"]
+size = Vector2(114.5, 64.5)
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_kys5l")
+levelCollages = Array[PackedScene]([ExtResource("2_gi51j")])
+
+[node name="Player" parent="." instance=ExtResource("6_vi4h8")]
+position = Vector2(102, 499)
+
+[node name="start" type="StaticBody2D" parent="."]
+position = Vector2(-53, -193)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(245, 563.5)
+shape = SubResource("RectangleShape2D_mtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(228, 580)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_ejxe3")
+
+[node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
+texture_filter = 1
+position = Vector2(250, 520)
+scale = Vector2(5.60938, 4.9875)
+sprite_frames = SubResource("SpriteFrames_w2ra7")
+frame = 1
+frame_progress = 0.0520463
+
+[node name="end" type="StaticBody2D" parent="."]
+position = Vector2(-17, 257)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(968.5, 113.5)
+shape = SubResource("RectangleShape2D_mtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(950, 104.993)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_jse4k")
+
+[node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
+texture_filter = 1
+position = Vector2(958.5, 62.375)
+scale = Vector2(5.03125, 4.45)
+sprite_frames = SubResource("SpriteFrames_ml20m")
+
+[node name="Area2D" type="Area2D" parent="end"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+position = Vector2(963, 60)
+shape = SubResource("RectangleShape2D_4jlp4")
+
+[node name="Saws" type="Node2D" parent="."]
+
+[node name="saw" parent="Saws" instance=ExtResource("10_xhdin")]
+position = Vector2(573, 239)
+
+[node name="saw2" parent="Saws" instance=ExtResource("10_xhdin")]
+position = Vector2(788, 295)
+
+[node name="saw3" parent="Saws" instance=ExtResource("10_xhdin")]
+position = Vector2(453, 234)
+rotation = 0.785398
+
+[node name="saw5" parent="Saws" instance=ExtResource("10_xhdin")]
+position = Vector2(371, 173)
+rotation = 0.785398
+
+[node name="saw6" parent="Saws" instance=ExtResource("10_xhdin")]
+position = Vector2(338, 69)
+rotation = 0.785398
+
+[node name="fan" parent="." instance=ExtResource("8_4jlp4")]
+position = Vector2(701, 560)
+rotation = -1.5708
+scaleX = 0.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
+
+[connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]

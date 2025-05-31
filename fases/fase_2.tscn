@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bp8a02jql3hn8"]
+[gd_scene load_steps=24 format=3 uid="uid://bp8a02jql3hn8"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_rliku"]
 [ext_resource type="PackedScene" uid="uid://dbwnds0bv5wto" path="res://collages/keyboard.tscn" id="2_ea7q5"]
@@ -85,6 +85,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtbqa"]
+size = Vector2(114.5, 64.5)
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
 [node name="level 2" type="Node2D"]
 script = ExtResource("1_rliku")
 levelCollages = Array[PackedScene]([ExtResource("2_ea7q5"), ExtResource("3_kxj2j"), ExtResource("4_ea7q5")])
@@ -131,3 +142,16 @@ texture_filter = 1
 position = Vector2(958.5, 62.375)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_qpdiq")
+
+[node name="Area2D" type="Area2D" parent="end"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+position = Vector2(963, 60)
+shape = SubResource("RectangleShape2D_gtbqa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
+
+[connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]

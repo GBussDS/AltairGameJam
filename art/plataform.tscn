@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://btny24gcwnf60"]
+
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_ljhxj"]
+[ext_resource type="Texture2D" uid="uid://ds5r714k7rjce" path="res://art/platform.png" id="2_ljhxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iugt"]
+size = Vector2(333, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbql5"]
+size = Vector2(295, 23)
+
+[node name="Collage" type="StaticBody2D"]
+script = ExtResource("1_ljhxj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_4iugt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ljhxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_hbql5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

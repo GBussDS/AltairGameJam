@@ -24,7 +24,7 @@ func _process(delta):
 func update_laser():
 	if ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
-		if collider.name is CharacterBody2D:
+		if collider is CharacterBody2D:
 			collider.die()
 			return
 		var collision_point = ray_cast.get_collision_point()
