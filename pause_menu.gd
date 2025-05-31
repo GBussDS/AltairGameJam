@@ -5,10 +5,10 @@ signal retry_level
 signal resume_game
 
 func _on_menu_pressed() -> void:
-    return_to_menu.emit()
+	return_to_menu.emit()
 
 func _on_retry_pressed() -> void:
-    retry_level.emit()
+	retry_level.emit()
 
 func _on_resume_pressed() -> void:
-    resume_game.emit()
+	resume_game.emit()

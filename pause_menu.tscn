@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba40thlsfxq1e"]
+[gd_scene load_steps=6 format=3 uid="uid://p24j1r3gcm56"]
 
 [ext_resource type="Script" uid="uid://cff3svxm0gl6e" path="res://pause_menu.gd" id="1_56whq"]
-[ext_resource type="Texture2D" uid="uid://8704dhx1obnk" path="res://art/Settings2.png" id="1_wu46t"]
-[ext_resource type="Texture2D" uid="uid://ccegv5mse3brn" path="res://art/Settings1.png" id="2_56whq"]
+[ext_resource type="Texture2D" uid="uid://yn46lstogb4h" path="res://art/resume1.png" id="2_mxa3g"]
+[ext_resource type="Texture2D" uid="uid://bmtj6aqtel7p6" path="res://art/restart.png" id="5_d3xb4"]
+[ext_resource type="Texture2D" uid="uid://drnapjlhrv1d7" path="res://art/main_menu.png" id="6_q2yj1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6d0jo"]
 font_size = 56
@@ -29,20 +30,42 @@ horizontal_alignment = 1
 [node name="resume" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("1_wu46t")
-texture_pressed = ExtResource("2_56whq")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/resume"]
+layout_mode = 2
+offset_left = 49.0
+offset_top = -6.0
+offset_right = 436.0
+offset_bottom = 137.0
+texture = ExtResource("2_mxa3g")
+expand_mode = 1
 
 [node name="retry" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("1_wu46t")
-texture_pressed = ExtResource("2_56whq")
+texture_pressed = ExtResource("5_d3xb4")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/retry"]
+layout_mode = 0
+offset_left = -206.0
+offset_top = -2.0
+offset_right = 653.0
+offset_bottom = 146.0
+texture = ExtResource("5_d3xb4")
+expand_mode = 1
 
 [node name="menu" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("1_wu46t")
-texture_pressed = ExtResource("2_56whq")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/menu"]
+layout_mode = 0
+offset_left = -197.0
+offset_top = -16.0
+offset_right = 210.0
+offset_bottom = 127.0
+texture = ExtResource("6_q2yj1")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/retry" to="." method="_on_retry_pressed"]
