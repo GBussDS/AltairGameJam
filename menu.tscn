@@ -128,6 +128,11 @@ layout_mode = 2
 texture_normal = ExtResource("8_kk3ma")
 texture_pressed = ExtResource("8_kk3ma")
 
+[node name="fase10" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
 [node name="TextEdit" type="Label" parent="fases"]
 layout_mode = 0
 offset_left = 510.0
@@ -154,3 +159,4 @@ offset_bottom = -326.0
 [connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase7" to="." method="_on_fase_button_up" binds= [7]]
 [connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase8" to="." method="_on_fase_button_up" binds= [8]]
 [connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase9" to="." method="_on_fase_button_up" binds= [9]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase10" to="." method="_on_fase_button_up" binds= [10]]

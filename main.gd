@@ -27,6 +27,9 @@ func collageEnded():
 	
 	for collage in $collageScreen/collagesGroup.get_children():
 		collage.collageMode = false
+		# Verifica se a colagem é um RigidBody2D
+		if collage is RigidBody2D:
+			collage.gravity_scale = 1.0 
 		
 	#despausa
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT

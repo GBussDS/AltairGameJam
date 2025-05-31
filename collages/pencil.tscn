@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm4er46h6jjce"]
+
+[ext_resource type="Texture2D" uid="uid://duv1vm0subg2e" path="res://art/pencil.png" id="1_5cbtj"]
+
+[node name="Collage" type="StaticBody2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-40, 85, 40, 64, 267, 63, 267, 108, 36, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(112, 80)
+scale = Vector2(0.169375, 0.228598)
+texture = ExtResource("1_5cbtj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-41, 84, 41, 63, 268, 61, 268, 109, 38, 115)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
