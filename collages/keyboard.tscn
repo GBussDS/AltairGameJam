@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://do3ht2t00x4u3"]
+[gd_scene load_steps=5 format=3 uid="uid://dbwnds0bv5wto"]
 
 [ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_2y5sg"]
 [ext_resource type="Texture2D" uid="uid://k8rdrwg4c3p3" path="res://art/keyboard.png" id="2_2y5sg"]
@@ -25,6 +25,8 @@ texture = ExtResource("2_2y5sg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4iugt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
