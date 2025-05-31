@@ -113,13 +113,3 @@ func play_paper_sound():
 	var random_sound = PICKUP_SOUNDS[randi() % PICKUP_SOUNDS.size()]
 	$AudioStreamPlayer2D.stream = random_sound
 	$AudioStreamPlayer2D.play()
-
-var count = 0
-func _on_area_2d_body_entered(body):
-	count += 1
-	print(count)
-
-
-func _on_area_2d_body_exited(body):
-	count -= 1
-	print(count)
