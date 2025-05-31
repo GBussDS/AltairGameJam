@@ -95,7 +95,7 @@ func _physics_process(delta):
 			duration = TWEEN_DURATION
 		pickup_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 		pickup_tween.tween_property(self, "scale", Vector2(1.0, 1.0), duration)
-		pickup_tween.tween_callback(self.set.bind("z_index", 0))
+		pickup_tween.tween_callback(self.set.bind("z_index", 1))
 		$Sprite2D.material.set_shader_parameter("interval", 9999.0) # Para o shader
 		shadow_node.material.set_shader_parameter("shadow_scale", IDLE_SHADOW_SCALE)
 		dragging = false
@@ -113,3 +113,13 @@ func play_paper_sound():
 	var random_sound = PICKUP_SOUNDS[randi() % PICKUP_SOUNDS.size()]
 	$AudioStreamPlayer2D.stream = random_sound
 	$AudioStreamPlayer2D.play()
+
+var count = 0
+func _on_area_2d_body_entered(body):
+	count += 1
+	print(count)
+
+
+func _on_area_2d_body_exited(body):
+	count -= 1
+	print(count)

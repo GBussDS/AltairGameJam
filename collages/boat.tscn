@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq7s77wnd5rgk"]
+
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_ckgsc"]
+[ext_resource type="Texture2D" uid="uid://cm4773t43notk" path="res://art/boat.png" id="2_ckgsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30u87"]
+size = Vector2(181, 179)
+
+[node name="Collage" type="StaticBody2D"]
+script = ExtResource("1_ckgsc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 18.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_30u87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ckgsc")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-96, -79)
+scale = Vector2(1.3, 1.3)
+polygon = PackedVector2Array(21.1429, 27.1429, 56.8571, 21.4286, 61.1428, -4.28572, 84, -4.28572, 89.7143, 21.4286, 126.857, 24.2857, 128.286, 55.7143, 138.286, 58.5714, 136.857, 142.857, 16.8571, 141.429, 8.28571, 58.5714, 18.2857, 57.1429)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
