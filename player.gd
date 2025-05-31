@@ -5,18 +5,18 @@ const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 @export var speed = 300.0  # Velocidade de movimento horizontal
 @export var jump_velocity = -700.0 # Força do pulo
 
-# Gravidade para o CharacterBody2D
+# --- Gravidade para o CharacterBody2D 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false # Variável para controlar se o player está pulando
 var was_on_floor = false # Variável para rastrear o estado do chão no frame anterior
 
-# --- Variáveis para pulo variável (jump cut) ---
+# --- Variáveis para pulo variável (jump cut)
 var jump_cut_multiplier := 0.5    # Quanto multiplicar a velocidade do pulo se soltar o botão cedo
 var max_jump_time := 0.25         # Tempo max. que o player pode segurar o botão de pulo para pular mais alto
 var jump_time := 0.0              # Contador de tempo de pulo atual
 
-# --- Variáveis para coyote time (pular fora do bloco) ---
-var coyote_time_max := 0.3        # Duração máxima do coyote time
+# --- Variáveis para coyote time (pular fora do bloco) 
+var coyote_time_max := 0.2      # Duração máxima do coyote time
 var time_since_left_ground := 0.0 # Contador de quanto tempo se passou desde que saiu do chão
 
 func _ready():
@@ -60,8 +60,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
-	# Lógica de Pulo com coyote time
-	# Agora permitimos pular se está no chão OU se saiu do chão há menos de coyote_time_max
+	# Lógica de Pulo com coyote time: pular se está no chão OU se saiu do chão há pouco tempo
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or time_since_left_ground < coyote_time_max):
 		velocity.y = jump_velocity
 		jumping = true # Define que o player está pulando
@@ -69,7 +68,6 @@ func _physics_process(delta):
 		set_animation("jump")
 
 	# Lógica de Animação
-
 	# Animação de Pulo
 	if jumping:
 		set_animation("jump")
