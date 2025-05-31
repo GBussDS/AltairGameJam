@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bp8a02jql3hn8"]
+[gd_scene load_steps=22 format=3 uid="uid://bp8a02jql3hn8"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_rliku"]
 [ext_resource type="PackedScene" uid="uid://do3ht2t00x4u3" path="res://collages/keyboard.tscn" id="2_ea7q5"]
@@ -85,6 +85,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxj2j"]
+size = Vector2(3179, 73)
+
 [node name="level 2" type="Node2D"]
 script = ExtResource("1_rliku")
 levelCollages = Array[PackedScene]([ExtResource("2_ea7q5"), ExtResource("3_kxj2j"), ExtResource("4_ea7q5")])
@@ -110,7 +113,7 @@ texture = ExtResource("8_kxj2j")
 
 [node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
 texture_filter = 1
-position = Vector2(313, 513)
+position = Vector2(251, 514)
 scale = Vector2(5.60938, 4.9875)
 sprite_frames = SubResource("SpriteFrames_10bks")
 
@@ -131,3 +134,20 @@ texture_filter = 1
 position = Vector2(958.5, 62.375)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_qpdiq")
+
+[node name="fallDeath" type="Area2D" parent="."]
+position = Vector2(546, 849)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallDeath"]
+position = Vector2(4, 29)
+shape = SubResource("RectangleShape2D_kxj2j")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 21.0
+offset_right = 107.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mortes: 0"
+
+[connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

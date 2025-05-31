@@ -9,6 +9,8 @@ extends StaticBody2D
 
 @onready var fimLazer = $fimLazer
 
+var deadly = true
+
 func _ready():
 	line.width = laser_width
 	line.points[1].x = max_distance
@@ -24,6 +26,14 @@ func update_laser():
 		var collision_point = ray_cast.get_collision_point()
 		fimLazer.global_position = collision_point
 		line.points = [Vector2.ZERO, to_local(collision_point)]
+		
+		var collider = ray_cast.get_collider()
+		if collider is CharacterBody2D and deadly:
+			deadly = false
+			#tinha q passar alguma coisa
+			get_parent()._on_death('dead')
+			await get_tree().create_timer(0.5).timeout
+			deadly = true
 	else:
 		fimLazer.position = Vector2(max_distance, 0)
 		line.points = [Vector2.ZERO, Vector2(max_distance, 0)]
