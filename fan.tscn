@@ -23,5 +23,55 @@ collision_layer = 0
 position = Vector2(288, -21)
 shape = SubResource("RectangleShape2D_8vgsl")
 
+[node name="WindStrips" type="Node2D" parent="."]
+
+[node name="WindStrip1" type="Node2D" parent="WindStrips"]
+
+[node name="Strip" type="Polygon2D" parent="WindStrips/WindStrip1"]
+position = Vector2(219, -10)
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(-145.376, -22.1052, -145.376, -29.2973, -123.8, -29.2973, -102.223, -32.8934, -101.824, -24.5025, -123.4, -22.9043)
+uv = PackedVector2Array(-148, -24, -148, -42, -94, -42, -40, -51, -39, -30, -93, -26)
+
+[node name="WindStrip2" type="Node2D" parent="WindStrips"]
+
+[node name="Strip" type="Polygon2D" parent="WindStrips/WindStrip2"]
+position = Vector2(219, -10)
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(85.3094, 23.1391, 93.3561, 22.1333, 102.409, 20.1216, 110.791, 22.4686, 110.455, 26.4919, 97.7148, 24.8155, 82.9624, 26.8272)
+uv = PackedVector2Array(-202, -50.0004, -178, -53.0004, -151, -59.0004, -126, -52.0004, -127, -40.0004, -165, -45.0004, -209, -39.0004)
+
+[node name="WindStrip3" type="Node2D" parent="WindStrips"]
+
+[node name="Strip" type="Polygon2D" parent="WindStrips/WindStrip3"]
+position = Vector2(219, -10)
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(47.9868, -27.7441, 64.0598, -25.5272, 80.687, -27.467, 94.266, -20.2619, 69.048, -19.1534, 58.7945, -22.2017, 47.1554, -21.6475)
+uv = PackedVector2Array(-240, -9.00039, -182, -1.00039, -122, -8.00039, -73.0004, 17.9996, -164, 21.9996, -201, 10.9996, -243, 12.9996)
+
+[node name="WindStrip4" type="Node2D" parent="WindStrips"]
+
+[node name="Strip" type="Polygon2D" parent="WindStrips/WindStrip4"]
+position = Vector2(219, -10)
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(177.507, -41.3933, 201.33, -40.3576, 221.01, -47.0901, 227.224, -40.8755, 212.723, -35.1787, 183.204, -33.1071)
+uv = PackedVector2Array(-277, -41.0004, -231, -39.0004, -193, -52.0004, -181, -40.0004, -209, -29.0004, -266, -25.0004)
+
+[node name="WindStrip5" type="Node2D" parent="WindStrips"]
+
+[node name="Strip" type="Polygon2D" parent="WindStrips/WindStrip5"]
+position = Vector2(219, -10)
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(270.262, 11.7606, 284.393, 11.1635, 296.334, 17.1341, 293.747, 21.3134, 286.582, 16.139, 278.621, 14.9449, 271.059, 15.5419)
+uv = PackedVector2Array(-202, -39.0004, -131, -42.0004, -71.0004, -12.0004, -84.0004, 8.99961, -120, -17.0004, -160, -23.0004, -198, -20.0004)
+
+[node name="WindStrip6" type="Node2D" parent="WindStrips"]
+
+[node name="Strip" type="Polygon2D" parent="WindStrips/WindStrip6"]
+position = Vector2(219, -10)
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(-47.4504, -3.97845, -34.0577, -8.56018, -16.7881, -6.79797, -16.4357, 0.603283, -33.3528, 1.6606, -49.9175, 3.07037)
+uv = PackedVector2Array(-263, -39.0004, -225, -52.0004, -176, -47.0004, -175, -26.0004, -223, -23.0004, -270, -19.0004)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="5_u8amj"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="6_q8a0j"]
 [ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="7_icgxr"]
-[ext_resource type="PackedScene" uid="uid://bga2kfdcb3ppf" path="res://saw.tscn" id="8_xion2"]
+[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="8_xion2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
 size = Vector2(181, 13)

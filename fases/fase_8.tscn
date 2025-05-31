@@ -100,7 +100,7 @@ script = ExtResource("1_kys5l")
 levelCollages = Array[PackedScene]([ExtResource("2_gi51j")])
 
 [node name="Player" parent="." instance=ExtResource("6_vi4h8")]
-position = Vector2(102, 499)
+position = Vector2(119, 291)
 
 [node name="start" type="StaticBody2D" parent="."]
 position = Vector2(-53, -193)
