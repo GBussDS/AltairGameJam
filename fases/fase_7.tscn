@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="8_aqilk"]
 [ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="9_byecr"]
 [ext_resource type="PackedScene" uid="uid://dnrhd46jyg0h5" path="res://collages/fridge.tscn" id="9_khnll"]
-[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="10_ygw2g"]
-[ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="11_bxdor"]
+[ext_resource type="PackedScene" uid="uid://bga2kfdcb3ppf" path="res://saw.tscn" id="10_ygw2g"]
+[ext_resource type="PackedScene" uid="uid://duu8qt3u3a7m4" path="res://lazer.tscn" id="11_bxdor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
 size = Vector2(181, 13)
