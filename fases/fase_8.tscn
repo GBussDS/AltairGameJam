@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://g5tnkwcj5hof"]
+[gd_scene load_steps=24 format=3 uid="uid://g5tnkwcj5hof"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_kys5l"]
 [ext_resource type="PackedScene" uid="uid://dsbsuptxyej68" path="res://collages/car.tscn" id="2_gi51j"]
@@ -84,6 +84,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jlp4"]
+size = Vector2(114.5, 64.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5c45"]
 size = Vector2(3179, 73)
 
@@ -140,6 +143,12 @@ position = Vector2(958.5, 62.375)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_ml20m")
 
+[node name="Area2D" type="Area2D" parent="end"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+position = Vector2(963, 60)
+shape = SubResource("RectangleShape2D_4jlp4")
+
 [node name="fallDeath" type="Area2D" parent="."]
 position = Vector2(546, 849)
 
@@ -185,4 +194,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_ujy6b")
 }
 
+[connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]
 [connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

@@ -3,7 +3,8 @@ extends Node2D
 var collageMode = true
 var currentCollages = []
 
-@onready var currentLevelPath = 'res://fases/fase_9.tscn'
+var currentLevel = 0
+@export var levels: Array[PackedScene] = []
 
 var level
 
@@ -11,7 +12,7 @@ func _ready():
 	$Menu.show()
 	$collageScreen.hide()
 	
-	level = load(currentLevelPath).instantiate()
+	level = levels[currentLevel].instantiate()
 	add_child(level)
 	level.hide()
 	
@@ -20,6 +21,7 @@ func _on_menu_start_game():
 	$Menu.hide()
 	level.show()
 	level.start_animations()
+	
 	currentCollages = level.levelCollages
 	
 	$collageScreen.createCollages()
@@ -40,3 +42,35 @@ func collageEnded():
 		
 	#despausa
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
+
+func nextLevel():
+	$collageScreen.hide()
+	level.free()
+	
+	currentLevel += 1
+	if currentLevel >= len(levels):
+		currentLevel = 0
+		
+	level = levels[currentLevel].instantiate()
+	add_child(level)
+		
+	currentCollages = level.levelCollages
+	
+	for child in $collageScreen/collagesGroup.get_children():
+		child.free()
+		
+	$collageScreen.createCollages()
+	
+	$collageScreen.show()
+	
+	#pausa o jogo
+	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
+	level.start_animations()
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property($Camera2D,"zoom",Vector2(0.65, 0.65), 0.5)
+	
+	$collageScreen.is_dragging = -1
+	

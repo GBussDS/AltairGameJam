@@ -15,3 +15,7 @@ func _on_death(body):
 	numDeaths += 1
 	$Player.global_position = $start/BandeiraSaida.global_position
 	$Label.text = "Mortes: " + str(numDeaths)
+
+func _on_finish_reached(body):
+	await get_tree().create_timer(1).timeout
+	get_parent().nextLevel()

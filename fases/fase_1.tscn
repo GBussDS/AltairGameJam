@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfmwmypccqufo"]
+[gd_scene load_steps=24 format=3 uid="uid://cfmwmypccqufo"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_ny45v"]
 [ext_resource type="PackedScene" uid="uid://dsbsuptxyej68" path="res://collages/car.tscn" id="2_gf6d7"]
@@ -84,6 +84,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4gd"]
+size = Vector2(114.5, 64.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgrj1"]
 size = Vector2(3179, 73)
 
@@ -135,6 +138,12 @@ position = Vector2(958.5, 62.375)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_ml20m")
 
+[node name="Area2D" type="Area2D" parent="end"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+position = Vector2(963, 60)
+shape = SubResource("RectangleShape2D_qc4gd")
+
 [node name="Player" parent="." instance=ExtResource("3_eb6rn")]
 position = Vector2(184.5, 497.375)
 
@@ -149,3 +158,5 @@ shape = SubResource("RectangleShape2D_hgrj1")
 libraries = {
 &"": SubResource("AnimationLibrary_ujy6b")
 }
+
+[connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]
