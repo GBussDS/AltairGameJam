@@ -36,14 +36,14 @@ texture_pressed = ExtResource("3_ytr4m")
 [node name="config" type="TextureButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("4_ecwwl")
-texture_pressed = ExtResource("5_kk3ma")
+texture_normal = ExtResource("5_kk3ma")
+texture_pressed = ExtResource("4_ecwwl")
 
 [node name="quit" type="TextureButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_l48gv")
 texture_pressed = ExtResource("6_ecwwl")
 
-[connection signal="button_up" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/config" to="." method="_on_config_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_button_up"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/config" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_button_pressed"]
