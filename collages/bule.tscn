@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxqnsirdoe067"]
+
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_2cwrx"]
+[ext_resource type="Texture2D" uid="uid://b4gx5v2s44qbg" path="res://art/bule.png" id="2_2cwrx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i1up7"]
+radius = 77.1622
+
+[node name="Collage" type="StaticBody2D"]
+script = ExtResource("1_2cwrx")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-62, -48)
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(16, -20, 134, -18, 134, 55, 124, 133, 40, 131, -25, 38, -5, 38, 15, 55, 15.2307, 37.6996)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-13, -6)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_2cwrx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4, -7)
+shape = SubResource("CircleShape2D_i1up7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

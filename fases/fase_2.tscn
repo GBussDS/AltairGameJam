@@ -1,13 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://ckurt1vfnrc4y"]
+[gd_scene load_steps=21 format=3 uid="uid://bp8a02jql3hn8"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_rliku"]
-[ext_resource type="Texture2D" uid="uid://duv1vm0subg2e" path="res://art/pencil.png" id="2_bqias"]
 [ext_resource type="PackedScene" uid="uid://dbwnds0bv5wto" path="res://collages/keyboard.tscn" id="2_ea7q5"]
 [ext_resource type="PackedScene" uid="uid://dgpdar0xa4u4o" path="res://collages/mouse.tscn" id="3_kxj2j"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="3_tg5o5"]
 [ext_resource type="PackedScene" uid="uid://b0bk5go2gkryl" path="res://collages/painting2.tscn" id="4_ea7q5"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="4_gkhwv"]
 [ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="5_bqias"]
+[ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="8_kxj2j"]
+[ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="9_gtbqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir33x"]
+size = Vector2(181, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
 atlas = ExtResource("4_gkhwv")
@@ -25,7 +29,7 @@ region = Rect2(32, 33, 16, 15)
 atlas = ExtResource("4_gkhwv")
 region = Rect2(48, 33, 16, 15)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_10bks"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -45,9 +49,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
-size = Vector2(163, 23.625)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
 atlas = ExtResource("4_gkhwv")
 region = Rect2(0, 17, 16, 15)
@@ -64,7 +65,7 @@ region = Rect2(32, 17, 16, 15)
 atlas = ExtResource("4_gkhwv")
 region = Rect2(48, 17, 16, 15)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpdiq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -88,47 +89,45 @@ animations = [{
 script = ExtResource("1_rliku")
 levelCollages = Array[PackedScene]([ExtResource("2_ea7q5"), ExtResource("3_kxj2j"), ExtResource("4_ea7q5")])
 
-[node name="start" type="StaticBody2D" parent="."]
-position = Vector2(-35, -390)
-
-[node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
-texture_filter = 1
-position = Vector2(326.625, 513.375)
-scale = Vector2(5.60938, 4.9875)
-sprite_frames = SubResource("SpriteFrames_w2ra7")
-frame = 1
-frame_progress = 0.0520463
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
-position = Vector2(236.5, 562.188)
-shape = SubResource("RectangleShape2D_q0xg8")
-
-[node name="Sprite2D" type="Sprite2D" parent="start"]
-position = Vector2(224, 558)
-scale = Vector2(0.1, 0.129)
-texture = ExtResource("2_bqias")
-
-[node name="end" type="StaticBody2D" parent="."]
-position = Vector2(19, 460)
-
-[node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
-texture_filter = 1
-position = Vector2(958.5, 62.375)
-scale = Vector2(5.03125, 4.45)
-sprite_frames = SubResource("SpriteFrames_ml20m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
-position = Vector2(962.5, 109.181)
-shape = SubResource("RectangleShape2D_q0xg8")
-
-[node name="Sprite2D" type="Sprite2D" parent="end"]
-position = Vector2(950, 104.993)
-scale = Vector2(0.1, 0.129)
-texture = ExtResource("2_bqias")
-
 [node name="Player" parent="." instance=ExtResource("3_tg5o5")]
 position = Vector2(159, 105)
 
 [node name="lazer" parent="." instance=ExtResource("5_bqias")]
 position = Vector2(126, 359)
 max_distance = 1000.0
+
+[node name="start" type="StaticBody2D" parent="."]
+position = Vector2(-40, -397)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(245, 563.5)
+shape = SubResource("RectangleShape2D_ir33x")
+
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(228, 580)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_kxj2j")
+
+[node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
+texture_filter = 1
+position = Vector2(251, 514)
+scale = Vector2(5.60938, 4.9875)
+sprite_frames = SubResource("SpriteFrames_10bks")
+
+[node name="end" type="StaticBody2D" parent="."]
+position = Vector2(7, 453)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(968.5, 113.5)
+shape = SubResource("RectangleShape2D_ir33x")
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(950, 104.993)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_gtbqa")
+
+[node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
+texture_filter = 1
+position = Vector2(958.5, 62.375)
+scale = Vector2(5.03125, 4.45)
+sprite_frames = SubResource("SpriteFrames_qpdiq")

@@ -21,11 +21,13 @@ func _on_area_collages_exited(body):
 func _on_confirm_pressed():
 	is_dragging = -2
 	get_parent().collageEnded()
+	$confirm.disabled = true
 
 func createCollages():
 	for child in $collagesGroup.get_children():
 		child.queue_free()
 	collageCount = 0
+	$confirm.disabled = false
 	for collagePath in parent.currentCollages:
 		collageCount += 1
 		spawn_point.progress_ratio = randf()

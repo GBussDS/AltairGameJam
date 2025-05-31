@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal player_lost
+signal player_death
 
 const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 
@@ -9,11 +9,20 @@ const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 
 const COYOTE_TIME = 0.15 # Tempo de coyote para permitir pulo após sair do chão
 
-# Gravidade para o CharacterBody2D
+# --- Gravidade para o CharacterBody2D 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false # Variável para controlar se o player está pulando
 var coyote_timer = 0.0 # Temporizador para o tempo de coyote
 var was_on_floor = false # Variável para rastrear o estado do chão no frame anterior
+
+# --- Variáveis para pulo variável (jump cut)
+var jump_cut_multiplier := 0.5    # Quanto multiplicar a velocidade do pulo se soltar o botão cedo
+var max_jump_time := 0.25         # Tempo max. que o player pode segurar o botão de pulo para pular mais alto
+var jump_time := 0.0              # Contador de tempo de pulo atual
+
+# --- Variáveis para coyote time (pular fora do bloco) 
+var coyote_time_max := 0.2      # Duração máxima do coyote time
+var time_since_left_ground := 0.0 # Contador de quanto tempo se passou desde que saiu do chão
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -24,12 +33,32 @@ func _ready():
 	was_on_floor = is_on_floor() # Inicializa o estado do chão
 
 func _physics_process(delta):
+	# ===== Gerenciamento de coyote time =====
+	if is_on_floor():
+		time_since_left_ground = 0.0
+	else:
+		time_since_left_ground += delta
+
 	# Lógica de Gravidade e Movimento
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		if position.y > get_viewport_rect().size.y + 100: # Se cair muito, perde
 			die()
 			return
+
+		# Enquanto estiver no “pulo inicial” (jumping). Se pressionar por mais tempo, pula mais
+		if jumping:
+			jump_time += delta
+			if jump_time >= max_jump_time:
+				jumping = false  # Depois de x segundos, encerra o modo “sustentar pulo”
+	else:
+		jump_time = 0.0
+		jumping = false
+
+	# Corte de pulo se soltar a tecla cedo
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y *= jump_cut_multiplier
+		jumping = false
 
 	var direction = Input.get_axis("left", "right")
 	if direction:
@@ -39,15 +68,14 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
-	# Lógica de Pulo
-	coyote_timer -= delta # Decrementa o temporizador de coyote
-	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0 and not jumping:
+	# Lógica de Pulo com coyote time: pular se está no chão OU se saiu do chão há pouco tempo
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or time_since_left_ground < coyote_time_max):
 		velocity.y = jump_velocity
 		jumping = true # Define que o player está pulando
+		jump_time = 0.0
 		set_animation("jump")
 
 	# Lógica de Animação
-
 	# Animação de Pulo
 	if jumping:
 		set_animation("jump")
@@ -80,4 +108,4 @@ func set_animation(animation_name: String) -> void:
 		$Shadow.animation = animation_name
 
 func die() -> void:
-	emit_signal("player_lost")
+	player_death.emit()

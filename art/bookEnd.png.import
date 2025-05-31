@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg3eorpt16s1k"
-path="res://.godot/imported/cadernoBom.png-5aad6b7ba9e041d4b58e034feb3b5b17.ctex"
+uid="uid://bkimq17n2nevw"
+path="res://.godot/imported/bookEnd.png-4f36e9b3c1512345ebe64ca7128f8a4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cadernoBom.png"
-dest_files=["res://.godot/imported/cadernoBom.png-5aad6b7ba9e041d4b58e034feb3b5b17.ctex"]
+source_file="res://art/bookEnd.png"
+dest_files=["res://.godot/imported/bookEnd.png-4f36e9b3c1512345ebe64ca7128f8a4a.ctex"]
 
 [params]
 

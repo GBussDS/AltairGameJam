@@ -4,7 +4,7 @@ signal start_game
 
 
 func _on_play_button_pressed():
-	emit_signal("start_game")
+	start_game.emit()
 
 func _on_config_button_pressed():
 	pass
