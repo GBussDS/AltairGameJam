@@ -3,7 +3,7 @@ extends Node2D
 var collageMode = true
 var currentCollages = []
 
-@onready var currentLevelPath = 'res://fases/fase_4.tscn'
+@onready var currentLevelPath = 'res://fases/fase_6.tscn'
 
 var level
 
