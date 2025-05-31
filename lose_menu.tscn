@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba40thlsfxq1e"]
+
+[ext_resource type="Script" uid="uid://cff3svxm0gl6e" path="res://lose_menu.gd" id="1_56whq"]
+[ext_resource type="Texture2D" uid="uid://8704dhx1obnk" path="res://art/Settings2.png" id="1_wu46t"]
+[ext_resource type="Texture2D" uid="uid://ccegv5mse3brn" path="res://art/Settings1.png" id="2_56whq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6d0jo"]
+font_size = 111
+font_color = Color(0, 0, 0, 1)
+
+[node name="LoseMenu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_56whq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You lost!"
+label_settings = SubResource("LabelSettings_6d0jo")
+horizontal_alignment = 1
+
+[node name="retry" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_wu46t")
+texture_pressed = ExtResource("2_56whq")
+
+[node name="menu" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_wu46t")
+texture_pressed = ExtResource("2_56whq")
+
+[connection signal="pressed" from="VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]

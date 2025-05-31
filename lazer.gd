@@ -21,6 +21,10 @@ func _process(delta):
 
 func update_laser():
 	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if collider.name == "Player":
+			collider.die()
+			return
 		var collision_point = ray_cast.get_collision_point()
 		fimLazer.global_position.x = collision_point.x - 12
 		line.points = [Vector2.ZERO, to_local(collision_point)]

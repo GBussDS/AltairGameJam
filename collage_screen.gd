@@ -23,6 +23,9 @@ func _on_confirm_pressed():
 	get_parent().collageEnded()
 
 func createCollages():
+	for child in $collagesGroup.get_children():
+		child.queue_free()
+	collageCount = 0
 	for collagePath in parent.currentCollages:
 		collageCount += 1
 		spawn_point.progress_ratio = randf()

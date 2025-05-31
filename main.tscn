@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bap2x3m6vfl0b"]
+[gd_scene load_steps=6 format=3 uid="uid://bap2x3m6vfl0b"]
 
 [ext_resource type="Script" uid="uid://dgtn6m5c2krxl" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://chl60127ty4fn" path="res://menu.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cg3eorpt16s1k" path="res://art/cadernoBom.png" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bwvv3b4fsy85s" path="res://collageScreen.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ba40thlsfxq1e" path="res://lose_menu.tscn" id="5_lquwl"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -45,4 +46,12 @@ offset_bottom = 316.0
 [node name="collageScreen" parent="." instance=ExtResource("4_1bvp3")]
 position = Vector2(299, 11)
 
+[node name="LoseMenu" parent="." instance=ExtResource("5_lquwl")]
+visible = false
+offset_left = 340.0
+offset_right = 800.0
+offset_bottom = 546.0
+
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
+[connection signal="retry_level" from="LoseMenu" to="." method="_on_lose_menu_retry_level"]
+[connection signal="return_to_menu" from="LoseMenu" to="." method="_on_lose_menu_return_to_menu"]

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_lost
+
 const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 
 @export var speed = 300.0  # Velocidade de movimento horizontal
@@ -25,6 +27,9 @@ func _physics_process(delta):
 	# Lógica de Gravidade e Movimento
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		if position.y > get_viewport_rect().size.y + 100: # Se cair muito, perde
+			die()
+			return
 
 	var direction = Input.get_axis("left", "right")
 	if direction:
@@ -73,3 +78,6 @@ func set_animation(animation_name: String) -> void:
 	if $AnimatedSprite2D.animation != animation_name:
 		$AnimatedSprite2D.animation = animation_name
 		$Shadow.animation = animation_name
+
+func die() -> void:
+	emit_signal("player_lost")
