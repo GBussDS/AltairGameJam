@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfmwmypccqufo"]
+[gd_scene load_steps=23 format=3 uid="uid://cfmwmypccqufo"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_ny45v"]
+[ext_resource type="PackedScene" uid="uid://dsbsuptxyej68" path="res://collages/car.tscn" id="2_gf6d7"]
 [ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="2_hgrj1"]
 [ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="3_6txm1"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="3_eb6rn"]
+[ext_resource type="PackedScene" uid="uid://d3u6ydbyv4v4f" path="res://collages/pot.tscn" id="3_qc4gd"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="4_hffw0"]
+[ext_resource type="PackedScene" uid="uid://dc6wt3p03g1vy" path="res://collages/handler.tscn" id="4_qc4gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
 size = Vector2(181, 13)
@@ -84,8 +87,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgrj1"]
 size = Vector2(3179, 73)
 
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
 [node name="level 1" type="Node2D"]
 script = ExtResource("1_ny45v")
+levelCollages = Array[PackedScene]([ExtResource("2_gf6d7"), ExtResource("3_qc4gd"), ExtResource("4_qc4gd")])
 
 [node name="start" type="StaticBody2D" parent="."]
 
@@ -133,10 +145,7 @@ position = Vector2(546, 849)
 position = Vector2(4, 29)
 shape = SubResource("RectangleShape2D_hgrj1")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 21.0
-offset_right = 107.0
-offset_bottom = 71.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Mortes: 0"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}

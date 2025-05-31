@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsixqicxb2fs1"]
+[gd_scene load_steps=23 format=3 uid="uid://bsixqicxb2fs1"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_5io7x"]
 [ext_resource type="PackedScene" uid="uid://bcdsa8nutanvx" path="res://collages/bench.tscn" id="2_ble13"]
@@ -87,6 +87,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5c45"]
 size = Vector2(3179, 73)
 
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
 [node name="level" type="Node2D"]
 script = ExtResource("1_5io7x")
 levelCollages = Array[PackedScene]([ExtResource("2_ble13"), ExtResource("3_s6mdr")])
@@ -174,5 +182,10 @@ rotation = 0.261799
 [node name="saw7" parent="Saws" instance=ExtResource("8_bxofn")]
 position = Vector2(800, 229)
 rotation = 0.261799
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
 
 [connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

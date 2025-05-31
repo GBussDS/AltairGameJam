@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c06l4l17k64he"]
+[gd_scene load_steps=26 format=3 uid="uid://c06l4l17k64he"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_06a7t"]
 [ext_resource type="PackedScene" uid="uid://dsbsuptxyej68" path="res://collages/car.tscn" id="2_6tnc3"]
@@ -89,6 +89,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5c45"]
 size = Vector2(3179, 73)
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_06a7t")
@@ -191,5 +199,10 @@ max_distance = 900.0
 position = Vector2(1023, 99)
 scale = Vector2(-1, 1)
 max_distance = 800.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
 
 [connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

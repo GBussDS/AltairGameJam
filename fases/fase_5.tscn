@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://f5j62xnje0ng"]
+[gd_scene load_steps=26 format=3 uid="uid://f5j62xnje0ng"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_83rb0"]
 [ext_resource type="PackedScene" uid="uid://do3ht2t00x4u3" path="res://collages/keyboard.tscn" id="2_3yojr"]
-[ext_resource type="PackedScene" uid="uid://cnpvpqu37fwls" path="res://collages/painting1.tscn" id="3_i35c0"]
+[ext_resource type="PackedScene" uid="uid://j1hpe3d8qolq" path="res://collages/painting1.tscn" id="3_i35c0"]
 [ext_resource type="PackedScene" uid="uid://dbxmi8q4vphk" path="res://collages/painting2.tscn" id="4_eb53e"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="4_i35c0"]
 [ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="5_eb53e"]
@@ -89,6 +89,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5c45"]
 size = Vector2(3179, 73)
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_83rb0")
@@ -185,5 +193,10 @@ max_distance = 600.0
 [node name="lazer2" parent="." instance=ExtResource("9_1agwn")]
 position = Vector2(452, 217)
 max_distance = 600.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
 
 [connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

@@ -4,6 +4,9 @@ extends Node2D
 
 var numDeaths = 0
 
+func _ready():
+	$AnimationPlayer.play('movePlataforms')
+	
 func start_animations():
 	$start/BandeiraSaida.play()
 	$end/BandeiraChegada.play()

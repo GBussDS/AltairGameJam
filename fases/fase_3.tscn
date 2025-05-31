@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddtd4rgl8s27q"]
+[gd_scene load_steps=26 format=3 uid="uid://ddtd4rgl8s27q"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_f0fj6"]
 [ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="2_e4x2m"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m6uj082duugy" path="res://collages/stairs2.tscn" id="5_eleu0"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="5_w5osv"]
 [ext_resource type="PackedScene" uid="uid://duu8qt3u3a7m4" path="res://lazer.tscn" id="10_0fbi6"]
+[ext_resource type="PackedScene" uid="uid://bln7xdt40paff" path="res://fan.tscn" id="11_xim6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xg8"]
 size = Vector2(181, 13)
@@ -89,6 +90,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fbi6"]
 size = Vector2(3179, 73)
 
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
 [node name="level 1" type="Node2D"]
 script = ExtResource("1_f0fj6")
 levelCollages = Array[PackedScene]([ExtResource("2_w5osv"), ExtResource("3_0fbi6"), ExtResource("4_xim6r"), ExtResource("5_eleu0")])
@@ -133,7 +142,7 @@ sprite_frames = SubResource("SpriteFrames_ml20m")
 position = Vector2(184.5, 497.375)
 
 [node name="lazer" parent="." instance=ExtResource("10_0fbi6")]
-position = Vector2(576, 108)
+position = Vector2(603, 107)
 rotation = 1.5708
 max_distance = 600.0
 
@@ -151,5 +160,14 @@ offset_right = 107.0
 offset_bottom = 71.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mortes: 0"
+
+[node name="fan" parent="." instance=ExtResource("11_xim6r")]
+position = Vector2(446, 589)
+rotation = -2.21686
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
 
 [connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

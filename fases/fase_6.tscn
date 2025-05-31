@@ -1,15 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://vl6b3fu524j4"]
+[gd_scene load_steps=25 format=3 uid="uid://bvpw7mi4xggpf"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_a0a0x"]
 [ext_resource type="PackedScene" uid="uid://j1hpe3d8qolq" path="res://collages/painting1.tscn" id="2_6u5ae"]
-[ext_resource type="PackedScene" uid="uid://uboxlfug002u" path="res://collages/plane.tscn" id="3_lx280"]
+[ext_resource type="PackedScene" path="res://collages/plane.tscn" id="3_lx280"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="4_lx280"]
 [ext_resource type="PackedScene" uid="uid://d3u6ydbyv4v4f" path="res://collages/pot.tscn" id="4_u8amj"]
 [ext_resource type="PackedScene" uid="uid://dc6wt3p03g1vy" path="res://collages/handler.tscn" id="5_q8a0j"]
 [ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="5_u8amj"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="6_q8a0j"]
 [ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="7_icgxr"]
-[ext_resource type="PackedScene" path="res://saw.tscn" id="8_xion2"]
+[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="8_xion2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
 size = Vector2(181, 13)
@@ -88,6 +88,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5c45"]
 size = Vector2(3179, 73)
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"movePlataforms": SubResource("Animation_06a7t")
+}
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_a0a0x")
@@ -204,5 +212,10 @@ rotation = 0.261799
 [node name="saw14" parent="Saws" instance=ExtResource("8_xion2")]
 position = Vector2(970, 550)
 rotation = 0.261799
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
 
 [connection signal="body_entered" from="fallDeath" to="." method="_on_death"]

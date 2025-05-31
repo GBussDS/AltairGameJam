@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cijxssxde10mf"]
+
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_l0oor"]
+[ext_resource type="Texture2D" uid="uid://bbjirg0sd80m8" path="res://art/internet.png" id="2_l0oor"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c8dy0"]
+radius = 53.0
+height = 138.0
+
+[node name="Collage" type="StaticBody2D"]
+script = ExtResource("1_l0oor")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_c8dy0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, -3)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_l0oor")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, -7)
+polygon = PackedVector2Array(-30.5, 35, -38.5, -44, 37.5, -45, 31.5, 35, 38.5, 50, -36.5, 52)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
