@@ -17,5 +17,6 @@ func _on_death(body):
 	$Label.text = "Mortes: " + str(numDeaths)
 
 func _on_finish_reached(body):
-	await get_tree().create_timer(1).timeout
-	get_parent().nextLevel()
+	if body is CharacterBody2D:
+		await get_tree().create_timer(1).timeout
+		get_parent().nextLevel()

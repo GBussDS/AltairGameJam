@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chl60127ty4fn"]
+[gd_scene load_steps=9 format=3 uid="uid://chl60127ty4fn"]
 
 [ext_resource type="Script" uid="uid://jnpvuy5v5lcd" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://dty8yj2wjpn85" path="res://art/Play1.png" id="2_4hy44"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://8704dhx1obnk" path="res://art/Settings2.png" id="5_kk3ma"]
 [ext_resource type="Texture2D" uid="uid://kn6rpb2t8h0s" path="res://art/Quit1.png" id="5_l48gv"]
 [ext_resource type="Texture2D" uid="uid://cufyicvgh4sn6" path="res://art/Quit2.png" id="6_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://wqvwpo4oyld6" path="res://icon.svg" id="8_kk3ma"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ouk20")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="start" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,25 +26,124 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="start/CenterContainer"]
 layout_mode = 2
 
-[node name="play" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+[node name="play" type="TextureButton" parent="start/CenterContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_4hy44")
 texture_pressed = ExtResource("3_ytr4m")
 
-[node name="config" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+[node name="config" type="TextureButton" parent="start/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_ecwwl")
 texture_pressed = ExtResource("5_kk3ma")
 
-[node name="quit" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+[node name="quit" type="TextureButton" parent="start/CenterContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_l48gv")
 texture_pressed = ExtResource("6_ecwwl")
 
-[connection signal="button_up" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/config" to="." method="_on_config_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_button_up"]
+[node name="fases" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="fases"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fases/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="fases/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="fase1" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase2" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase3" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase4" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase5" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="fases/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="fase6" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase7" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase8" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="fase9" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_kk3ma")
+texture_pressed = ExtResource("8_kk3ma")
+
+[node name="TextEdit" type="Label" parent="fases"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 62.0
+offset_right = 662.0
+offset_bottom = 122.0
+text = "fases"
+
+[connection signal="button_up" from="start/CenterContainer/VBoxContainer/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="start/CenterContainer/VBoxContainer/config" to="." method="_on_config_button_up"]
+[connection signal="button_up" from="start/CenterContainer/VBoxContainer/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase1" to="." method="_on_fase_button_up" binds= [1]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase2" to="." method="_on_fase_button_up" binds= [2]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase3" to="." method="_on_fase_button_up" binds= [3]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase4" to="." method="_on_fase_button_up" binds= [4]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase5" to="." method="_on_fase_button_up" binds= [5]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase6" to="." method="_on_fase_button_up" binds= [6]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase7" to="." method="_on_fase_button_up" binds= [7]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase8" to="." method="_on_fase_button_up" binds= [8]]
+[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase9" to="." method="_on_fase_button_up" binds= [9]]

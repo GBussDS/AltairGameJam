@@ -32,8 +32,8 @@ scale = Vector2(2.26563, 5.17969)
 texture = ExtResource("2_8vco1")
 
 [node name="SpawnArea" type="Path2D" parent="."]
-position = Vector2(-3424.11, -0.281407)
-scale = Vector2(4.41277, 0.906275)
+position = Vector2(-3424.09, 6.74836)
+scale = Vector2(4.41275, 0.739853)
 curve = SubResource("Curve2D_n28u6")
 
 [node name="collageSpawn" type="PathFollow2D" parent="SpawnArea"]

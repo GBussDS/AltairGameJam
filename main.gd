@@ -6,29 +6,15 @@ var currentCollages = []
 var currentLevel = 0
 @export var levels: Array[PackedScene] = []
 
-var level
-
+var level: Node2D
+		
 func _ready():
 	$Menu.show()
 	$collageScreen.hide()
 	
-	level = levels[currentLevel].instantiate()
-	add_child(level)
-	level.hide()
-	
-	
 func _on_menu_start_game():
-	$Menu.hide()
-	level.show()
-	level.start_animations()
-	
-	currentCollages = level.levelCollages
-	
-	$collageScreen.createCollages()
-	$collageScreen.show()
-	
-	#pausa o jogo
-	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
+	$Menu/start.hide()
+	$Menu/fases.show()
 	
 func collageEnded():
 	#transição do zoom
@@ -44,6 +30,7 @@ func collageEnded():
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
 
 func nextLevel():
+	print('sss')
 	$collageScreen.hide()
 	level.free()
 	
@@ -74,3 +61,28 @@ func nextLevel():
 	
 	$collageScreen.is_dragging = -1
 	
+func playLevel(levelNum):
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property($Camera2D,"zoom",Vector2(0.65, 0.65), 0.5)
+	
+	$Menu.hide()
+	
+	currentLevel = levelNum - 1
+	level = levels[currentLevel].instantiate()
+	add_child(level)
+	
+	level.start_animations()
+	
+	currentCollages = level.levelCollages
+	
+	$collageScreen.createCollages()
+	$collageScreen.show()
+	print('b')
+	
+	#pausa o player
+	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
+	
+	if level is Node2D:
+		print("b")

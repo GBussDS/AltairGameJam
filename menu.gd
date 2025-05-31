@@ -11,3 +11,6 @@ func _on_config_button_up():
 
 func _on_quit_button_up():
 	get_tree().quit()
+
+func _on_fase_button_up(level):
+	get_parent().playLevel(level)

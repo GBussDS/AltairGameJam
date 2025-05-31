@@ -39,7 +39,6 @@ texture = ExtResource("2_lquwl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
-zoom = Vector2(0.65, 0.65)
 
 [node name="Menu" parent="." instance=ExtResource("1_ig7tw")]
 anchors_preset = 8
