@@ -46,6 +46,6 @@ shape = SubResource("CircleShape2D_7c5v0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_7s3ah")
-frame_progress = 0.3682
+frame_progress = 0.336363
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

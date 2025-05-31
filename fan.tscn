@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bln7xdt40paff"]
+
+[ext_resource type="Script" uid="uid://mgvhel3lf72x" path="res://fan.gd" id="1_7l2ec"]
+[ext_resource type="Texture2D" uid="uid://csnfwxvd20ab1" path="res://art/ventilador.png" id="1_8vgsl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vgsl"]
+size = Vector2(533.5, 109)
+
+[node name="fan" type="StaticBody2D"]
+script = ExtResource("1_7l2ec")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(21, 38, 34, -17, 28, -73, 3, -71, -3, -36, -44, -37, -45, 0, -29, 2, -35, 60, -50, 64, -58, 100, 18, 99, 17, 63, -16, 57, -15, 37)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_8vgsl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(288, -21)
+shape = SubResource("RectangleShape2D_8vgsl")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
