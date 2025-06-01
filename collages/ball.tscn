@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcrm6xaaedosb"]
 
-[ext_resource type="Script" uid="uid://4y6b751wky1h" path="res://ball.gd" id="1_ydc13"]
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_nk18q"]
 [ext_resource type="Texture2D" uid="uid://dfa532k5t8ghb" path="res://art/ball.png" id="2_nk18q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nk18q"]
@@ -12,8 +12,7 @@ radius = 35.1283
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 5
 collision_mask = 5
-gravity_scale = 0.0
-script = ExtResource("1_ydc13")
+script = ExtResource("1_nk18q")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 5
@@ -31,3 +30,6 @@ scale = Vector2(0.229167, 0.236806)
 texture = ExtResource("2_nk18q")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

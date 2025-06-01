@@ -37,5 +37,7 @@ func createCollages():
 		collage.num = collageCount
 		collage.position = spawn_point.position
 		collage.collageMode = true
+		if collage is RigidBody2D:
+			collage.freeze = true
 		
 		$collagesGroup.add_child(collage)

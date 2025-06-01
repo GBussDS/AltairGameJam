@@ -52,24 +52,14 @@ func _physics_process(delta):
 	rotation_degrees = rotation_degrees + (target_rotation - rotation_degrees) * 0.1
 
 	if draggable and not dragging:
-		if collageScreen.is_dragging == -1 and Input.is_action_just_pressed("click"):
+		if Input.is_action_just_pressed("click"):
+			# Sobrepõe o dragging
 			collageScreen.is_dragging = num
-			# Move para o final da lista para ser desenhado por cima dos outros
-			get_parent().move_child(self, -1)
-			z_index = 2
-			$Sprite2D.material.set_shader_parameter("interval", SHADER_INTERVAL) # Recomeça o shader
-			shadow_node.material.set_shader_parameter("shadow_scale", DRAGGING_SHADOW_SCALE)
-			offset = get_global_mouse_position() - global_position
-			dragging = true
-			var duration
-			if pickup_tween and pickup_tween.is_running():
-				duration = pickup_tween.get_total_elapsed_time()
-				pickup_tween.kill()
-			else:
-				duration = TWEEN_DURATION
-			pickup_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-			pickup_tween.tween_property(self, "scale", PICKED_UP_SCALE, duration)
-			play_paper_sound()
+			# Adia a chamada para o final do frame
+			# para que a collage que executou por último
+			# seja a que será arrastada, pois a última
+			# collage a processar é a que é desenhada por cima
+			initiate_dragging.call_deferred()
 	
 	if not dragging:
 		return
@@ -102,8 +92,27 @@ func _physics_process(delta):
 		collageScreen.is_dragging = -1
 		play_paper_sound()
 
+func initiate_dragging():
+	if collageScreen.is_dragging != num:
+		return
+	
+	# Move para o final da lista para ser desenhado por cima dos outros
+	get_parent().move_child(self, -1)
+	z_index = 2
+	$Sprite2D.material.set_shader_parameter("interval", SHADER_INTERVAL) # Recomeça o shader
+	shadow_node.material.set_shader_parameter("shadow_scale", DRAGGING_SHADOW_SCALE)
+	offset = get_global_mouse_position() - global_position
+	dragging = true
+	var duration = TWEEN_DURATION
+	if pickup_tween and pickup_tween.is_running():
+		duration = pickup_tween.get_total_elapsed_time()
+		pickup_tween.kill()
+	pickup_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	pickup_tween.tween_property(self, "scale", PICKED_UP_SCALE, duration)
+	play_paper_sound()
+
 func _on_area_2d_mouse_entered():
-	if collageMode and collageScreen.is_dragging == -1:
+	if collageMode:
 		draggable = true
 
 func _on_area_2d_mouse_exited():

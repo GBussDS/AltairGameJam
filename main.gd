@@ -29,7 +29,7 @@ func collageEnded():
 		collage.collageMode = false
 		# Verifica se a colagem é um RigidBody2D
 		if collage is RigidBody2D:
-			collage.gravity_scale = 1.0 
+			collage.freeze = false
 		
 	#despausa
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
@@ -82,6 +82,7 @@ func _on_pause_menu_resume_game() -> void:
 	resume_game()
 
 func _on_pause_menu_retry_level() -> void:
+	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	$PauseMenu.hide()
 	playLevel(currentLevel + 1)
 
@@ -111,8 +112,9 @@ func _input(event: InputEvent) -> void:
 		else:
 			$PauseMenu.show()
 			transition_in()
-			$collageScreen.hide()
 			$DeathCounter.hide()
+			$collageScreen.hide()
+			$collageScreen.process_mode = Node.PROCESS_MODE_DISABLED
 			if level:
 				level.hide()
 				level.process_mode = Node.PROCESS_MODE_DISABLED
@@ -121,6 +123,7 @@ func resume_game():
 	$PauseMenu.hide()
 	$DeathCounter.show()
 	$collageScreen.show()
+	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	if collageMode:
 		transition_out()
 	if level:
