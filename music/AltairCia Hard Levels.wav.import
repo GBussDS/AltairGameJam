@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7p61pc8mmgji"
+path="res://.godot/imported/AltairCia Hard Levels.wav-1377f7a75a8cd17144fb5181526987db.sample"
+
+[deps]
+
+source_file="res://music/AltairCia Hard Levels.wav"
+dest_files=["res://.godot/imported/AltairCia Hard Levels.wav-1377f7a75a8cd17144fb5181526987db.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

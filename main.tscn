@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bap2x3m6vfl0b"]
+[gd_scene load_steps=24 format=3 uid="uid://bap2x3m6vfl0b"]
 
 [ext_resource type="Script" uid="uid://dgtn6m5c2krxl" path="res://main.gd" id="1_iaj48"]
 [ext_resource type="PackedScene" uid="uid://cfmwmypccqufo" path="res://fases/fase_1.tscn" id="2_8wi47"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ba40thlsfxq1e" path="res://pause_menu.tscn" id="15_2fkn6"]
 [ext_resource type="FontFile" uid="uid://dk64tn6205mav" path="res://fonts/Kingthings Extortion.ttf" id="16_2cqfq"]
 [ext_resource type="Shader" uid="uid://06vvsa4o8g5q" path="res://shaders/transition.gdshader" id="17_yaehf"]
+[ext_resource type="AudioStream" uid="uid://dybbvi86ap7yq" path="res://music/AltairCia Menu Screen V2.wav" id="21_getpj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
 shader = ExtResource("17_yaehf")
@@ -105,6 +106,10 @@ offset_right = 152.0
 offset_bottom = 57.0
 text = "Deaths: 0"
 label_settings = SubResource("LabelSettings_lquwl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_getpj")
+autoplay = true
 
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
 [connection signal="resume_game" from="PauseMenu" to="." method="_on_pause_menu_resume_game"]

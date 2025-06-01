@@ -2,6 +2,9 @@ extends Node2D
 
 const LEVEL_BUTTON = preload("res://level_button.tscn")
 const COLLAGE_SHADER = preload("res://shaders/collage.gdshader")
+const MENU_MUSIC = preload("res://music/AltairCia Menu Screen V2.wav")
+const EASY_LEVEL_MUSIC = preload("res://music/AltaircIa Easy Level Music.wav")
+const HARD_LEVEL_MUSIC = preload("res://music/AltairCia Hard Levels.wav")
 
 const MAX_LEVELS_PER_ROW = 5
 const TRANSITION_DURATION = 1
@@ -43,6 +46,7 @@ func _ready():
 		if i >= currentRow * levelsPerRow:
 			currentRow += 1
 			currentHBox = HBoxContainer.new()
+			currentHBox.alignment = HBoxContainer.ALIGNMENT_CENTER
 			currentHBox.name = "Row" + str(currentRow)
 			currentHBox.add_theme_constant_override("separation", 30)
 			$Menu/fases/CenterContainer/VBoxContainer.add_child(currentHBox)
@@ -137,6 +141,10 @@ func transition_to_level(levelNum: int):
 	transition_into(playLevel.bind(levelNum))
 	
 func playLevel(levelNum):
+	var level_music = EASY_LEVEL_MUSIC if levelNum <= 10 else HARD_LEVEL_MUSIC
+	if $AudioStreamPlayer.stream != level_music:
+		$AudioStreamPlayer.stream = level_music
+		$AudioStreamPlayer.play()
 	$Menu.hide()
 	
 	currentLevel = levelNum - 1
@@ -197,6 +205,8 @@ func _on_pause_menu_return_to_menu() -> void:
 	transition_into(return_to_menu)
 
 func return_to_menu():
+	$AudioStreamPlayer.stream = MENU_MUSIC
+	$AudioStreamPlayer.play()
 	$PauseMenu.hide()
 	$Menu/start.show()
 	$Menu/fases.hide()

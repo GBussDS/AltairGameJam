@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnpiw754imyt"
+path="res://.godot/imported/AltaircIa Easy Level Music.wav-aba5a78fea39dcf1d9f21a8312ab130d.sample"
+
+[deps]
+
+source_file="res://music/AltaircIa Easy Level Music.wav"
+dest_files=["res://.godot/imported/AltaircIa Easy Level Music.wav-aba5a78fea39dcf1d9f21a8312ab130d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
