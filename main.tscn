@@ -109,6 +109,7 @@ label_settings = SubResource("LabelSettings_lquwl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_getpj")
+volume_db = -16.0
 autoplay = true
 
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
