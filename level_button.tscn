@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://d323updmshwk4"]
+
+[ext_resource type="Shader" uid="uid://bahiqixjrm84c" path="res://shaders/shadow.gdshader" id="2_txyvr"]
+[ext_resource type="FontFile" uid="uid://dk64tn6205mav" path="res://fonts/Kingthings Extortion.ttf" id="3_k1cd6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc1hx"]
+shader = ExtResource("2_txyvr")
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+shader_parameter/shadow_scale = 0.045
+shader_parameter/shadow_min_length = 10.0
+shader_parameter/shadow_max_length = 120.0
+shader_parameter/screen_center = Vector2(960, 540)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6xanl"]
+font = ExtResource("3_k1cd6")
+font_size = 69
+font_color = Color(0, 0, 0, 1)
+
+[node name="LevelButton" type="Button"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1024.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Shadow" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_vc1hx")
+polygon = PackedVector2Array(14.7223, 16.45, 86.6749, 1.0161, 126.182, 26.4134, 128.981, 73.0641, 111.721, 127.648, 39.4123, 119.251, 1.28239, 84.0918)
+uv = PackedVector2Array(-305, -58, -266, -63, -266, -41, -286, -28, -310, -39)
+
+[node name="Background" type="Polygon2D" parent="."]
+use_parent_material = true
+color = Color(0.815686, 0.8, 0.803922, 1)
+polygon = PackedVector2Array(14.7223, 16.45, 86.6749, 1.0161, 126.182, 26.4134, 128.981, 73.0641, 111.721, 127.648, 39.4123, 119.251, 1.28239, 84.0918)
+uv = PackedVector2Array(-305, -58, -266, -63, -266, -41, -286, -28, -310, -39)
+
+[node name="Label" type="Label" parent="."]
+use_parent_material = true
+offset_right = 128.0
+offset_bottom = 128.0
+text = "1"
+label_settings = SubResource("LabelSettings_6xanl")
+horizontal_alignment = 1
+vertical_alignment = 1

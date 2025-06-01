@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chl60127ty4fn"]
+[gd_scene load_steps=9 format=3 uid="uid://chl60127ty4fn"]
 
 [ext_resource type="Script" uid="uid://jnpvuy5v5lcd" path="res://menu.gd" id="1_ouk20"]
 [ext_resource type="Texture2D" uid="uid://dty8yj2wjpn85" path="res://art/Play1.png" id="2_4hy44"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://8704dhx1obnk" path="res://art/Settings2.png" id="5_kk3ma"]
 [ext_resource type="Texture2D" uid="uid://kn6rpb2t8h0s" path="res://art/Quit1.png" id="5_l48gv"]
 [ext_resource type="Texture2D" uid="uid://cufyicvgh4sn6" path="res://art/Quit2.png" id="6_ecwwl"]
-[ext_resource type="Texture2D" uid="uid://wqvwpo4oyld6" path="res://icon.svg" id="8_kk3ma"]
 [ext_resource type="PackedScene" uid="uid://270cfugfeqnh" path="res://settings.tscn" id="9_nrnbx"]
 
 [node name="Menu" type="Control"]
@@ -75,64 +74,6 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="fases/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="fase1" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase2" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase3" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase4" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase5" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="fases/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="fase6" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase7" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase8" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase9" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
-[node name="fase10" type="TextureButton" parent="fases/CenterContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture_normal = ExtResource("8_kk3ma")
-texture_pressed = ExtResource("8_kk3ma")
-
 [node name="TextEdit" type="Label" parent="fases"]
 layout_mode = 0
 offset_left = 510.0
@@ -150,13 +91,3 @@ offset_bottom = -326.0
 [connection signal="pressed" from="start/CenterContainer/VBoxContainer/play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="start/CenterContainer/VBoxContainer/config" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="start/CenterContainer/VBoxContainer/quit" to="." method="_on_quit_button_pressed"]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase1" to="." method="_on_fase_button_up" binds= [1]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase2" to="." method="_on_fase_button_up" binds= [2]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase3" to="." method="_on_fase_button_up" binds= [3]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase4" to="." method="_on_fase_button_up" binds= [4]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer/fase5" to="." method="_on_fase_button_up" binds= [5]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase6" to="." method="_on_fase_button_up" binds= [6]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase7" to="." method="_on_fase_button_up" binds= [7]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase8" to="." method="_on_fase_button_up" binds= [8]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase9" to="." method="_on_fase_button_up" binds= [9]]
-[connection signal="button_up" from="fases/CenterContainer/VBoxContainer/HBoxContainer2/fase10" to="." method="_on_fase_button_up" binds= [10]]

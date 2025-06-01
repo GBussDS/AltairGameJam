@@ -1,16 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwvv3b4fsy85s"]
+[gd_scene load_steps=9 format=3 uid="uid://bwvv3b4fsy85s"]
 
 [ext_resource type="Script" uid="uid://cglkgs5hjulvk" path="res://collage_screen.gd" id="1_v80ey"]
 [ext_resource type="Texture2D" uid="uid://wqvwpo4oyld6" path="res://icon.svg" id="2_8vco1"]
+[ext_resource type="Shader" uid="uid://m7n4ea7atmgp" path="res://shaders/collage.gdshader" id="3_512io"]
+[ext_resource type="FontFile" uid="uid://dk64tn6205mav" path="res://fonts/Kingthings Extortion.ttf" id="4_vkspm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v80ey"]
 size = Vector2(279, 660)
 
 [sub_resource type="Curve2D" id="Curve2D_n28u6"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 984.968, 42.2406, 0, 0, 0, 0, 1032.71, 80.9474, 0, 0, 0, 0, 984.206, 188.135, 0, 0, 0, 0, 1029.92, 269.519, 0, 0, 0, 0, 983.19, 365.789, 0, 0, 0, 0, 1030.94, 466.03, 0, 0, 0, 0, 982.175, 533.519, 0, 0, 0, 0, 1026.11, 595.053)
+"points": PackedVector2Array(0, 0, 0, 0, 984.968, 42.2406, 0, 0, 0, 0, 1032.71, 80.9474, 0, 0, 0, 0, 984.206, 188.135, 0, 0, 0, 0, 1029.92, 269.519, 0, 0, 0, 0, 983.19, 365.789, 0, 0, 0, 0, 1030.94, 466.03)
 }
-point_count = 8
+point_count = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtxnl"]
+shader = ExtResource("3_512io")
+shader_parameter/interval = 0.7
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 3.0
+shader_parameter/intensityY = 3.0
+shader_parameter/seed = 42.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_hnos6"]
+font = ExtResource("4_vkspm")
+font_size = 95
+font_color = Color(0.568627, 1, 0.486275, 1)
 
 [node name="collageScreen" type="Node2D"]
 script = ExtResource("1_v80ey")
@@ -40,15 +55,41 @@ curve = SubResource("Curve2D_n28u6")
 position = Vector2(984.968, 42.2406)
 rotation = 0.681262
 
-[node name="confirm" type="TextureButton" parent="."]
-modulate = Color(0.477511, 0.810294, 0.317376, 1)
-offset_left = 960.0
-offset_top = 512.0
-offset_right = 1161.0
-offset_bottom = 640.0
-disabled = true
-texture_normal = ExtResource("2_8vco1")
-texture_pressed = ExtResource("2_8vco1")
+[node name="confirm" type="Button" parent="."]
+material = SubResource("ShaderMaterial_mtxnl")
+offset_left = 934.0
+offset_top = 487.0
+offset_right = 1084.0
+offset_bottom = 637.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Polygon2D" parent="confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -260.743, -19.0798, -257.763, -39.3972, -259.625, -50.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0.4, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -266.763, -45.3972, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="confirm"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "OK"
+label_settings = SubResource("LabelSettings_hnos6")
 
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_collages_exited"]
 [connection signal="pressed" from="confirm" to="." method="_on_confirm_pressed"]

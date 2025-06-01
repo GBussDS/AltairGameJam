@@ -1,16 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ba40thlsfxq1e"]
 
 [ext_resource type="Script" uid="uid://cff3svxm0gl6e" path="res://pause_menu.gd" id="1_56whq"]
+[ext_resource type="Texture2D" uid="uid://oq41bibgt74n" path="res://art/pause_menu_text.png" id="2_e8sti"]
 [ext_resource type="Texture2D" uid="uid://yn46lstogb4h" path="res://art/resume1.png" id="2_mxa3g"]
 [ext_resource type="Texture2D" uid="uid://c64nsp88e8ips" path="res://art/resume_pressed.png" id="3_mxa3g"]
 [ext_resource type="Texture2D" uid="uid://bmtj6aqtel7p6" path="res://art/restart.png" id="5_d3xb4"]
 [ext_resource type="Texture2D" uid="uid://0qhd0i4ger8m" path="res://art/restar1.png" id="5_e8sti"]
 [ext_resource type="Texture2D" uid="uid://drnapjlhrv1d7" path="res://art/main_menu.png" id="6_q2yj1"]
 [ext_resource type="Texture2D" uid="uid://cj2yl6xnpi55q" path="res://art/main_menu_pressed.png" id="7_q2yj1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6d0jo"]
-font_size = 56
-font_color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="CenterContainer"]
 anchors_preset = 15
@@ -24,11 +21,9 @@ script = ExtResource("1_56whq")
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-text = "Paused"
-label_settings = SubResource("LabelSettings_6d0jo")
-horizontal_alignment = 1
+texture = ExtResource("2_e8sti")
 
 [node name="resume" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2

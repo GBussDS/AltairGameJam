@@ -8,6 +8,10 @@ extends Node2D
 
 var collageCount = 0
 
+func _ready():
+	var viewport_size = get_viewport_rect().size
+	$confirm.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, 0))
+
 func _process(delta):
 	if collageCount == 0:
 		$confirm.disabled = false

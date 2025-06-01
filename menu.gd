@@ -13,9 +13,6 @@ func _on_config_button_pressed():
 func _on_quit_button_pressed():
 	get_tree().quit()
 
-func _on_fase_button_up(level):
-	get_parent().playLevel(level)
-
 func show_menu():
 	$Settings.hide()
 	$start.show()
