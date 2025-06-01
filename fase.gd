@@ -58,6 +58,10 @@ func _on_player_death():
 func reset_player():
 	$Player.global_position = $start/BandeiraSaida.global_position
 	$Player.velocity = Vector2.ZERO
+	get_tree().create_timer(0.5).timeout.connect(remove_invincibility)
+
+func remove_invincibility():
+	$Player.dead = false
 
 func _on_finish_reached(body):
 	if body is CharacterBody2D:

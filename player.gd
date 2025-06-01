@@ -3,6 +3,11 @@ extends CharacterBody2D
 signal player_death
 
 const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
+const DEATH_SOUNDS = [
+	preload("res://sfx/Paper Crushed - 1.wav"),
+	preload("res://sfx/Paper Crushed - 2.wav"),
+	preload("res://sfx/Paper Ripped - 1.wav")
+]
 
 @export var speed = 300.0  # Velocidade de movimento horizontal
 @export var jump_velocity = -700.0 # Força do pulo
@@ -23,6 +28,8 @@ var jump_time := 0.0              # Contador de tempo de pulo atual
 # --- Variáveis para coyote time (pular fora do bloco) 
 var coyote_time_max := 0.2      # Duração máxima do coyote time
 var time_since_left_ground := 0.0 # Contador de quanto tempo se passou desde que saiu do chão
+
+var dead = false # Variável para controlar se o player está morto
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -108,4 +115,10 @@ func set_animation(animation_name: String) -> void:
 		$Shadow.animation = animation_name
 
 func die() -> void:
-	player_death.emit()
+	if dead:
+		return  # Se já está morto, não faz nada
+	dead = true
+	player_death.emit.call_deferred()  # Emite o sinal de morte do player
+	var random_sound = DEATH_SOUNDS[randi() % DEATH_SOUNDS.size()]
+	$AudioStreamPlayer2D.stream = random_sound
+	$AudioStreamPlayer2D.play()

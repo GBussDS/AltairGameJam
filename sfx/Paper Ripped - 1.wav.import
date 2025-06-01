@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctitulamiio0u"
+path="res://.godot/imported/Paper Ripped - 1.wav-e2d079510e6e004efcf37c2a214382d3.sample"
+
+[deps]
+
+source_file="res://sfx/Paper Ripped - 1.wav"
+dest_files=["res://.godot/imported/Paper Ripped - 1.wav-e2d079510e6e004efcf37c2a214382d3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

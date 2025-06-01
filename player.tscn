@@ -95,3 +95,5 @@ position = Vector2(24, 26)
 scale = Vector2(0.186893, 0.182243)
 sprite_frames = SubResource("SpriteFrames_b26j0")
 animation = &"stop"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
