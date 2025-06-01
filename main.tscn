@@ -71,10 +71,10 @@ position = Vector2(576, 324)
 [node name="TransitionScreen" type="ColorRect" parent="Camera2D"]
 z_index = 99
 material = SubResource("ShaderMaterial_074og")
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = -858.0
+offset_top = -462.0
+offset_right = 870.0
+offset_bottom = 510.0
 color = Color(0, 0, 0, 1)
 
 [node name="Menu" parent="." instance=ExtResource("13_ny67g")]
