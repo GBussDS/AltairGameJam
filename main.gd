@@ -108,6 +108,7 @@ func playLevel(levelNum):
 	$collageScreen.createCollages()
 	$collageScreen.show()
 	$collageScreen.is_dragging = -1
+	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	print('b')
 	
 	#pausa o player
