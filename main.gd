@@ -24,6 +24,7 @@ var level: Node2D
 var camera_shifted = false
 var camera_start_x = 0.0
 var default_camera_position := Vector2.ZERO
+var current_camera_position := Vector2.ZERO
 		
 @onready var currentLevelPath = "res://fases/fase_6.tscn"
 
@@ -238,15 +239,27 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and not $Menu.is_visible():
 		if $PauseMenu.is_visible():
 			resume_game()
+			transition_camera_to_pause(false)
 		else:
 			$PauseMenu.show()
 			camera_transition_in()
 			$DeathCounter.hide()
 			$collageScreen.hide()
 			$collageScreen.process_mode = Node.PROCESS_MODE_DISABLED
+			current_camera_position = $Camera2D.position
+			transition_camera_to_pause(true)
 			if level:
 				level.hide()
 				level.process_mode = Node.PROCESS_MODE_DISABLED
+
+func transition_camera_to_pause(paused: bool):
+	var target_position = default_camera_position if paused else current_camera_position
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(
+		$Camera2D, "position", target_position, 0.5
+	)
 
 func resume_game():
 	$PauseMenu.hide()
@@ -277,7 +290,7 @@ func _process(delta):
 		var px = player.global_position.x
 
 		# Se o player ultrapassar camera_start_x + 450, desloca a câmera 800px à direita
-		if px > camera_start_x + 450.0 and not camera_shifted:
+		if px > camera_start_x + 450.0 and not camera_shifted and level and level.is_wide_level:
 			camera_shifted = true
 			var target = Vector2(camera_start_x + 800.0, $Camera2D.global_position.y)
 			var tw = create_tween()
