@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba40thlsfxq1e"]
+[gd_scene load_steps=9 format=3 uid="uid://ba40thlsfxq1e"]
 
 [ext_resource type="Script" uid="uid://cff3svxm0gl6e" path="res://pause_menu.gd" id="1_56whq"]
 [ext_resource type="Texture2D" uid="uid://yn46lstogb4h" path="res://art/resume1.png" id="2_mxa3g"]
+[ext_resource type="Texture2D" uid="uid://c64nsp88e8ips" path="res://art/resume_pressed.png" id="3_mxa3g"]
 [ext_resource type="Texture2D" uid="uid://bmtj6aqtel7p6" path="res://art/restart.png" id="5_d3xb4"]
+[ext_resource type="Texture2D" uid="uid://0qhd0i4ger8m" path="res://art/restar1.png" id="5_e8sti"]
 [ext_resource type="Texture2D" uid="uid://drnapjlhrv1d7" path="res://art/main_menu.png" id="6_q2yj1"]
+[ext_resource type="Texture2D" uid="uid://cj2yl6xnpi55q" path="res://art/main_menu_pressed.png" id="7_q2yj1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6d0jo"]
 font_size = 56
@@ -30,41 +33,20 @@ horizontal_alignment = 1
 [node name="resume" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/resume"]
-layout_mode = 2
-offset_left = -201.0
-offset_top = -233.0
-offset_right = 186.0
-offset_bottom = -90.0
-texture = ExtResource("2_mxa3g")
-expand_mode = 1
+texture_normal = ExtResource("2_mxa3g")
+texture_pressed = ExtResource("3_mxa3g")
 
 [node name="retry" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/retry"]
-layout_mode = 0
-offset_left = -414.0
-offset_top = -21.0
-offset_right = 445.0
-offset_bottom = 127.0
-texture = ExtResource("5_d3xb4")
-expand_mode = 1
+texture_normal = ExtResource("5_d3xb4")
+texture_pressed = ExtResource("5_e8sti")
 
 [node name="menu" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/menu"]
-layout_mode = 0
-offset_left = -209.0
-offset_top = 114.0
-offset_right = 193.0
-offset_bottom = 259.0
-texture = ExtResource("6_q2yj1")
-expand_mode = 1
+texture_normal = ExtResource("6_q2yj1")
+texture_pressed = ExtResource("7_q2yj1")
 
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/retry" to="." method="_on_retry_pressed"]
