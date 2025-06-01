@@ -1,0 +1,324 @@
+[gd_scene load_steps=29 format=3 uid="uid://cn81mgdlbuygs"]
+
+[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_ethk8"]
+[ext_resource type="PackedScene" uid="uid://ctg72781u5a8h" path="res://collages/teclado.tscn" id="2_4klhb"]
+[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="3_qqpnw"]
+[ext_resource type="PackedScene" uid="uid://m6uj082duugy" path="res://collages/stairs2.tscn" id="3_v5gkg"]
+[ext_resource type="PackedScene" uid="uid://dc6wt3p03g1vy" path="res://collages/handler.tscn" id="4_a4ikm"]
+[ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="4_dx4jt"]
+[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="5_byoba"]
+[ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="6_4klhb"]
+[ext_resource type="PackedScene" uid="uid://btny24gcwnf60" path="res://art/plataform.tscn" id="7_v5gkg"]
+[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="8_a4ikm"]
+[ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="8_dx4jt"]
+[ext_resource type="PackedScene" uid="uid://cm4er46h6jjce" path="res://collages/pencil.tscn" id="10_byoba"]
+[ext_resource type="PackedScene" uid="uid://c12uy6wnagxor" path="res://collages/button.tscn" id="11_4klhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
+size = Vector2(181, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
+atlas = ExtResource("5_byoba")
+region = Rect2(0, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8a4r"]
+atlas = ExtResource("5_byoba")
+region = Rect2(16, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xagyt"]
+atlas = ExtResource("5_byoba")
+region = Rect2(32, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpmgr"]
+atlas = ExtResource("5_byoba")
+region = Rect2(48, 33, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8a4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xagyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpmgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
+atlas = ExtResource("5_byoba")
+region = Rect2(0, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1uea"]
+atlas = ExtResource("5_byoba")
+region = Rect2(16, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3gln"]
+atlas = ExtResource("5_byoba")
+region = Rect2(32, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs6pg"]
+atlas = ExtResource("5_byoba")
+region = Rect2(48, 17, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ra7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1uea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3gln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs6pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5x41"]
+size = Vector2(114.5, 64.5)
+
+[sub_resource type="Animation" id="Animation_kww3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(577, 551)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collage3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1031, 167)]
+}
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Collage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 600), Vector2(1600, 600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collage3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(600, 130), Vector2(1200, 130)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"RESET": SubResource("Animation_kww3m"),
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
+[node name="level2" type="Node2D"]
+script = ExtResource("1_ethk8")
+is_wide_level = true
+levelCollages = Array[PackedScene]([ExtResource("2_4klhb"), ExtResource("3_v5gkg"), ExtResource("3_v5gkg"), ExtResource("4_a4ikm")])
+
+[node name="Player" parent="." instance=ExtResource("3_qqpnw")]
+position = Vector2(139, 510)
+
+[node name="start" type="StaticBody2D" parent="."]
+position = Vector2(-78, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(211, 580)
+shape = SubResource("RectangleShape2D_mtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(194, 599)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_dx4jt")
+
+[node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
+texture_filter = 1
+position = Vector2(190, 539)
+scale = Vector2(5.60938, 4.9875)
+sprite_frames = SubResource("SpriteFrames_w2ra7")
+frame = 1
+frame_progress = 0.0520463
+
+[node name="end" type="StaticBody2D" parent="."]
+position = Vector2(63, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(1724, 74)
+shape = SubResource("RectangleShape2D_mtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(1708, 76)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_4klhb")
+
+[node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
+texture_filter = 1
+position = Vector2(1727, 41)
+scale = Vector2(5.03125, 4.45)
+sprite_frames = SubResource("SpriteFrames_ml20m")
+
+[node name="Area2D" type="Area2D" parent="end"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+position = Vector2(1722, 37)
+shape = SubResource("RectangleShape2D_h5x41")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
+
+[node name="Collage" parent="." instance=ExtResource("7_v5gkg")]
+position = Vector2(577, 551)
+
+[node name="Collage3" parent="." instance=ExtResource("7_v5gkg")]
+position = Vector2(1031, 167)
+
+[node name="lazer2" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(707, 365)
+
+[node name="lazer3" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(1669, 149)
+rotation = 1.5708
+
+[node name="lazer5" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(1117, 86)
+rotation = 1.5708
+
+[node name="lazer6" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(993, 88)
+rotation = 1.5708
+
+[node name="lazer7" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(861, 91)
+rotation = 1.5708
+
+[node name="lazer8" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(727, 88)
+rotation = 1.5708
+
+[node name="lazer9" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(610, 90)
+rotation = 1.5708
+
+[node name="saw2" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1201, 367)
+
+[node name="saw10" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1354, 161)
+
+[node name="saw11" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1441, 161)
+
+[node name="saw12" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1522, 157)
+
+[node name="saw13" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1603, 159)
+
+[node name="saw5" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(566, 378)
+
+[node name="saw14" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(484, 376)
+
+[node name="saw15" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(394, 377)
+
+[node name="saw16" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(304, 376)
+
+[node name="saw17" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(214, 377)
+
+[node name="saw18" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(120, 377)
+
+[node name="saw19" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(24, 379)
+
+[node name="saw6" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1245, 558)
+
+[node name="saw7" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1720, 236)
+
+[node name="saw8" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1722, 333)
+
+[node name="saw9" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1724, 430)
+
+[node name="saw3" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(587, 557)
+
+[node name="saw4" parent="." instance=ExtResource("8_a4ikm")]
+position = Vector2(1720, 527)
+
+[node name="Collage2" parent="." instance=ExtResource("10_byoba")]
+position = Vector2(1014, 556)
+rotation = 1.5708
+
+[node name="Collage4" parent="." instance=ExtResource("10_byoba")]
+position = Vector2(284, 225)
+
+[node name="lazer10" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(1356, -321)
+rotation = 1.5708
+
+[node name="lazer11" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(1356, -321)
+rotation = 1.5708
+
+[node name="lazer12" parent="." instance=ExtResource("8_dx4jt")]
+position = Vector2(1356, -321)
+rotation = 1.5708
+
+[node name="Button" parent="." instance=ExtResource("11_4klhb")]
+position = Vector2(412, 278)
+timer = 5
+
+[connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]

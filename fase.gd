@@ -4,6 +4,7 @@ const SHADOW_SHADER = preload("res://shaders/shadow.gdshader")
 
 signal player_death
 
+@export var is_wide_level: bool = false
 @export var levelCollages: Array[PackedScene] = []
 
 func _ready() -> void:

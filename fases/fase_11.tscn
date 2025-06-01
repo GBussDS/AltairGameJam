@@ -1,32 +1,33 @@
-[gd_scene load_steps=25 format=3 uid="uid://bv8qbfjavgro6"]
+[gd_scene load_steps=26 format=3 uid="uid://c63ulpm2fvhnu"]
 
-[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_kww3m"]
-[ext_resource type="PackedScene" uid="uid://cijxssxde10mf" path="res://collages/internet.tscn" id="2_h5x41"]
-[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="3_ct8lh"]
-[ext_resource type="PackedScene" uid="uid://8xs8x2545oex" path="res://collages/sharpener.tscn" id="3_lm7pj"]
-[ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="4_lm7pj"]
-[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="5_ax83a"]
-[ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="6_yl6wi"]
-[ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="7_v4kfw"]
-[ext_resource type="PackedScene" uid="uid://btny24gcwnf60" path="res://art/plataform.tscn" id="8_kww3m"]
+[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_brdhv"]
+[ext_resource type="PackedScene" uid="uid://j1hpe3d8qolq" path="res://collages/painting1.tscn" id="2_brdhv"]
+[ext_resource type="PackedScene" uid="uid://b0bk5go2gkryl" path="res://collages/painting2.tscn" id="3_5g1o3"]
+[ext_resource type="PackedScene" uid="uid://bjteghhmxmjuq" path="res://collages/painting3.tscn" id="4_gs88t"]
+[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="4_in8ge"]
+[ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="5_rdxol"]
+[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="6_si0xf"]
+[ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="7_fp7le"]
+[ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="8_p3wf1"]
+[ext_resource type="PackedScene" uid="uid://btny24gcwnf60" path="res://art/plataform.tscn" id="9_3e7us"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
 size = Vector2(181, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(0, 33, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8a4r"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(16, 33, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xagyt"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(32, 33, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpmgr"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(48, 33, 16, 15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
@@ -50,19 +51,19 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(0, 17, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1uea"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(16, 17, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3gln"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(32, 17, 16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gs6pg"]
-atlas = ExtResource("5_ax83a")
+atlas = ExtResource("6_si0xf")
 region = Rect2(48, 17, 16, 15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
@@ -127,10 +128,11 @@ _data = {
 }
 
 [node name="level" type="Node2D"]
-script = ExtResource("1_kww3m")
-levelCollages = Array[PackedScene]([ExtResource("2_h5x41"), ExtResource("3_lm7pj")])
+script = ExtResource("1_brdhv")
+is_wide_level = true
+levelCollages = Array[PackedScene]([ExtResource("2_brdhv"), ExtResource("3_5g1o3"), ExtResource("4_gs88t")])
 
-[node name="Player" parent="." instance=ExtResource("3_ct8lh")]
+[node name="Player" parent="." instance=ExtResource("4_in8ge")]
 position = Vector2(102, 499)
 
 [node name="start" type="StaticBody2D" parent="."]
@@ -143,7 +145,7 @@ shape = SubResource("RectangleShape2D_mtfop")
 [node name="Sprite2D" type="Sprite2D" parent="start"]
 position = Vector2(228, 580)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_lm7pj")
+texture = ExtResource("5_rdxol")
 
 [node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
 texture_filter = 1
@@ -157,39 +159,66 @@ frame_progress = 0.0520463
 position = Vector2(63, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
-position = Vector2(968.5, 113.5)
+position = Vector2(1750, 512)
 shape = SubResource("RectangleShape2D_mtfop")
 
 [node name="Sprite2D" type="Sprite2D" parent="end"]
-position = Vector2(950, 104.993)
+position = Vector2(1730, 521)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_yl6wi")
+texture = ExtResource("7_fp7le")
 
 [node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
 texture_filter = 1
-position = Vector2(958.5, 62.375)
+position = Vector2(1754, 479)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_ml20m")
 
 [node name="Area2D" type="Area2D" parent="end"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
-position = Vector2(963, 60)
+position = Vector2(1745, 477)
 shape = SubResource("RectangleShape2D_h5x41")
 
-[node name="lazer" parent="." instance=ExtResource("7_v4kfw")]
-position = Vector2(99, 408)
+[node name="lazer" parent="." instance=ExtResource("8_p3wf1")]
+position = Vector2(777, 107)
+rotation = 1.5708
 
-[node name="lazer2" parent="." instance=ExtResource("7_v4kfw")]
-position = Vector2(1032, 292)
-scale = Vector2(-1, 1)
+[node name="lazer2" parent="." instance=ExtResource("8_p3wf1")]
+position = Vector2(884, 109)
+rotation = 1.5708
+
+[node name="lazer3" parent="." instance=ExtResource("8_p3wf1")]
+position = Vector2(1245, 105)
+rotation = 1.5708
+
+[node name="lazer4" parent="." instance=ExtResource("8_p3wf1")]
+position = Vector2(1373, 107)
+rotation = 1.5708
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ujy6b")
 }
 
-[node name="Collage" parent="." instance=ExtResource("8_kww3m")]
+[node name="Collage" parent="." instance=ExtResource("9_3e7us")]
 position = Vector2(577, 551)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 972.0
+offset_top = 11.0
+offset_right = 1137.0
+offset_bottom = 73.0
+text = "Use the arrow keys
+to move around!"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
 
 [connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]
