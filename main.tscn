@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bap2x3m6vfl0b"]
+[gd_scene load_steps=20 format=3 uid="uid://bap2x3m6vfl0b"]
 
 [ext_resource type="Script" uid="uid://dgtn6m5c2krxl" path="res://main.gd" id="1_iaj48"]
 [ext_resource type="PackedScene" uid="uid://cfmwmypccqufo" path="res://fases/fase_1.tscn" id="2_8wi47"]
@@ -16,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://bwvv3b4fsy85s" path="res://collageScreen.tscn" id="14_x77wd"]
 [ext_resource type="PackedScene" uid="uid://ba40thlsfxq1e" path="res://pause_menu.tscn" id="15_2fkn6"]
 [ext_resource type="FontFile" uid="uid://dk64tn6205mav" path="res://fonts/Kingthings Extortion.ttf" id="16_2cqfq"]
+[ext_resource type="Shader" uid="uid://06vvsa4o8g5q" path="res://shaders/transition.gdshader" id="17_yaehf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
+shader = ExtResource("17_yaehf")
+shader_parameter/progress = 1.0
+shader_parameter/diamondPixelSize = 20.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
 font = ExtResource("16_2cqfq")
@@ -47,6 +53,15 @@ texture = ExtResource("12_aeikf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
+
+[node name="TransitionScreen" type="ColorRect" parent="Camera2D"]
+z_index = 99
+material = SubResource("ShaderMaterial_074og")
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
 
 [node name="Menu" parent="." instance=ExtResource("13_ny67g")]
 anchors_preset = 8

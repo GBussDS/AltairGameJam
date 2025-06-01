@@ -21,6 +21,7 @@ func _ready() -> void:
 		strip.material.shader = COLLAGE_SHADER
 		strip.material.set_shader_parameter("intensityX", 2.0)
 		strip.material.set_shader_parameter("intensityY", 2.0)
+		strip.material.set_shader_parameter("interval", 0.4)
 		var random_delay = randf_range(0.0, 2.0)
 		strip.material.set_shader_parameter("timeDelay", random_delay)
 		var random_seed = randi() % 1000

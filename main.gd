@@ -4,6 +4,9 @@ const LEVEL_BUTTON = preload("res://level_button.tscn")
 const COLLAGE_SHADER = preload("res://shaders/collage.gdshader")
 
 const MAX_LEVELS_PER_ROW = 5
+const TRANSITION_DURATION = 1
+const CAMERA_DEFAULT_ZOOM = 1.0
+const CAMERA_ZOOM_OUT = 0.65
 
 var collageMode = false
 var currentCollages = []
@@ -38,7 +41,7 @@ func _ready():
 		var levelButton = LEVEL_BUTTON.instantiate()
 		levelButton.name = "Level" + str(i + 1)
 		levelButton.get_node("Label").text = str(i + 1)
-		levelButton.pressed.connect(playLevel.bind(i + 1))
+		levelButton.pressed.connect(transition_to_level.bind(i + 1))
 
 		# Configura os shaders
 		var buttonShadow = levelButton.get_node("Shadow")
@@ -62,13 +65,38 @@ func _ready():
 
 		currentHBox.add_child(levelButton)
 	
+	animate_screen_transition()
+
+func animate_screen_transition(block: bool = false):
+	var progress = 0
+	if block:
+		progress = 1.0
+		$Camera2D/TransitionScreen.show()
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($Camera2D/TransitionScreen.material, "shader_parameter/progress", progress, TRANSITION_DURATION)
+
+	if not block:
+		tween.tween_callback($Camera2D/TransitionScreen.hide)
+	return tween
+
+func transition_into(callable: Callable):
+	var tween = animate_screen_transition(true)
+	tween.tween_callback(callable)
+	tween.tween_callback(animate_screen_transition)
+	
 func _on_menu_start_game():
+	transition_into(show_level_buttons)
+
+func show_level_buttons():
 	$Menu/start.hide()
 	$Menu/fases.show()
 	
 func collageEnded():
 	collageMode = false
-	transition_in()
+	camera_transition_in()
 	
 	for collage in $collageScreen/collagesGroup.get_children():
 		collage.collageMode = false
@@ -86,11 +114,13 @@ func nextLevel():
 	if currentLevel >= len(levels):
 		currentLevel = 0
 	
-	playLevel(currentLevel + 1)
+	transition_to_level(currentLevel + 1)
+
+func transition_to_level(levelNum: int):
+	camera_transition_out()
+	transition_into(playLevel.bind(levelNum))
 	
 func playLevel(levelNum):
-	transition_out()
-	
 	$Menu.hide()
 	
 	currentLevel = levelNum - 1
@@ -128,28 +158,43 @@ func _on_pause_menu_resume_game() -> void:
 	resume_game()
 
 func _on_pause_menu_retry_level() -> void:
+	camera_transition_out()
+	transition_into(retry_level)
+
+func retry_level():
 	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	$PauseMenu.hide()
 	playLevel(currentLevel + 1)
 
 func _on_pause_menu_return_to_menu() -> void:
+	transition_into(return_to_menu)
+
+func return_to_menu():
 	$PauseMenu.hide()
 	$Menu/start.show()
 	$Menu/fases.hide()
 	$Menu.show()
 
-func transition_in():
+
+func camera_transition_in():
 	#transição do zoom
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property($Camera2D, "zoom", Vector2(1.0, 1.0), 0.5)
+	tween.tween_property($Camera2D, "zoom", Vector2(CAMERA_DEFAULT_ZOOM, CAMERA_DEFAULT_ZOOM), 0.5)
+	var zoom_inverse = 1 / CAMERA_DEFAULT_ZOOM
+	$Camera2D/TransitionScreen.scale = Vector2(zoom_inverse, zoom_inverse)
+	# Center transition screen on the camera
+	$Camera2D/TransitionScreen.position = -$Camera2D/TransitionScreen.size * zoom_inverse / 2
 
-func transition_out():
+func camera_transition_out():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property($Camera2D, "zoom", Vector2(0.65, 0.65), 0.5)
+	tween.tween_property($Camera2D, "zoom", Vector2(CAMERA_ZOOM_OUT, CAMERA_ZOOM_OUT), 0.5)
+	var zoom_inverse = 1 / CAMERA_ZOOM_OUT
+	$Camera2D/TransitionScreen.scale = Vector2(zoom_inverse, zoom_inverse)
+	$Camera2D/TransitionScreen.position = -$Camera2D/TransitionScreen.size * zoom_inverse / 2
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and not $Menu.is_visible():
@@ -157,7 +202,7 @@ func _input(event: InputEvent) -> void:
 			resume_game()
 		else:
 			$PauseMenu.show()
-			transition_in()
+			camera_transition_in()
 			$DeathCounter.hide()
 			$collageScreen.hide()
 			$collageScreen.process_mode = Node.PROCESS_MODE_DISABLED
@@ -171,7 +216,7 @@ func resume_game():
 	$collageScreen.show()
 	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
 	if collageMode:
-		transition_out()
+		camera_transition_out()
 	if level:
 		level.show()
 		level.process_mode = Node.PROCESS_MODE_INHERIT
