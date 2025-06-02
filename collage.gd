@@ -112,7 +112,6 @@ func initiate_dragging():
 	play_paper_sound()
 
 func _on_area_2d_mouse_entered():
-	print('s ', collageMode)
 	if collageMode:
 		draggable = true
 

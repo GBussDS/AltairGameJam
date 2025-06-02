@@ -152,7 +152,6 @@ func collageEnded():
 		
 		currentCollages = storedPlayerCollages
 		
-		print(level_creating)
 		$collageScreen.createCollages()
 		$collageScreen.show()
 		$collageScreen.is_dragging = -1
@@ -160,7 +159,6 @@ func collageEnded():
 		level_creating = false
 
 func nextLevel():
-	print("sss")
 	
 	currentLevel += 1
 	if currentLevel >= len(levels):
@@ -215,9 +213,6 @@ func playLevel(levelNum):
 	
 	# Pausa o player
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
-	
-	if level is Node2D:
-		print("b")
 	
 	$DeathCounter.show()
 
@@ -327,7 +322,6 @@ func resume_game():
 		level.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _process(delta):
-	print($collageScreen.process_mode == Node.PROCESS_MODE_DISABLED)
 	# Se estiver em modo colagem E nível largo, permite pan com setas
 	if collageMode and level and level.is_wide_level:
 		var cam_pos = $Camera2D.global_position
@@ -374,10 +368,11 @@ func create_level(makerCollages, playerCollages, wide):
 	level.get_node('Player').hide()
 	
 	level.player_death.connect(_on_player_death)
+	level.is_wide_level = wide
 	add_child(level)
 	
 	# Troca de texturas de fundo
-	if level and level.is_wide_level:
+	if wide:
 		$background/TextureRect.hide()
 		$background/TextureRect2.show()
 	else:
