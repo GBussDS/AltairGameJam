@@ -9,6 +9,8 @@ var playerCollages = []
 
 var wide = true
 
+@export var flags_texture: Texture2D = preload("res://art/flags.png")
+
 func _input(event):
 	if event.is_action_pressed('jump'):
 		sum *= -1
@@ -44,7 +46,7 @@ func _on_confirm_button_up():
 		for i in range(int(child.text)):
 			makerCollages.append(collages[int(child.name)])
 	
-	var image = Image.load_from_file("res://art/flags.png")
+	var image = flags_texture.get_image()
 	
 	var tile_size = Vector2i(16, 16)
 	var gridStart = Vector2i(0, 2)
