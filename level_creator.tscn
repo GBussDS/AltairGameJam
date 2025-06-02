@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bfy7gj6hkqfto"]
+[gd_scene load_steps=75 format=3 uid="uid://dv2uyi0c6bnep"]
 
 [ext_resource type="Script" uid="uid://b5hcgo4e5pmao" path="res://level_creator.gd" id="1_8bjtu"]
 [ext_resource type="Texture2D" uid="uid://cg3eorpt16s1k" path="res://art/background.png" id="1_8gotd"]
@@ -118,6 +118,11 @@ shader_parameter/seed = 42.0
 [sub_resource type="LabelSettings" id="LabelSettings_p2mn3"]
 font = ExtResource("27_b30i5")
 font_size = 95
+font_color = Color(0.372549, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vlqt"]
+font = ExtResource("27_b30i5")
+font_size = 30
 font_color = Color(0.372549, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_34hem"]
@@ -845,6 +850,18 @@ offset_bottom = 103.0
 text = "para a fase: +"
 label_settings = SubResource("LabelSettings_p2mn3")
 
+[node name="Label2" type="Label" parent="toMaker/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -794.0
+offset_top = 710.0
+offset_right = -59.0
+offset_bottom = 780.0
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 1
+text = "* Aperte espaço pra diminuir/aumentar"
+label_settings = SubResource("LabelSettings_4vlqt")
+
 [node name="confirm" type="Button" parent="toMaker"]
 material = SubResource("ShaderMaterial_34hem")
 offset_left = 961.0
@@ -1473,6 +1490,18 @@ offset_right = -173.0
 offset_bottom = 103.0
 text = "para o pLayer: +"
 label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="Label2" type="Label" parent="toPlayer/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -794.0
+offset_top = 710.0
+offset_right = -59.0
+offset_bottom = 780.0
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 1
+text = "* Aperte espaço pra diminuir/aumentar"
+label_settings = SubResource("LabelSettings_4vlqt")
 
 [node name="confirm" type="Button" parent="toPlayer"]
 material = SubResource("ShaderMaterial_34hem")

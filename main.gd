@@ -58,10 +58,10 @@ func _ready():
 		levelButton.name = "Level" + str(i + 1)
 		if i == numLevels - 1:
 			levelButton.get_node("Label").text = '#'
-			levelButton.pressed.connect(_to_level_creator)
 		else:
 			levelButton.get_node("Label").text = str(i + 1)
-			levelButton.pressed.connect(transition_to_level.bind(i + 1))
+			
+		levelButton.pressed.connect(transition_to_level.bind(i + 1))
 
 		# Configura shader do botão
 		var buttonShadow = levelButton.get_node("Shadow")
@@ -136,6 +136,8 @@ func collageEnded():
 			
 		level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
 	else:
+		for child in $collageScreen/collagesGroup.get_children():
+			child.collageMode = false
 		level.get_node('start').global_position = $collageScreen/collagesGroup.get_node('start').global_position
 		level.get_node('Player').global_position = $collageScreen/collagesGroup.get_node('start').global_position + Vector2(0, -45)
 		
@@ -157,7 +159,6 @@ func collageEnded():
 		level_creating = false
 
 func nextLevel():
-	print("sss")
 	
 	currentLevel += 1
 	if currentLevel >= len(levels):
@@ -166,8 +167,13 @@ func nextLevel():
 	transition_to_level(currentLevel + 1)
 
 func transition_to_level(levelNum: int):
+	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	camera_transition_out()
-	transition_into(playLevel.bind(levelNum))
+	if levelNum == len(levels):
+		transition_into(_to_level_creator)
+	else:
+		transition_into(playLevel.bind(levelNum))
 	
 func playLevel(levelNum):
 	var level_music = EASY_LEVEL_MUSIC if levelNum <= 10 else HARD_LEVEL_MUSIC
@@ -207,9 +213,6 @@ func playLevel(levelNum):
 	
 	# Pausa o player
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
-	
-	if level is Node2D:
-		print("b")
 	
 	$DeathCounter.show()
 
@@ -365,10 +368,11 @@ func create_level(makerCollages, playerCollages, wide):
 	level.get_node('Player').hide()
 	
 	level.player_death.connect(_on_player_death)
+	level.is_wide_level = wide
 	add_child(level)
 	
 	# Troca de texturas de fundo
-	if level and level.is_wide_level:
+	if wide:
 		$background/TextureRect.hide()
 		$background/TextureRect2.show()
 	else:

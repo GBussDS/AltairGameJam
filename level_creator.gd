@@ -9,6 +9,17 @@ var playerCollages = []
 
 var wide = true
 
+func _input(event):
+	if event.is_action_pressed('jump'):
+		sum *= -1
+		
+		if sum == -1:
+			$toMaker/title/Label.text = 'para a fase: -'
+			$toPlayer/title/Label.text = 'para a fase: -'
+		else:
+			$toMaker/title/Label.text = 'para a fase: +'
+			$toPlayer/title/Label.text = 'para a fase: +'
+			
 func _ready():
 	for button in $toMaker/collages.get_children():
 		if button is Button:

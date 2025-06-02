@@ -11,19 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://g5tnkwcj5hof" path="res://fases/fase_8.tscn" id="9_ac8rc"]
 [ext_resource type="PackedScene" uid="uid://bv8qbfjavgro6" path="res://fases/fase_9.tscn" id="10_cd2oq"]
 [ext_resource type="PackedScene" uid="uid://d2ptc3pkmi1ly" path="res://fases/fase_10.tscn" id="11_bsow8"]
-[ext_resource type="PackedScene" uid="uid://c63ulpm2fvhnu" path="res://fases/fase_11.tscn" id="12_074og"]
+[ext_resource type="PackedScene" path="res://fases/fase_11.tscn" id="12_074og"]
 [ext_resource type="Texture2D" uid="uid://cg3eorpt16s1k" path="res://art/background.png" id="12_aeikf"]
-[ext_resource type="PackedScene" uid="uid://b02psq3xnvftl" path="res://fases/fase_12.tscn" id="13_cegan"]
+[ext_resource type="PackedScene" path="res://fases/fase_12.tscn" id="13_cegan"]
 [ext_resource type="PackedScene" uid="uid://chl60127ty4fn" path="res://menu.tscn" id="13_ny67g"]
 [ext_resource type="PackedScene" uid="uid://cn81mgdlbuygs" path="res://fases/fase_13.tscn" id="14_82xsv"]
 [ext_resource type="PackedScene" uid="uid://bwvv3b4fsy85s" path="res://collageScreen.tscn" id="14_x77wd"]
 [ext_resource type="PackedScene" uid="uid://c26emndfu0lqh" path="res://fases/fase_14.tscn" id="15_0odxb"]
 [ext_resource type="PackedScene" uid="uid://ba40thlsfxq1e" path="res://pause_menu.tscn" id="15_2fkn6"]
-[ext_resource type="PackedScene" uid="uid://bfy7gj6hkqfto" path="res://level_creator.tscn" id="15_ryguw"]
+[ext_resource type="PackedScene" uid="uid://dv2uyi0c6bnep" path="res://level_creator.tscn" id="15_ryguw"]
 [ext_resource type="FontFile" uid="uid://dk64tn6205mav" path="res://fonts/Kingthings Extortion.ttf" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bl3mne5nd75xg" path="res://fases/fase_15.tscn" id="16_lswn8"]
 [ext_resource type="PackedScene" uid="uid://dhml3g0e7ffro" path="res://fases/fase_16.tscn" id="17_a6jrf"]
-[ext_resource type="Shader" uid="uid://06vvsa4o8g5q" path="res://shaders/transition.gdshader" id="17_yaehf"]
+[ext_resource type="Shader" path="res://shaders/transition.gdshader" id="17_yaehf"]
 [ext_resource type="AudioStream" uid="uid://dybbvi86ap7yq" path="res://music/AltairCia Menu Screen V2.wav" id="21_getpj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
@@ -73,22 +73,13 @@ texture = ExtResource("12_aeikf")
 position = Vector2(576, 324)
 
 [node name="TransitionScreen" type="ColorRect" parent="Camera2D"]
-visible = false
-z_index = 99
-material = SubResource("ShaderMaterial_074og")
-offset_left = -858.0
-offset_top = -462.0
-offset_right = 870.0
-offset_bottom = 510.0
-color = Color(0, 0, 0, 1)
-
-[node name="TransitionScreen2" type="ColorRect" parent="Camera2D"]
 z_index = 99
 material = SubResource("ShaderMaterial_074og")
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Menu" parent="." instance=ExtResource("13_ny67g")]
