@@ -1,6 +1,6 @@
 [gd_scene load_steps=74 format=3 uid="uid://dv2uyi0c6bnep"]
 
-[ext_resource type="Script" path="res://level_creator.gd" id="1_8bjtu"]
+[ext_resource type="Script" uid="uid://b5hcgo4e5pmao" path="res://level_creator.gd" id="1_8bjtu"]
 [ext_resource type="Texture2D" uid="uid://cg3eorpt16s1k" path="res://art/background.png" id="1_8gotd"]
 [ext_resource type="PackedScene" path="res://collages/ball.tscn" id="2_opxv6"]
 [ext_resource type="PackedScene" uid="uid://bln7xdt40paff" path="res://fan.tscn" id="2_sq4b8"]
