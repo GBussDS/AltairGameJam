@@ -159,9 +159,8 @@ func collageEnded():
 		level_creating = false
 
 func nextLevel():
-	
 	currentLevel += 1
-	if currentLevel >= len(levels):
+	if currentLevel >= len(levels) - 1:
 		currentLevel = 0
 	
 	transition_to_level(currentLevel + 1)
