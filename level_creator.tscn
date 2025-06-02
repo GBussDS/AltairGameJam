@@ -182,6 +182,7 @@ mouse_filter = 2
 texture = ExtResource("1_8gotd")
 
 [node name="toMaker" type="Node2D" parent="."]
+visible = false
 
 [node name="collages" type="Node2D" parent="toMaker"]
 position = Vector2(5, 34)
@@ -1768,6 +1769,314 @@ offset_bottom = 145.0
 text = "OK"
 label_settings = SubResource("LabelSettings_1rjsh")
 
+[node name="codigo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1300.0
+offset_top = -486.0
+offset_right = -1260.0
+offset_bottom = -446.0
+
+[node name="title" type="Control" parent="codigo"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2521.0
+offset_top = 425.0
+offset_right = 2561.0
+offset_bottom = 465.0
+
+[node name="Shadow" type="Polygon2D" parent="codigo/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -206.76, -24.0709, -129.232, -23.0692, -62.0081, -25.8236, 4.23465, -21.8172, 42.0175, -44.8539, 17.9739, -58.1251, -82.1262, -58.6259, -155.729, -55.6211, -264.662, -53.1171)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="codigo/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.729412, 0, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -120.4, -26.5748, -52.685, -28.0772, 19.4459, -24.0708, 52.8126, -43.1011, 25.8249, -60.3787, -67.4056, -61.6307, -163.09, -57.6243, -210.686, -57.6243, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="codigo/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "fase pronta"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="edit" type="Control" parent="codigo"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2756.0
+offset_top = 728.0
+offset_right = 2796.0
+offset_bottom = 768.0
+
+[node name="Shadow" type="Polygon2D" parent="codigo/edit"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-333.848, -56.6227, -343.171, -25.0725, -301.378, -17.7253, -206.76, -24.0709, -102.735, -19.0629, -109.114, -41.8492, -90.9584, -59.6275, -155.729, -55.6211, -213.139, -59.1267, -271.04, -50.3628)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="codigo/edit"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.249334, 0.437245, 0.233588, 1)
+polygon = PackedVector2Array(-341.699, -60.1283, -352.494, -30.8316, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -103.716, -25.3229, -102.244, -43.8524, -93.4118, -58.8763, -153.276, -59.1267, -212.649, -62.8827, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="codigo/edit"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "codigo"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="ColorRect" type="ColorRect" parent="codigo/edit"]
+visible = false
+layout_mode = 0
+offset_left = -655.0
+offset_top = -11.0
+offset_right = -525.0
+offset_bottom = 119.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="codigo/edit/ColorRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 125.0
+
+[node name="Area2D" type="Area2D" parent="codigo/edit"]
+visible = false
+position = Vector2(-2738, -276)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="codigo/edit/Area2D"]
+position = Vector2(2150.75, 330.5)
+shape = SubResource("RectangleShape2D_34hem")
+
+[node name="TextEdit" type="TextEdit" parent="codigo/edit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+offset_left = -603.0
+offset_top = 10.0
+offset_right = -547.0
+offset_bottom = 88.0
+
+[node name="confirm" type="Button" parent="codigo"]
+material = SubResource("ShaderMaterial_34hem")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 28.625
+anchor_top = 11.725
+anchor_right = 28.625
+anchor_bottom = 11.725
+offset_left = 961.0
+offset_top = 465.0
+offset_right = 1111.0
+offset_bottom = 615.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Polygon2D" parent="codigo/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -260.743, -19.0798, -257.763, -39.3972, -259.625, -50.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="codigo/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0.4, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -266.763, -45.3972, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="codigo/confirm"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "OK"
+label_settings = SubResource("LabelSettings_1rjsh")
+
+[node name="retry" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1300.0
+offset_top = -486.0
+offset_right = -1260.0
+offset_bottom = -446.0
+
+[node name="title" type="Control" parent="retry"]
+visible = false
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2521.0
+offset_top = 425.0
+offset_right = 2561.0
+offset_bottom = 465.0
+
+[node name="Shadow" type="Polygon2D" parent="retry/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -206.76, -24.0709, -129.232, -23.0692, -62.0081, -25.8236, 4.23465, -21.8172, 42.0175, -44.8539, 17.9739, -58.1251, -82.1262, -58.6259, -155.729, -55.6211, -264.662, -53.1171)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="retry/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.729412, 0, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -120.4, -26.5748, -52.685, -28.0772, 19.4459, -24.0708, 52.8126, -43.1011, 25.8249, -60.3787, -67.4056, -61.6307, -163.09, -57.6243, -210.686, -57.6243, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="retry/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "seu codigo"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="edit" type="Control" parent="retry"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2756.0
+offset_top = 728.0
+offset_right = 2796.0
+offset_bottom = 768.0
+
+[node name="Shadow" type="Polygon2D" parent="retry/edit"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-333.848, -56.6227, -343.171, -25.0725, -301.378, -17.7253, -206.76, -24.0709, -102.735, -19.0629, -109.114, -41.8492, -90.9584, -59.6275, -155.729, -55.6211, -213.139, -59.1267, -271.04, -50.3628)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="retry/edit"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.249334, 0.437245, 0.233588, 1)
+polygon = PackedVector2Array(-341.699, -60.1283, -352.494, -30.8316, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -103.716, -25.3229, -102.244, -43.8524, -93.4118, -58.8763, -153.276, -59.1267, -212.649, -62.8827, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="retry/edit"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "codigo"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="ColorRect" type="ColorRect" parent="retry/edit"]
+visible = false
+layout_mode = 0
+offset_left = -655.0
+offset_top = -11.0
+offset_right = -525.0
+offset_bottom = 119.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="retry/edit/ColorRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 125.0
+
+[node name="Area2D" type="Area2D" parent="retry/edit"]
+visible = false
+position = Vector2(-2738, -276)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="retry/edit/Area2D"]
+position = Vector2(2150.75, 330.5)
+shape = SubResource("RectangleShape2D_34hem")
+
+[node name="TextEdit" type="TextEdit" parent="retry/edit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+offset_left = -603.0
+offset_top = 10.0
+offset_right = -547.0
+offset_bottom = 88.0
+
+[node name="confirm" type="Button" parent="retry"]
+material = SubResource("ShaderMaterial_34hem")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 28.625
+anchor_top = 11.725
+anchor_right = 28.625
+anchor_bottom = 11.725
+offset_left = 961.0
+offset_top = 465.0
+offset_right = 1111.0
+offset_bottom = 615.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Polygon2D" parent="retry/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -260.743, -19.0798, -257.763, -39.3972, -259.625, -50.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="retry/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0.4, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -266.763, -45.3972, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="retry/confirm"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "OK"
+label_settings = SubResource("LabelSettings_1rjsh")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(530, 314)
 zoom = Vector2(0.5, 0.5)
@@ -1781,3 +2090,5 @@ position = Vector2(-1206, -3)
 [connection signal="toggled" from="sizeSelect/grande/CheckButton" to="." method="_on_size_toggled" binds= [true]]
 [connection signal="toggled" from="sizeSelect/normal/CheckButton2" to="." method="_on_size_toggled" binds= [false]]
 [connection signal="button_up" from="sizeSelect/confirm" to="." method="_on_size_choosen"]
+[connection signal="button_up" from="codigo/confirm" to="." method="_on_codigo"]
+[connection signal="button_up" from="retry/confirm" to="." method="_on_retry"]

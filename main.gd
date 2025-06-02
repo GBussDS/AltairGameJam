@@ -33,6 +33,9 @@ var numDeaths = 0
 var level_creating = false
 var storedPlayerCollages = []
 
+var levelCreator
+var currentCodeList
+
 func _ready():
 	$Menu.show()
 	$collageScreen.hide()
@@ -232,7 +235,7 @@ func _to_level_creator():
 	$background/TextureRect.hide()
 	$background/TextureRect2.show()
 	
-	var levelCreator = load("res://level_creator.tscn").instantiate()
+	levelCreator = load("res://level_creator.tscn").instantiate()
 	add_child(levelCreator)
 	
 func _on_player_death():
@@ -403,3 +406,9 @@ func create_level(makerCollages, playerCollages, wide):
 	level.get_node('start').hide()
 	level.get_node('end').hide()
 	level.get_node('Player').hide()
+	
+	currentCodeList = [makerCollages, playerCollages, wide]
+	
+func createdLevelEnded():
+	levelCreator.get_node('retry/edit/TextEdit').text = levelCreator.save_scene_list(currentCodeList)
+	levelCreator.get_node('retry').show()

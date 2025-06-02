@@ -117,3 +117,129 @@ func _on_size_choosen():
 	$sizeSelect.hide()
 	get_parent().create_level(makerCollages, playerCollages, wide)
 	
+func save_scene_list(data: Array) -> String:
+	var serialized := [
+		_nodes_to_dicts(data[0]),
+		_nodes_to_dicts(data[1]),
+		data[2]
+	]
+	
+	var json_str := JSON.stringify(serialized)
+	var compressed := json_str.to_utf8_buffer().compress(FileAccess.COMPRESSION_GZIP)
+	return Marshalls.raw_to_base64(compressed)
+
+func _nodes_to_dicts(nodes: Array):
+	var result := []
+	for node in nodes:
+		if node is Node:
+			var entry := {
+				"path": node.scene_file_path,
+				"name": node.name,
+				"position": node.position,
+				"rotation": node.rotation,
+				"children": _save_children_recursive(node)  # Saves ALL children
+			}
+			result.append(entry)
+	return result
+
+func _save_children_recursive(parent: Node) -> Array:
+	var children_data := []
+	for child in parent.get_children():
+		if child.owner == parent:  
+			continue
+			
+		children_data.append({
+			"path": child.scene_file_path if child.scene_file_path else "",
+			"name": child.name,
+			"position": child.position.x,
+			"rotation": child.rotation.x,
+			"children": _save_children_recursive(child)
+		})
+	return children_data
+
+func load_scene_list(encoded_str: String, parent_node: Node) -> Array:
+	var compressed := Marshalls.base64_to_raw(encoded_str)
+	var json_str := compressed.decompress(FileAccess.COMPRESSION_GZIP).get_string_from_utf8()
+	var parsed: Array = JSON.parse_string(json_str)
+	
+	return [
+		_dicts_to_nodes(parsed[0], parent_node),
+		_dicts_to_nodes(parsed[1], parent_node),
+		parsed[2]
+	]
+
+func _dicts_to_nodes(data: Array[Dictionary], parent: Node) -> Array[Node]:
+	var nodes := []
+	for entry in data:
+		if entry.has("path"):
+			var instance: Node
+			
+			if entry["path"] and ResourceLoader.exists(entry["path"]):
+				instance = load(entry["path"]).instantiate()
+			else:
+				instance = Node.new()
+			
+			instance.name = entry["name"]
+			instance.position = Vector3(entry["position"][0], entry["position"][1], entry["position"][2])
+			instance.rotation = Vector3(entry["rotation"][0], entry["rotation"][1], entry["rotation"][2])
+			
+			parent.add_child(instance)
+			
+			if entry.has("children"):
+				_load_children_recursive(entry["children"], instance)
+			
+			nodes.append(instance)
+	return nodes
+
+func _load_children_recursive(children_data: Array, new_parent: Node):
+	for child_data in children_data:
+		var child: Node
+		if child_data["path"] and ResourceLoader.exists(child_data["path"]):
+			child = load(child_data["path"]).instantiate()
+		else:
+			child = Node.new()
+		
+		child.name = child_data["name"]
+		child.position = Vector3(child_data["position"][0], child_data["position"][1], child_data["position"][2])
+		child.rotation = Vector3(child_data["rotation"][0], child_data["rotation"][1], child_data["rotation"][2])
+		
+		new_parent.add_child(child)
+		
+		if child_data.has("children"):
+			_load_children_recursive(child_data["children"], child)
+
+func _is_valid_input(data: String) -> bool:
+	return data.length() > 10 or (data.begins_with("[") and data.ends_with("]"))
+	
+func _on_codigo():
+	var encoded_data = $codigo/edit/TextEdit.text.strip_edges()
+	
+	if encoded_data.is_empty():
+		$codigo.hide()
+		$toMaker.show()
+		return
+	
+	if not _is_valid_input(encoded_data):
+		$codigo/edit/TextEdit.text = "Invalid Code!"
+		await get_tree().create_timer(1.0).timeout
+		$codigo/edit/TextEdit.text = ''
+		return
+		
+	var loaded_list
+	var success = false
+
+	loaded_list = load_scene_list(encoded_data, get_parent())
+	success = loaded_list.size() == 3 and loaded_list[2] is bool
+	
+	if success:
+		get_parent().create_level(loaded_list[0], loaded_list[1], loaded_list[2])
+		$codigo.hide()
+	else:
+		# Show error feedback before hiding
+		$codigo/edit/TextEdit.text = "Invalid Code!"
+		await get_tree().create_timer(1.0).timeout
+		$codigo/edit/TextEdit.text = ''
+
+func _on_retry():
+	get_parent().level.emit('player_death')
+	$retry.hide()

@@ -67,4 +67,8 @@ func remove_invincibility():
 func _on_finish_reached(body):
 	if body is CharacterBody2D:
 		get_parent().nextLevel()
-		body.dead = true # Invencibilidade para o player
+		body.dead = true
+
+func _on_finish_created_level(body):
+	if body is CharacterBody2D:
+		get_parent().createdLevelEnded()
