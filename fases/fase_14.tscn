@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="7_getg1"]
 [ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="8_sqleb"]
 [ext_resource type="PackedScene" uid="uid://bcdsa8nutanvx" path="res://collages/bench.tscn" id="10_ej4s8"]
-[ext_resource type="PackedScene" uid="uid://c12uy6wnagxor" path="res://collages/button.tscn" id="11_alpar"]
+[ext_resource type="PackedScene" uid="uid://bql271jx3j07n" path="res://collages/button.tscn" id="11_alpar"]
 [ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="12_getg1"]
 [ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="13_sqleb"]
 

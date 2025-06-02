@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="8_a4ikm"]
 [ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="8_dx4jt"]
 [ext_resource type="PackedScene" uid="uid://cm4er46h6jjce" path="res://collages/pencil.tscn" id="10_byoba"]
-[ext_resource type="PackedScene" uid="uid://c12uy6wnagxor" path="res://collages/button.tscn" id="11_4klhb"]
+[ext_resource type="PackedScene" uid="uid://bql271jx3j07n" path="res://collages/button.tscn" id="11_4klhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
 size = Vector2(181, 13)
