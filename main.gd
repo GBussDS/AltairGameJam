@@ -137,9 +137,12 @@ func collageEnded():
 		level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
 	else:
 		level.get_node('start').global_position = $collageScreen/collagesGroup.get_node('start').global_position
-		level.get_node('Player').global_position = $collageScreen/collagesGroup.get_node('start').global_position
+		level.get_node('Player').global_position = $collageScreen/collagesGroup.get_node('start').global_position + Vector2(0, -45)
 		
 		level.get_node('end').global_position = $collageScreen/collagesGroup.get_node('end').global_position
+		
+		$collageScreen/collagesGroup.get_node('start').hide()
+		$collageScreen/collagesGroup.get_node('end').hide()
 		
 		level.get_node('start').show()
 		level.get_node('end').show()

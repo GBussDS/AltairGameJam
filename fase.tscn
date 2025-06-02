@@ -96,9 +96,10 @@ _data = {
 script = ExtResource("1_q0xg8")
 
 [node name="Player" parent="." instance=ExtResource("1_ylum6")]
-position = Vector2(-7, -45)
+position = Vector2(200, -45)
 
 [node name="start" type="StaticBody2D" parent="."]
+position = Vector2(200, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
 position = Vector2(32, 16.5)
