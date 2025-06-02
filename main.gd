@@ -152,6 +152,7 @@ func collageEnded():
 		
 		currentCollages = storedPlayerCollages
 		
+		print(level_creating)
 		$collageScreen.createCollages()
 		$collageScreen.show()
 		$collageScreen.is_dragging = -1
