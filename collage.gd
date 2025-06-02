@@ -17,7 +17,7 @@ const DRAGGING_SHADOW_SCALE = 0.18
 var draggable = false
 var dragging = false
 
-var collageMode = true
+var collageMode = false
 
 @export var num = 0
 
@@ -112,6 +112,7 @@ func initiate_dragging():
 	play_paper_sound()
 
 func _on_area_2d_mouse_entered():
+	print('s ', collageMode)
 	if collageMode:
 		draggable = true
 

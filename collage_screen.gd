@@ -8,6 +8,10 @@ extends Node2D
 
 var collageCount = 0
 
+func _ready():
+	var viewport_size = get_viewport_rect().size
+	$confirm.material.set_shader_parameter("screen_center", Vector2(viewport_size.x * 0.5, 0))
+	
 func _process(delta):
 	if collageCount == 0:
 		$confirm.disabled = false
@@ -21,8 +25,15 @@ func _on_area_collages_exited(body):
 func _on_confirm_pressed():
 	is_dragging = -2
 	get_parent().collageEnded()
-
+	$confirm.disabled = true
+	
 func createCollages():
+	for child in $collagesGroup.get_children():
+		child.queue_free()
+	collageCount = 0
+	is_dragging = -1
+	$confirm.disabled = false
+	
 	for collagePath in parent.currentCollages:
 		collageCount += 1
 		spawn_point.progress_ratio = randf()
@@ -39,6 +50,9 @@ func createCollages():
 			collage.position = spawn_point.position
 			collage.collageMode = true
 			
+			if collage is RigidBody2D:
+				collage.freeze = true
+				
 			$collagesGroup.add_child(collage)
 		else:
 			var collageContainer = load('res://collage.tscn').instantiate()

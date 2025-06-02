@@ -58,10 +58,10 @@ func _ready():
 		levelButton.name = "Level" + str(i + 1)
 		if i == numLevels - 1:
 			levelButton.get_node("Label").text = '#'
-			levelButton.pressed.connect(_to_level_creator)
 		else:
 			levelButton.get_node("Label").text = str(i + 1)
-			levelButton.pressed.connect(transition_to_level.bind(i + 1))
+			
+		levelButton.pressed.connect(transition_to_level.bind(i + 1))
 
 		# Configura shader do botão
 		var buttonShadow = levelButton.get_node("Shadow")
@@ -168,12 +168,11 @@ func nextLevel():
 	transition_to_level(currentLevel + 1)
 
 func transition_to_level(levelNum: int):
-	for child in $collageScreen/collagesGroup.get_children():
-		child.free()
-		
+	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	camera_transition_out()
 	if levelNum == len(levels):
-		transition_into(_to_level_creator())
+		transition_into(_to_level_creator)
 	else:
 		transition_into(playLevel.bind(levelNum))
 	
@@ -253,8 +252,6 @@ func _on_pause_menu_retry_level() -> void:
 
 func retry_level():
 	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
-	for child in $collageScreen/collagesGroup.get_children():
-		child.free()
 	$PauseMenu.hide()
 	playLevel(currentLevel + 1)
 
@@ -329,6 +326,7 @@ func resume_game():
 		level.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _process(delta):
+	print($collageScreen.process_mode == Node.PROCESS_MODE_DISABLED)
 	# Se estiver em modo colagem E nível largo, permite pan com setas
 	if collageMode and level and level.is_wide_level:
 		var cam_pos = $Camera2D.global_position
