@@ -136,6 +136,8 @@ func collageEnded():
 			
 		level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
 	else:
+		for child in $collageScreen/collagesGroup.get_children():
+			child.collageMode = false
 		level.get_node('start').global_position = $collageScreen/collagesGroup.get_node('start').global_position
 		level.get_node('Player').global_position = $collageScreen/collagesGroup.get_node('start').global_position + Vector2(0, -45)
 		
@@ -166,8 +168,14 @@ func nextLevel():
 	transition_to_level(currentLevel + 1)
 
 func transition_to_level(levelNum: int):
+	for child in $collageScreen/collagesGroup.get_children():
+		child.free()
+		
 	camera_transition_out()
-	transition_into(playLevel.bind(levelNum))
+	if levelNum == len(levels):
+		transition_into(_to_level_creator())
+	else:
+		transition_into(playLevel.bind(levelNum))
 	
 func playLevel(levelNum):
 	var level_music = EASY_LEVEL_MUSIC if levelNum <= 10 else HARD_LEVEL_MUSIC
@@ -245,6 +253,8 @@ func _on_pause_menu_retry_level() -> void:
 
 func retry_level():
 	$collageScreen.process_mode = Node.PROCESS_MODE_INHERIT
+	for child in $collageScreen/collagesGroup.get_children():
+		child.free()
 	$PauseMenu.hide()
 	playLevel(currentLevel + 1)
 

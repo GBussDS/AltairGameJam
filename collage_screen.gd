@@ -58,5 +58,3 @@ func createCollages():
 				collageContainer.name = 'end'
 				
 			$collagesGroup.add_child(collageContainer)
-		
-		
