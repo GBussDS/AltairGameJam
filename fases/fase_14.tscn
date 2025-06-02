@@ -1,0 +1,201 @@
+[gd_scene load_steps=28 format=3 uid="uid://c26emndfu0lqh"]
+
+[ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_iwol3"]
+[ext_resource type="PackedScene" uid="uid://b0unf86ixaifw" path="res://collages/tower.tscn" id="2_iwol3"]
+[ext_resource type="PackedScene" uid="uid://bq7s77wnd5rgk" path="res://collages/boat.tscn" id="3_sidks"]
+[ext_resource type="PackedScene" uid="uid://dymd23lrtcecg" path="res://collages/painting4.tscn" id="5_bumig"]
+[ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="5_ej4s8"]
+[ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="6_alpar"]
+[ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="7_getg1"]
+[ext_resource type="Texture2D" uid="uid://bkimq17n2nevw" path="res://art/bookEnd.png" id="8_sqleb"]
+[ext_resource type="PackedScene" uid="uid://bcdsa8nutanvx" path="res://collages/bench.tscn" id="10_ej4s8"]
+[ext_resource type="PackedScene" uid="uid://c12uy6wnagxor" path="res://collages/button.tscn" id="11_alpar"]
+[ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="12_getg1"]
+[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="13_sqleb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtfop"]
+size = Vector2(181, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6sy"]
+atlas = ExtResource("7_getg1")
+region = Rect2(0, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8a4r"]
+atlas = ExtResource("7_getg1")
+region = Rect2(16, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xagyt"]
+atlas = ExtResource("7_getg1")
+region = Rect2(32, 33, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpmgr"]
+atlas = ExtResource("7_getg1")
+region = Rect2(48, 33, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2ra7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8a4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xagyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpmgr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ra7"]
+atlas = ExtResource("7_getg1")
+region = Rect2(0, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1uea"]
+atlas = ExtResource("7_getg1")
+region = Rect2(16, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3gln"]
+atlas = ExtResource("7_getg1")
+region = Rect2(32, 17, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs6pg"]
+atlas = ExtResource("7_getg1")
+region = Rect2(48, 17, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ra7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1uea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3gln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs6pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5x41"]
+size = Vector2(114.5, 64.5)
+
+[sub_resource type="Animation" id="Animation_kww3m"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_06a7t"]
+resource_name = "movePlataforms"
+length = 5.0
+loop_mode = 2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujy6b"]
+_data = {
+&"RESET": SubResource("Animation_kww3m"),
+&"movePlataforms": SubResource("Animation_06a7t")
+}
+
+[node name="level2" type="Node2D"]
+script = ExtResource("1_iwol3")
+is_wide_level = true
+levelCollages = Array[PackedScene]([ExtResource("2_iwol3"), ExtResource("3_sidks"), ExtResource("5_bumig")])
+
+[node name="Player" parent="." instance=ExtResource("5_ej4s8")]
+position = Vector2(139, 510)
+
+[node name="start" type="StaticBody2D" parent="."]
+position = Vector2(-78, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2(211, 580)
+shape = SubResource("RectangleShape2D_mtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="start"]
+position = Vector2(194, 599)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_alpar")
+
+[node name="BandeiraSaida" type="AnimatedSprite2D" parent="start"]
+texture_filter = 1
+position = Vector2(190, 539)
+scale = Vector2(5.60938, 4.9875)
+sprite_frames = SubResource("SpriteFrames_w2ra7")
+frame = 1
+frame_progress = 0.0520463
+
+[node name="end" type="StaticBody2D" parent="."]
+position = Vector2(63, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
+position = Vector2(1852, 519)
+shape = SubResource("RectangleShape2D_mtfop")
+
+[node name="Sprite2D" type="Sprite2D" parent="end"]
+position = Vector2(1839, 513)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_sqleb")
+
+[node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
+texture_filter = 1
+position = Vector2(1860, 470)
+scale = Vector2(5.03125, 4.45)
+sprite_frames = SubResource("SpriteFrames_ml20m")
+
+[node name="Area2D" type="Area2D" parent="end"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
+position = Vector2(1844, 474)
+shape = SubResource("RectangleShape2D_h5x41")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ujy6b")
+}
+
+[node name="Collage" parent="." instance=ExtResource("10_ej4s8")]
+position = Vector2(375, 597)
+
+[node name="Button" parent="." instance=ExtResource("11_alpar")]
+position = Vector2(377, 556)
+timer = 5
+
+[node name="lazer9" parent="." instance=ExtResource("12_getg1")]
+position = Vector2(1787, 108)
+rotation = 1.5708
+
+[node name="lazer10" parent="." instance=ExtResource("12_getg1")]
+position = Vector2(554, 97)
+rotation = 1.5708
+
+[node name="saw15" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(1152, 599)
+
+[node name="saw16" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(1150, 503)
+
+[node name="saw17" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(1148, 406)
+
+[node name="saw18" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(887, 395)
+
+[node name="saw19" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(887, 302)
+
+[node name="saw20" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(885, 210)
+
+[node name="saw21" parent="." instance=ExtResource("13_sqleb")]
+position = Vector2(881, 118)
+
+[connection signal="body_entered" from="end/Area2D" to="." method="_on_finish_reached"]

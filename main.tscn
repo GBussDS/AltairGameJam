@@ -23,15 +23,15 @@
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="17_yaehf"]
 [ext_resource type="AudioStream" uid="uid://dybbvi86ap7yq" path="res://music/AltairCia Menu Screen V2.wav" id="21_getpj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
-shader = ExtResource("17_yaehf")
-shader_parameter/progress = 1.0
-shader_parameter/diamondPixelSize = 20.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
 font = ExtResource("16_2cqfq")
 font_size = 28
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_074og"]
+shader = ExtResource("17_yaehf")
+shader_parameter/progress = 1.0
+shader_parameter/diamondPixelSize = 20.0
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_iaj48")
@@ -113,6 +113,18 @@ label_settings = SubResource("LabelSettings_lquwl")
 stream = ExtResource("21_getpj")
 volume_db = -16.0
 autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="TransitionScreen" type="ColorRect" parent="Camera2D"]
+z_index = 99
+material = SubResource("ShaderMaterial_074og")
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
 [connection signal="resume_game" from="PauseMenu" to="." method="_on_pause_menu_resume_game"]

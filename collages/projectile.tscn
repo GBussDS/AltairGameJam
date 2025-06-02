@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs74y53rvr5qj"]
+
+[ext_resource type="Script" uid="uid://bs18h628xw1s1" path="res://lazer.gd" id="1_oe8x2"]
+[ext_resource type="Texture2D" uid="uid://c8dgk68gy52fv" path="res://art/projectile.png" id="2_8ywbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg10"]
+size = Vector2(30.875, 29.6875)
+
+[node name="Projectile" type="StaticBody2D"]
+script = ExtResource("1_oe8x2")
+max_distance = 1200.0
+laser_width = 10.0
+color = Color(0.819608, 0.14902, 0.305882, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
+shape = SubResource("RectangleShape2D_pxg10")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, 3)
+texture = ExtResource("2_8ywbj")
+
+[node name="Timer" type="Timer" parent="."]

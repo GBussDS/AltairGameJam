@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnlnwodq6wf4m"]
+
+[ext_resource type="Script" uid="uid://c8ethki3s6c30" path="res://collage.gd" id="1_hmfe2"]
+[ext_resource type="Texture2D" uid="uid://d3w52vyvb4o15" path="res://art/stairs.png" id="2_hmfe2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ns2s"]
+radius = 16.7335
+height = 99.4733
+
+[node name="Collage" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_hmfe2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.28571, -5.71429)
+rotation = -0.76969
+shape = SubResource("CapsuleShape2D_3ns2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.28571, -7.14286)
+scale = Vector2(0.0678571, 0.0726558)
+texture = ExtResource("2_hmfe2")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(58.5714, -72.8571)
+rotation = 1.5708
+polygon = PackedVector2Array(49.7143, 78.5714, 50, 62.8571, 68.5714, 62.8571, 70, 45.7143, 90, 45.7143, 92.8571, 27.1429, 102.857, 25.7143, 102.857, 51.4286, 81.4286, 52.8571, 82.8571, 71.4286, 61.4286, 71.4286, 61.4286, 88.5714, 40, 90, 38.5714, 101.429, 28.5714, 101.429, 28.5714, 81.4286)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
