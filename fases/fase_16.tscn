@@ -270,22 +270,22 @@ libraries = {
 }
 
 [node name="saw15" parent="." instance=ExtResource("12_v2sb2")]
-position = Vector2(592.722, 341.458)
+position = Vector2(1600, 561)
 
 [node name="saw16" parent="." instance=ExtResource("12_v2sb2")]
 position = Vector2(1600, 161)
 
 [node name="saw17" parent="." instance=ExtResource("12_v2sb2")]
-position = Vector2(1076.34, 461)
+position = Vector2(300, 461)
 
 [node name="saw18" parent="." instance=ExtResource("12_v2sb2")]
-position = Vector2(791.106, 361)
+position = Vector2(1600, 361)
 
 [node name="saw19" parent="." instance=ExtResource("12_v2sb2")]
-position = Vector2(997.315, 261)
+position = Vector2(300, 261)
 
 [node name="saw20" parent="." instance=ExtResource("12_v2sb2")]
-position = Vector2(578.483, 161)
+position = Vector2(1600, 161)
 
 [node name="saw21" parent="." instance=ExtResource("12_v2sb2")]
 position = Vector2(1625, 61)
