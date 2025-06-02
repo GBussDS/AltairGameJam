@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://df7th7swlf7tx"]
+[gd_scene load_steps=29 format=3 uid="uid://df7th7swlf7tx"]
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_fhdr1"]
 [ext_resource type="PackedScene" uid="uid://b0unf86ixaifw" path="res://collages/tower.tscn" id="2_1163k"]
 [ext_resource type="PackedScene" uid="uid://bq7s77wnd5rgk" path="res://collages/boat.tscn" id="3_11qrh"]
 [ext_resource type="PackedScene" uid="uid://dymd23lrtcecg" path="res://collages/painting4.tscn" id="4_26cje"]
+[ext_resource type="PackedScene" uid="uid://d3u6ydbyv4v4f" path="res://collages/pot.tscn" id="5_1163k"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="5_yrdg5"]
 [ext_resource type="Texture2D" uid="uid://dqdqe6b6rpy8b" path="res://art/bookStart.png" id="6_aoa8t"]
 [ext_resource type="Texture2D" uid="uid://ddtkjciog4qqv" path="res://art/flags.png" id="7_uxqeo"]
@@ -108,7 +109,7 @@ _data = {
 [node name="level2" type="Node2D"]
 script = ExtResource("1_fhdr1")
 is_wide_level = true
-levelCollages = Array[PackedScene]([ExtResource("2_1163k"), ExtResource("3_11qrh"), ExtResource("4_26cje")])
+levelCollages = Array[PackedScene]([ExtResource("2_1163k"), ExtResource("3_11qrh"), ExtResource("4_26cje"), ExtResource("5_1163k")])
 
 [node name="Player" parent="." instance=ExtResource("5_yrdg5")]
 position = Vector2(139, 510)
@@ -163,11 +164,11 @@ libraries = {
 }
 
 [node name="Collage" parent="." instance=ExtResource("9_lmouy")]
-position = Vector2(375, 597)
+position = Vector2(1155, 200)
 
 [node name="Button" parent="." instance=ExtResource("10_n1r26")]
-position = Vector2(377, 556)
-timer = 5
+position = Vector2(1151, 149)
+timer = 2
 
 [node name="lazer9" parent="." instance=ExtResource("11_7sitd")]
 position = Vector2(1787, 108)
