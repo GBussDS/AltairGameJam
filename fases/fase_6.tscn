@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co1qb0rd7rqpv" path="res://fase.gd" id="1_a0a0x"]
 [ext_resource type="PackedScene" uid="uid://j1hpe3d8qolq" path="res://collages/painting1.tscn" id="2_6u5ae"]
-[ext_resource type="PackedScene" uid="uid://uboxlfug002u" path="res://collages/plane.tscn" id="3_lx280"]
+[ext_resource type="PackedScene" path="res://collages/plane.tscn" id="3_lx280"]
 [ext_resource type="PackedScene" uid="uid://vias4ugj5cfn" path="res://player.tscn" id="4_lx280"]
 [ext_resource type="PackedScene" uid="uid://d3u6ydbyv4v4f" path="res://collages/pot.tscn" id="4_u8amj"]
 [ext_resource type="PackedScene" uid="uid://dc6wt3p03g1vy" path="res://collages/handler.tscn" id="5_q8a0j"]
@@ -97,7 +97,7 @@ _data = {
 &"movePlataforms": SubResource("Animation_06a7t")
 }
 
-[node name="level" type="Node2D"]
+[node name="level2" type="Node2D"]
 script = ExtResource("1_a0a0x")
 levelCollages = Array[PackedScene]([ExtResource("2_6u5ae"), ExtResource("3_lx280"), ExtResource("4_u8amj"), ExtResource("5_q8a0j")])
 

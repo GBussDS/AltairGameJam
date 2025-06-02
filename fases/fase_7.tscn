@@ -98,7 +98,7 @@ _data = {
 &"movePlataforms": SubResource("Animation_06a7t")
 }
 
-[node name="level" type="Node2D"]
+[node name="level2" type="Node2D"]
 script = ExtResource("1_06a7t")
 levelCollages = Array[PackedScene]([ExtResource("2_6tnc3"), ExtResource("3_06a7t"), ExtResource("9_khnll"), ExtResource("5_ujy6b")])
 

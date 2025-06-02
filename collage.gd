@@ -17,7 +17,7 @@ const DRAGGING_SHADOW_SCALE = 0.18
 var draggable = false
 var dragging = false
 
-var collageMode = false
+var collageMode = true
 
 @export var num = 0
 

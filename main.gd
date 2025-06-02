@@ -30,6 +30,9 @@ var current_camera_position := Vector2.ZERO
 
 var numDeaths = 0
 
+var level_creating = false
+var storedPlayerCollages = []
+
 func _ready():
 	$Menu.show()
 	$collageScreen.hide()
@@ -53,8 +56,12 @@ func _ready():
 			$Menu/fases/CenterContainer/VBoxContainer.add_child(currentHBox)
 		var levelButton = LEVEL_BUTTON.instantiate()
 		levelButton.name = "Level" + str(i + 1)
-		levelButton.get_node("Label").text = str(i + 1)
-		levelButton.pressed.connect(transition_to_level.bind(i + 1))
+		if i == numLevels - 1:
+			levelButton.get_node("Label").text = '#'
+			levelButton.pressed.connect(_to_level_creator)
+		else:
+			levelButton.get_node("Label").text = str(i + 1)
+			levelButton.pressed.connect(transition_to_level.bind(i + 1))
 
 		# Configura shader do botão
 		var buttonShadow = levelButton.get_node("Shadow")
@@ -118,15 +125,33 @@ func show_level_buttons():
 	$Menu/fases.show()
 	
 func collageEnded():
-	collageMode = false
-	camera_transition_in()
-	
-	for collage in $collageScreen/collagesGroup.get_children():
-		collage.collageMode = false
-		if collage is RigidBody2D:
-			collage.freeze = false
+	if not level_creating:
+		collageMode = false
+		camera_transition_in()
 		
-	level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
+		for collage in $collageScreen/collagesGroup.get_children():
+			collage.collageMode = false
+			if collage is RigidBody2D:
+				collage.freeze = false
+			
+		level.get_node("Player").process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		level.get_node('start').global_position = $collageScreen/collagesGroup.get_node('start').global_position
+		level.get_node('Player').global_position = $collageScreen/collagesGroup.get_node('start').global_position
+		
+		level.get_node('end').global_position = $collageScreen/collagesGroup.get_node('end').global_position
+		
+		level.get_node('start').show()
+		level.get_node('end').show()
+		level.get_node('Player').show()
+		
+		currentCollages = storedPlayerCollages
+		
+		$collageScreen.createCollages()
+		$collageScreen.show()
+		$collageScreen.is_dragging = -1
+		
+		level_creating = false
 
 func nextLevel():
 	print("sss")
@@ -176,7 +201,6 @@ func playLevel(levelNum):
 	$collageScreen.createCollages()
 	$collageScreen.show()
 	$collageScreen.is_dragging = -1
-	print("b")
 	
 	# Pausa o player
 	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
@@ -186,6 +210,25 @@ func playLevel(levelNum):
 	
 	$DeathCounter.show()
 
+func _to_level_creator():
+	var level_music = EASY_LEVEL_MUSIC
+	if $AudioStreamPlayer.stream != level_music:
+		$AudioStreamPlayer.stream = level_music
+		$AudioStreamPlayer.play()
+		
+	$Menu.hide()
+	
+	camera_transition_out()
+	$Camera2D.global_position = default_camera_position
+	camera_start_x = default_camera_position.x
+	camera_shifted = false
+	
+	$background/TextureRect.hide()
+	$background/TextureRect2.show()
+	
+	var levelCreator = load("res://level_creator.tscn").instantiate()
+	add_child(levelCreator)
+	
 func _on_player_death():
 	numDeaths += 1
 	$DeathCounter.text = "Deaths: " + str(numDeaths)
@@ -302,3 +345,54 @@ func _process(delta):
 			var target_back = Vector2(camera_start_x, $Camera2D.global_position.y)
 			var tw2 = create_tween()
 			tw2.tween_property($Camera2D, "global_position", target_back, 0.5)
+
+func create_level(makerCollages, playerCollages, wide):
+	var level_music = EASY_LEVEL_MUSIC if not wide else HARD_LEVEL_MUSIC
+	if $AudioStreamPlayer.stream != level_music:
+		$AudioStreamPlayer.stream = level_music
+		$AudioStreamPlayer.play()
+	$Menu.hide()
+	
+	if level:
+		level.queue_free()
+	level = load('res://fase.tscn').instantiate()
+	
+	level.get_node('start').hide()
+	level.get_node('end').hide()
+	level.get_node('Player').hide()
+	
+	level.player_death.connect(_on_player_death)
+	add_child(level)
+	
+	# Troca de texturas de fundo
+	if level and level.is_wide_level:
+		$background/TextureRect.hide()
+		$background/TextureRect2.show()
+	else:
+		$background/TextureRect.show()
+		$background/TextureRect2.hide()
+	
+	# Reseta câmera para posição padrão antes do nível
+	$Camera2D.global_position = default_camera_position
+	camera_start_x = default_camera_position.x
+	camera_shifted = false
+	
+	level.start_animations()
+	
+	currentCollages = makerCollages
+	storedPlayerCollages = playerCollages
+	
+	collageMode = true
+	$collageScreen.createCollages()
+	$collageScreen.show()
+	$collageScreen.is_dragging = -1
+	
+	# Pausa o player
+	level.get_node("Player").process_mode = Node.PROCESS_MODE_DISABLED
+	
+	$DeathCounter.show()
+	
+	level_creating = true
+	level.get_node('start').hide()
+	level.get_node('end').hide()
+	level.get_node('Player').hide()

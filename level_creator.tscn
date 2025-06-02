@@ -1,0 +1,1754 @@
+[gd_scene load_steps=74 format=3 uid="uid://bfy7gj6hkqfto"]
+
+[ext_resource type="Script" uid="uid://b5hcgo4e5pmao" path="res://level_creator.gd" id="1_8bjtu"]
+[ext_resource type="Texture2D" uid="uid://cg3eorpt16s1k" path="res://art/background.png" id="1_8gotd"]
+[ext_resource type="PackedScene" path="res://collages/ball.tscn" id="2_opxv6"]
+[ext_resource type="PackedScene" uid="uid://bln7xdt40paff" path="res://fan.tscn" id="2_sq4b8"]
+[ext_resource type="PackedScene" uid="uid://bykyagpoieafd" path="res://collages/basketball.tscn" id="3_u23yf"]
+[ext_resource type="PackedScene" uid="uid://bcdsa8nutanvx" path="res://collages/bench.tscn" id="4_sq4b8"]
+[ext_resource type="PackedScene" uid="uid://bq7s77wnd5rgk" path="res://collages/boat.tscn" id="5_b30i5"]
+[ext_resource type="PackedScene" uid="uid://bxqnsirdoe067" path="res://collages/bule.tscn" id="6_p2mn3"]
+[ext_resource type="PackedScene" uid="uid://bql271jx3j07n" path="res://collages/button.tscn" id="7_8bjtu"]
+[ext_resource type="PackedScene" uid="uid://dsbsuptxyej68" path="res://collages/car.tscn" id="8_34hem"]
+[ext_resource type="PackedScene" uid="uid://dnrhd46jyg0h5" path="res://collages/fridge.tscn" id="9_1rjsh"]
+[ext_resource type="PackedScene" uid="uid://dc6wt3p03g1vy" path="res://collages/handler.tscn" id="10_vjwd0"]
+[ext_resource type="PackedScene" uid="uid://cijxssxde10mf" path="res://collages/internet.tscn" id="11_ssb18"]
+[ext_resource type="PackedScene" uid="uid://dbwnds0bv5wto" path="res://collages/keyboard.tscn" id="12_042la"]
+[ext_resource type="PackedScene" uid="uid://dgpdar0xa4u4o" path="res://collages/mouse.tscn" id="13_yvgnm"]
+[ext_resource type="PackedScene" uid="uid://j1hpe3d8qolq" path="res://collages/painting1.tscn" id="14_0wblf"]
+[ext_resource type="PackedScene" uid="uid://b0bk5go2gkryl" path="res://collages/painting2.tscn" id="15_qoaoa"]
+[ext_resource type="PackedScene" uid="uid://bjteghhmxmjuq" path="res://collages/painting3.tscn" id="16_ljc8s"]
+[ext_resource type="PackedScene" path="res://collages/pencil.tscn" id="17_i8a4x"]
+[ext_resource type="PackedScene" path="res://collages/plane.tscn" id="18_p4mht"]
+[ext_resource type="PackedScene" uid="uid://d3u6ydbyv4v4f" path="res://collages/pot.tscn" id="19_b711m"]
+[ext_resource type="PackedScene" uid="uid://8xs8x2545oex" path="res://collages/sharpener.tscn" id="20_mdxk8"]
+[ext_resource type="PackedScene" uid="uid://m6uj082duugy" path="res://collages/stairs2.tscn" id="21_rfcj0"]
+[ext_resource type="PackedScene" uid="uid://ctg72781u5a8h" path="res://collages/teclado.tscn" id="22_qadee"]
+[ext_resource type="PackedScene" uid="uid://b0unf86ixaifw" path="res://collages/tower.tscn" id="23_5chq8"]
+[ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="25_b30i5"]
+[ext_resource type="PackedScene" uid="uid://cttgad0jqj0ub" path="res://saw.tscn" id="26_p2mn3"]
+[ext_resource type="FontFile" uid="uid://dk64tn6205mav" path="res://fonts/Kingthings Extortion.ttf" id="27_b30i5"]
+[ext_resource type="Shader" uid="uid://m7n4ea7atmgp" path="res://shaders/collage.gdshader" id="27_p2mn3"]
+[ext_resource type="Texture2D" uid="uid://dfa532k5t8ghb" path="res://art/ball.png" id="29_1rjsh"]
+[ext_resource type="PackedScene" uid="uid://bwvv3b4fsy85s" path="res://collageScreen.tscn" id="30_34hem"]
+[ext_resource type="Texture2D" uid="uid://dyvgh2sa6kmec" path="res://art/basketball.png" id="30_gjsbi"]
+[ext_resource type="Texture2D" uid="uid://basanor425xb7" path="res://art/bench.png" id="31_4vlqt"]
+[ext_resource type="Texture2D" uid="uid://cm4773t43notk" path="res://art/boat.png" id="32_cjxrw"]
+[ext_resource type="Texture2D" uid="uid://b4gx5v2s44qbg" path="res://art/bule.png" id="33_7d4kr"]
+[ext_resource type="Texture2D" uid="uid://cqjrca4ohwqph" path="res://art/botão.png" id="34_rqnnn"]
+[ext_resource type="Texture2D" uid="uid://crhwa4ddnb71" path="res://art/botõapertado.png" id="35_4vlqt"]
+[ext_resource type="Texture2D" uid="uid://n8424pwfs4ms" path="res://art/car.png" id="35_cj7en"]
+[ext_resource type="Texture2D" uid="uid://3nt4hi7gmwe6" path="res://art/fridge.png" id="36_4r75e"]
+[ext_resource type="Texture2D" uid="uid://cbjpca6ixnqhx" path="res://art/handler.png" id="37_8het0"]
+[ext_resource type="Texture2D" uid="uid://bbjirg0sd80m8" path="res://art/internet.png" id="38_e0rk1"]
+[ext_resource type="Texture2D" uid="uid://k8rdrwg4c3p3" path="res://art/keyboard.png" id="39_24ppo"]
+[ext_resource type="Texture2D" uid="uid://ba7syelkltr6q" path="res://art/mouse.png" id="40_qdwxy"]
+[ext_resource type="Texture2D" uid="uid://bbe0p0mwyupmb" path="res://art/paintings1.png" id="41_4m33i"]
+[ext_resource type="Texture2D" uid="uid://b6eaqhq7wyac2" path="res://art/paintings2.png" id="42_m5318"]
+[ext_resource type="Texture2D" uid="uid://drr1wvccfilxh" path="res://art/paintings3.png" id="43_jr5ji"]
+[ext_resource type="Texture2D" uid="uid://duv1vm0subg2e" path="res://art/pencil.png" id="44_2h873"]
+[ext_resource type="Texture2D" uid="uid://bd5mswryefkf" path="res://art/plane.png" id="45_np225"]
+[ext_resource type="Texture2D" uid="uid://bnqrgvglybyww" path="res://art/plant.png" id="46_vicao"]
+[ext_resource type="Texture2D" uid="uid://cr1td3b04enin" path="res://art/sharpener.png" id="47_qn3uh"]
+[ext_resource type="Texture2D" uid="uid://2fk52befxso7" path="res://art/stairs2.png" id="48_xfcxw"]
+[ext_resource type="Texture2D" uid="uid://b7vcqw8mjlgyi" path="res://art/teclado.png" id="49_5mley"]
+[ext_resource type="Texture2D" uid="uid://c1s6vb4te5exx" path="res://art/tower.png" id="50_nt5pf"]
+[ext_resource type="Texture2D" uid="uid://f33g4xcsr4pk" path="res://art/laser.png" id="51_aofe0"]
+[ext_resource type="Texture2D" uid="uid://5fuc2f71fm3e" path="res://art/saw1.png" id="52_1k7x1"]
+[ext_resource type="Texture2D" uid="uid://c4rhjuy1ggs8k" path="res://art/saw2.png" id="53_p04v4"]
+[ext_resource type="Texture2D" uid="uid://chbpv8p4po8ar" path="res://art/saw3.png" id="54_0tu2y"]
+[ext_resource type="Texture2D" uid="uid://kelleriq0fa6" path="res://art/saw4.png" id="55_jmdee"]
+[ext_resource type="Texture2D" uid="uid://csnfwxvd20ab1" path="res://art/ventilador.png" id="56_trwjc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rjsh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjwd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34hem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bjtu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6miev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_rqnnn")
+}],
+"loop": true,
+"name": &"not_pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_4vlqt")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7s3ah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_1k7x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_p04v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_0tu2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_jmdee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bjtu"]
+shader = ExtResource("27_p2mn3")
+shader_parameter/interval = 0.7
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 3.0
+shader_parameter/intensityY = 3.0
+shader_parameter/seed = 42.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2mn3"]
+font = ExtResource("27_b30i5")
+font_size = 95
+font_color = Color(0.372549, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_34hem"]
+shader = ExtResource("27_p2mn3")
+shader_parameter/interval = 0.7
+shader_parameter/timeDelay = 0.0
+shader_parameter/intensityX = 3.0
+shader_parameter/intensityY = 3.0
+shader_parameter/seed = 42.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rjsh"]
+font = ExtResource("27_b30i5")
+font_size = 95
+font_color = Color(0.568627, 1, 0.486275, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34hem"]
+size = Vector2(124.5, 123)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjwd0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34hem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rjsh"]
+
+[node name="creator" type="Node2D"]
+script = ExtResource("1_8bjtu")
+collages = Array[PackedScene]([ExtResource("2_opxv6"), ExtResource("3_u23yf"), ExtResource("4_sq4b8"), ExtResource("5_b30i5"), ExtResource("6_p2mn3"), ExtResource("7_8bjtu"), ExtResource("8_34hem"), ExtResource("9_1rjsh"), ExtResource("10_vjwd0"), ExtResource("11_ssb18"), ExtResource("12_042la"), ExtResource("13_yvgnm"), ExtResource("14_0wblf"), ExtResource("15_qoaoa"), ExtResource("16_ljc8s"), ExtResource("17_i8a4x"), ExtResource("18_p4mht"), ExtResource("19_b711m"), ExtResource("20_mdxk8"), ExtResource("21_rfcj0"), ExtResource("22_qadee"), ExtResource("23_5chq8"), ExtResource("25_b30i5"), ExtResource("26_p2mn3"), ExtResource("2_sq4b8")])
+
+[node name="background" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+offset_left = -1300.0
+offset_top = -486.0
+offset_right = 3200.0
+offset_bottom = 1291.0
+mouse_filter = 2
+color = Color(0.494118, 0.866667, 0.803922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_left = 1058.0
+offset_top = 284.0
+offset_right = 5058.0
+offset_bottom = 2933.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+texture = ExtResource("1_8gotd")
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 297.0
+offset_right = 7855.0
+offset_bottom = 3020.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+texture = ExtResource("1_8gotd")
+
+[node name="toMaker" type="Node2D" parent="."]
+
+[node name="collages" type="Node2D" parent="toMaker"]
+position = Vector2(5, 34)
+
+[node name="0" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 665.0
+offset_top = 45.0
+offset_right = 750.0
+offset_bottom = 124.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/0"]
+z_index = -1
+position = Vector2(40, 42)
+scale = Vector2(0.229167, 0.236806)
+texture = ExtResource("29_1rjsh")
+
+[node name="1" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 658.0
+offset_top = 119.0
+offset_right = 749.0
+offset_bottom = 252.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/1"]
+z_index = -1
+position = Vector2(44, 68)
+scale = Vector2(0.1085, 0.1085)
+texture = ExtResource("30_gjsbi")
+
+[node name="2" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 373.0
+offset_top = 195.0
+offset_right = 612.0
+offset_bottom = 274.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/2"]
+z_index = -1
+position = Vector2(114, 47)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("31_4vlqt")
+
+[node name="3" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 39.0
+offset_top = 426.0
+offset_right = 220.0
+offset_bottom = 608.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/3"]
+z_index = -1
+position = Vector2(88, 74)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("32_cjxrw")
+
+[node name="4" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 117.0
+offset_top = 215.0
+offset_right = 254.0
+offset_bottom = 348.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/4"]
+z_index = -1
+position = Vector2(60, 66)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("33_7d4kr")
+
+[node name="5" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 864.0
+offset_top = 414.0
+offset_right = 929.0
+offset_bottom = 493.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="toMaker/collages/5"]
+z_index = -1
+position = Vector2(33, 34)
+scale = Vector2(0.09375, 0.115505)
+sprite_frames = SubResource("SpriteFrames_6miev")
+animation = &"not_pressed"
+
+[node name="6" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 423.0
+offset_top = 292.0
+offset_right = 761.0
+offset_bottom = 398.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/6"]
+z_index = -1
+position = Vector2(159, 43)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("35_cj7en")
+
+[node name="7" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 34.0
+offset_top = 273.0
+offset_right = 90.0
+offset_bottom = 406.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/7"]
+z_index = -1
+position = Vector2(24, 72)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("36_4r75e")
+
+[node name="8" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 218.0
+offset_top = 339.0
+offset_right = 404.0
+offset_bottom = 418.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/8"]
+z_index = -1
+position = Vector2(88, 34)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("37_8het0")
+
+[node name="9" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 260.0
+offset_top = 219.0
+offset_right = 367.0
+offset_bottom = 352.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/9"]
+z_index = -1
+position = Vector2(51, 68)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("38_e0rk1")
+
+[node name="10" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 259.0
+offset_top = 401.0
+offset_right = 481.0
+offset_bottom = 513.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/10"]
+z_index = -1
+position = Vector2(108, 59)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("39_24ppo")
+
+[node name="11" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 520.0
+offset_top = 409.0
+offset_right = 611.0
+offset_bottom = 542.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/11"]
+z_index = -1
+position = Vector2(44, 71)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("40_qdwxy")
+
+[node name="12" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 799.0
+offset_top = 240.0
+offset_right = 921.0
+offset_bottom = 386.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/12"]
+z_index = -1
+position = Vector2(59, 81)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("41_4m33i")
+
+[node name="13" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 690.0
+offset_top = 438.0
+offset_right = 802.0
+offset_bottom = 584.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/13"]
+z_index = -1
+position = Vector2(56, 71)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("42_m5318")
+
+[node name="14" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 803.0
+offset_top = 56.0
+offset_right = 918.0
+offset_bottom = 200.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/14"]
+z_index = -1
+position = Vector2(61, 69)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("43_jr5ji")
+
+[node name="15" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 321.0
+offset_top = 533.0
+offset_right = 646.0
+offset_bottom = 612.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/15"]
+z_index = -1
+position = Vector2(162, 36)
+scale = Vector2(0.169375, 0.228598)
+texture = ExtResource("44_2h873")
+
+[node name="16" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 458.0
+offset_top = 15.0
+offset_right = 650.0
+offset_bottom = 94.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/16"]
+z_index = -1
+position = Vector2(91, 46)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("45_np225")
+
+[node name="17" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 274.0
+offset_top = 43.0
+offset_right = 412.0
+offset_bottom = 183.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/17"]
+z_index = -1
+position = Vector2(71, 70)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("46_vicao")
+
+[node name="18" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 127.0
+offset_top = 42.0
+offset_right = 218.0
+offset_bottom = 175.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/18"]
+z_index = -1
+position = Vector2(45, 70)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("47_qn3uh")
+
+[node name="19" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 244.0
+offset_top = 530.0
+offset_right = 328.0
+offset_bottom = 609.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/19"]
+z_index = -1
+position = Vector2(40, 52)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("48_xfcxw")
+
+[node name="20" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 454.0
+offset_top = 106.0
+offset_right = 637.0
+offset_bottom = 185.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/20"]
+z_index = -1
+position = Vector2(94, 41)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("49_5mley")
+
+[node name="21" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 40.0
+offset_top = 52.0
+offset_right = 103.0
+offset_bottom = 238.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/21"]
+z_index = -1
+position = Vector2(30, 97)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("50_nt5pf")
+
+[node name="22" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 973.0
+offset_top = 68.0
+offset_right = 1076.0
+offset_bottom = 148.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/22"]
+z_index = -1
+texture_filter = 1
+position = Vector2(59, 47)
+rotation = 3.14159
+scale = Vector2(0.1, -0.15)
+texture = ExtResource("51_aofe0")
+
+[node name="23" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 848.0
+offset_top = 500.0
+offset_right = 941.0
+offset_bottom = 586.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="toMaker/collages/23"]
+z_index = -1
+position = Vector2(44, 42)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7s3ah")
+frame_progress = 0.336363
+
+[node name="24" type="Button" parent="toMaker/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 961.0
+offset_top = 188.0
+offset_right = 1083.0
+offset_bottom = 339.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toMaker/collages/24"]
+z_index = -1
+position = Vector2(70, 59)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("56_trwjc")
+
+[node name="title" type="Control" parent="toMaker"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1223.0
+offset_top = -58.0
+offset_right = 1263.0
+offset_bottom = -18.0
+
+[node name="Shadow" type="Polygon2D" parent="toMaker/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -206.76, -24.0709, -103.716, -22.3181, 2.76279, -26.8253, 118.565, -21.8173, 133.285, -32.5844, 122.49, -54.6195, 20.4275, -50.8636, -52.6848, -56.1219, -155.729, -55.6211, -264.662, -53.1171)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="toMaker/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.729412, 0, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -103.716, -25.3229, 3.25346, -29.0789, 114.149, -24.5717, 134.267, -38.8444, 126.416, -58.3755, 18.4648, -56.3723, -52.6848, -59.1267, -153.276, -59.1267, -210.686, -57.6243, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="toMaker/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "para a fase: +"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="confirm" type="Button" parent="toMaker"]
+material = SubResource("ShaderMaterial_34hem")
+offset_left = 961.0
+offset_top = 465.0
+offset_right = 1111.0
+offset_bottom = 615.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Polygon2D" parent="toMaker/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -260.743, -19.0798, -257.763, -39.3972, -259.625, -50.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="toMaker/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0.4, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -266.763, -45.3972, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="toMaker/confirm"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "OK"
+label_settings = SubResource("LabelSettings_1rjsh")
+
+[node name="toPlayer" type="Node2D" parent="."]
+visible = false
+
+[node name="collages" type="Node2D" parent="toPlayer"]
+position = Vector2(5, 34)
+
+[node name="0" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 665.0
+offset_top = 45.0
+offset_right = 750.0
+offset_bottom = 124.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/0"]
+z_index = -1
+position = Vector2(40, 42)
+scale = Vector2(0.229167, 0.236806)
+texture = ExtResource("29_1rjsh")
+
+[node name="1" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 658.0
+offset_top = 119.0
+offset_right = 749.0
+offset_bottom = 252.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/1"]
+z_index = -1
+position = Vector2(44, 68)
+scale = Vector2(0.1085, 0.1085)
+texture = ExtResource("30_gjsbi")
+
+[node name="2" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 373.0
+offset_top = 195.0
+offset_right = 612.0
+offset_bottom = 274.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/2"]
+z_index = -1
+position = Vector2(114, 47)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("31_4vlqt")
+
+[node name="3" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 39.0
+offset_top = 426.0
+offset_right = 220.0
+offset_bottom = 608.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/3"]
+z_index = -1
+position = Vector2(88, 74)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("32_cjxrw")
+
+[node name="4" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 117.0
+offset_top = 215.0
+offset_right = 254.0
+offset_bottom = 348.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/4"]
+z_index = -1
+position = Vector2(60, 66)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("33_7d4kr")
+
+[node name="5" type="Button" parent="toPlayer/collages"]
+visible = false
+z_index = 2
+texture_filter = 2
+offset_left = 864.0
+offset_top = 414.0
+offset_right = 929.0
+offset_bottom = 493.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="toPlayer/collages/5"]
+z_index = -1
+position = Vector2(33, 34)
+scale = Vector2(0.09375, 0.115505)
+sprite_frames = SubResource("SpriteFrames_6miev")
+animation = &"not_pressed"
+
+[node name="6" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 423.0
+offset_top = 292.0
+offset_right = 761.0
+offset_bottom = 398.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/6"]
+z_index = -1
+position = Vector2(159, 43)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("35_cj7en")
+
+[node name="7" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 34.0
+offset_top = 273.0
+offset_right = 90.0
+offset_bottom = 406.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/7"]
+z_index = -1
+position = Vector2(24, 72)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("36_4r75e")
+
+[node name="8" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 218.0
+offset_top = 339.0
+offset_right = 404.0
+offset_bottom = 418.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/8"]
+z_index = -1
+position = Vector2(88, 34)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("37_8het0")
+
+[node name="9" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 260.0
+offset_top = 219.0
+offset_right = 367.0
+offset_bottom = 352.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/9"]
+z_index = -1
+position = Vector2(51, 68)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("38_e0rk1")
+
+[node name="10" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 259.0
+offset_top = 401.0
+offset_right = 481.0
+offset_bottom = 513.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/10"]
+z_index = -1
+position = Vector2(108, 59)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("39_24ppo")
+
+[node name="11" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 520.0
+offset_top = 409.0
+offset_right = 611.0
+offset_bottom = 542.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/11"]
+z_index = -1
+position = Vector2(44, 71)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("40_qdwxy")
+
+[node name="12" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 799.0
+offset_top = 240.0
+offset_right = 921.0
+offset_bottom = 386.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/12"]
+z_index = -1
+position = Vector2(59, 81)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("41_4m33i")
+
+[node name="13" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 690.0
+offset_top = 438.0
+offset_right = 802.0
+offset_bottom = 584.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/13"]
+z_index = -1
+position = Vector2(56, 71)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("42_m5318")
+
+[node name="14" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 803.0
+offset_top = 56.0
+offset_right = 918.0
+offset_bottom = 200.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/14"]
+z_index = -1
+position = Vector2(61, 69)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("43_jr5ji")
+
+[node name="15" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 321.0
+offset_top = 533.0
+offset_right = 646.0
+offset_bottom = 612.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/15"]
+z_index = -1
+position = Vector2(162, 36)
+scale = Vector2(0.169375, 0.228598)
+texture = ExtResource("44_2h873")
+
+[node name="16" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 458.0
+offset_top = 15.0
+offset_right = 650.0
+offset_bottom = 94.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/16"]
+z_index = -1
+position = Vector2(91, 46)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("45_np225")
+
+[node name="17" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 274.0
+offset_top = 43.0
+offset_right = 412.0
+offset_bottom = 183.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/17"]
+z_index = -1
+position = Vector2(71, 70)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("46_vicao")
+
+[node name="18" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 127.0
+offset_top = 42.0
+offset_right = 218.0
+offset_bottom = 175.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/18"]
+z_index = -1
+position = Vector2(45, 70)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("47_qn3uh")
+
+[node name="19" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 244.0
+offset_top = 530.0
+offset_right = 328.0
+offset_bottom = 609.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/19"]
+z_index = -1
+position = Vector2(40, 52)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("48_xfcxw")
+
+[node name="20" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 454.0
+offset_top = 106.0
+offset_right = 637.0
+offset_bottom = 185.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/20"]
+z_index = -1
+position = Vector2(94, 41)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("49_5mley")
+
+[node name="21" type="Button" parent="toPlayer/collages"]
+z_index = 2
+texture_filter = 2
+offset_left = 40.0
+offset_top = 52.0
+offset_right = 103.0
+offset_bottom = 238.0
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("27_b30i5")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rjsh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_34hem")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8bjtu")
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="toPlayer/collages/21"]
+z_index = -1
+position = Vector2(30, 97)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("50_nt5pf")
+
+[node name="title" type="Control" parent="toPlayer"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1223.0
+offset_top = -58.0
+offset_right = 1263.0
+offset_bottom = -18.0
+
+[node name="Shadow" type="Polygon2D" parent="toPlayer/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -206.76, -24.0709, -103.716, -22.3181, 2.76279, -26.8253, 118.565, -21.8173, 133.285, -32.5844, 122.49, -54.6195, 20.4275, -50.8636, -52.6848, -56.1219, -155.729, -55.6211, -264.662, -53.1171)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="toPlayer/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.729412, 0, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -103.716, -25.3229, 3.25346, -29.0789, 114.149, -24.5717, 134.267, -38.8444, 126.416, -58.3755, 18.4648, -56.3723, -52.6848, -59.1267, -153.276, -59.1267, -210.686, -57.6243, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="toPlayer/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "para o pLayer: +"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="confirm" type="Button" parent="toPlayer"]
+material = SubResource("ShaderMaterial_34hem")
+offset_left = 961.0
+offset_top = 465.0
+offset_right = 1111.0
+offset_bottom = 615.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Polygon2D" parent="toPlayer/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -260.743, -19.0798, -257.763, -39.3972, -259.625, -50.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="toPlayer/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0.4, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -266.763, -45.3972, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="toPlayer/confirm"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "OK"
+label_settings = SubResource("LabelSettings_1rjsh")
+
+[node name="sizeSelect" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1300.0
+offset_top = -486.0
+offset_right = -1260.0
+offset_bottom = -446.0
+
+[node name="title" type="Control" parent="sizeSelect"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2521.0
+offset_top = 425.0
+offset_right = 2561.0
+offset_bottom = 465.0
+
+[node name="Shadow" type="Polygon2D" parent="sizeSelect/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -206.76, -24.0709, -103.716, -22.3181, -78.6913, -30.8317, -104.698, -56.6227, -155.729, -55.6211, -264.662, -53.1171)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="sizeSelect/title"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.729412, 0, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -103.716, -25.3229, -75.7471, -38.0932, -93.4118, -58.8763, -153.276, -59.1267, -210.686, -57.6243, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="sizeSelect/title"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "tamanho "
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="grande" type="Control" parent="sizeSelect"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2639.0
+offset_top = 671.0
+offset_right = 2679.0
+offset_bottom = 711.0
+
+[node name="Shadow" type="Polygon2D" parent="sizeSelect/grande"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-333.848, -56.6227, -343.171, -25.0725, -301.378, -17.7253, -206.76, -24.0709, -102.735, -19.0629, -109.114, -41.8492, -90.9584, -59.6275, -155.729, -55.6211, -213.139, -59.1267, -271.04, -50.3628)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="sizeSelect/grande"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.249334, 0.437245, 0.233588, 1)
+polygon = PackedVector2Array(-341.699, -60.1283, -352.494, -30.8316, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -103.716, -25.3229, -102.244, -43.8524, -93.4118, -58.8763, -153.276, -59.1267, -212.649, -62.8827, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="sizeSelect/grande"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "grande"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="ColorRect" type="ColorRect" parent="sizeSelect/grande"]
+visible = false
+layout_mode = 0
+offset_left = -655.0
+offset_top = -11.0
+offset_right = -525.0
+offset_bottom = 119.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="sizeSelect/grande/ColorRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 125.0
+
+[node name="Area2D" type="Area2D" parent="sizeSelect/grande"]
+visible = false
+position = Vector2(-2738, -276)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sizeSelect/grande/Area2D"]
+position = Vector2(2150.75, 330.5)
+shape = SubResource("RectangleShape2D_34hem")
+
+[node name="CheckButton" type="CheckButton" parent="sizeSelect/grande"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -675.0
+offset_top = 8.0
+offset_right = -631.0
+offset_bottom = 32.0
+scale = Vector2(3, 3)
+focus_mode = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_34hem")
+button_pressed = true
+
+[node name="normal" type="Control" parent="sizeSelect"]
+material = SubResource("ShaderMaterial_8bjtu")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2637.0
+offset_top = 852.0
+offset_right = 2677.0
+offset_bottom = 892.0
+
+[node name="Shadow" type="Polygon2D" parent="sizeSelect/normal"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -341.209, -42.0996, -341.699, -25.0725, -312.258, -18.5621, -208.233, -27.0757, -132.176, -22.3181, -136.102, -38.594, -115.983, -55.6211, -155.729, -55.6211, -264.662, -53.1171)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="sizeSelect/normal"]
+use_parent_material = true
+position = Vector2(-522.63, 205.13)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0.25098, 0.435294, 0.235294, 1)
+polygon = PackedVector2Array(-325.507, -57.3739, -348.078, -48.61, -349.55, -31.3324, -310.378, -23.7253, -269.743, -25.0798, -204.307, -28.5781, -128.741, -23.8205, -127.269, -37.8428, -109.604, -56.1219, -153.276, -59.1267, -210.686, -57.6243, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="sizeSelect/normal"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -1192.0
+offset_top = -22.0
+offset_right = -173.0
+offset_bottom = 103.0
+text = "normal"
+label_settings = SubResource("LabelSettings_p2mn3")
+
+[node name="CheckButton2" type="CheckButton" parent="sizeSelect/normal"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -678.0
+offset_top = 15.0
+offset_right = -634.0
+offset_bottom = 39.0
+scale = Vector2(3, 3)
+focus_mode = 0
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_vjwd0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1rjsh")
+
+[node name="ColorRect2" type="ColorRect" parent="sizeSelect/normal"]
+visible = false
+layout_mode = 0
+offset_left = -653.0
+offset_top = -12.0
+offset_right = -523.0
+offset_bottom = 118.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="sizeSelect/normal/ColorRect2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 125.0
+
+[node name="Area2D" type="Area2D" parent="sizeSelect/normal"]
+visible = false
+position = Vector2(-2736, -457)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sizeSelect/normal/Area2D"]
+position = Vector2(2150.75, 330.5)
+shape = SubResource("RectangleShape2D_34hem")
+
+[node name="confirm" type="Button" parent="sizeSelect"]
+material = SubResource("ShaderMaterial_34hem")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 28.625
+anchor_top = 11.725
+anchor_right = 28.625
+anchor_bottom = 11.725
+offset_left = 961.0
+offset_top = 465.0
+offset_right = 1111.0
+offset_bottom = 615.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Polygon2D" parent="sizeSelect/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0, 0, 0.305882)
+polygon = PackedVector2Array(-298.398, -55.3803, -326.657, -54.0932, -331.718, -36.4174, -326.657, -23.3204, -313.623, -22.3879, -301.378, -17.7253, -260.743, -19.0798, -257.763, -39.3972, -259.625, -50.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Polygon2D" type="Polygon2D" parent="sizeSelect/confirm"]
+use_parent_material = true
+position = Vector2(694.653, 245.75)
+scale = Vector2(2.03796, 3.99363)
+color = Color(0, 0.4, 0, 1)
+polygon = PackedVector2Array(-307.398, -61.3803, -335.657, -60.0932, -340.718, -42.4174, -335.657, -29.3204, -322.623, -28.3879, -310.378, -23.7253, -269.743, -25.0798, -266.763, -45.3972, -268.625, -56.3631)
+uv = PackedVector2Array(-220, -61, -343, 9, -231, 78, -81, 73, -70, -2)
+
+[node name="Label" type="Label" parent="sizeSelect/confirm"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 23.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 145.0
+text = "OK"
+label_settings = SubResource("LabelSettings_1rjsh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(530, 314)
+zoom = Vector2(0.5, 0.5)
+
+[node name="collageScreen" parent="." instance=ExtResource("30_34hem")]
+visible = false
+position = Vector2(-1206, -3)
+
+[connection signal="button_up" from="toMaker/confirm" to="." method="_on_confirm_button_up"]
+[connection signal="button_up" from="toPlayer/confirm" to="." method="_on_confirm_player"]
+[connection signal="toggled" from="sizeSelect/grande/CheckButton" to="." method="_on_size_toggled" binds= [true]]
+[connection signal="toggled" from="sizeSelect/normal/CheckButton2" to="." method="_on_size_toggled" binds= [false]]
+[connection signal="button_up" from="sizeSelect/confirm" to="." method="_on_size_choosen"]
