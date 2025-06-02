@@ -138,24 +138,24 @@ frame_progress = 0.0520463
 position = Vector2(63, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end"]
-position = Vector2(1852, 519)
+position = Vector2(1704, 523)
 shape = SubResource("RectangleShape2D_mtfop")
 
 [node name="Sprite2D" type="Sprite2D" parent="end"]
-position = Vector2(1839, 513)
+position = Vector2(1691, 526)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_01bkf")
 
 [node name="BandeiraChegada" type="AnimatedSprite2D" parent="end"]
 texture_filter = 1
-position = Vector2(1860, 470)
+position = Vector2(1723, 498)
 scale = Vector2(5.03125, 4.45)
 sprite_frames = SubResource("SpriteFrames_ml20m")
 
 [node name="Area2D" type="Area2D" parent="end"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="end/Area2D"]
-position = Vector2(1844, 474)
+position = Vector2(1726, 495)
 shape = SubResource("RectangleShape2D_h5x41")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -171,7 +171,7 @@ position = Vector2(1151, 149)
 timer = 2
 
 [node name="lazer9" parent="." instance=ExtResource("11_7sitd")]
-position = Vector2(1787, 108)
+position = Vector2(1637, 108)
 rotation = 1.5708
 
 [node name="lazer10" parent="." instance=ExtResource("11_7sitd")]

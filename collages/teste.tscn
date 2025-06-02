@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byfchfg0nd7j8" path="res://collages/teste.gd" id="1_ti3lj"]
 [ext_resource type="PackedScene" uid="uid://bcrm6xaaedosb" path="res://collages/ball.tscn" id="1_vtj3y"]
-[ext_resource type="PackedScene" uid="uid://c12uy6wnagxor" path="res://collages/button.tscn" id="2_52788"]
+[ext_resource type="PackedScene" uid="uid://bql271jx3j07n" path="res://collages/button.tscn" id="2_52788"]
 [ext_resource type="PackedScene" uid="uid://bljgmunpacwoa" path="res://lazer.tscn" id="3_52788"]
 
 [node name="Node" type="Node2D"]
